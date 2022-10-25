@@ -12,7 +12,7 @@ function SplashPage() {
         <div className="spacing">  
         </div>
         <div className="splash-featured-carousel">
-          <img src="../carouseltemp.png" />
+          <img src="http://localhost:3000/static/media/carouseltemp.31398055deaebff73d15.png" />
         </div>
         <div className="spacing">
         </div>
