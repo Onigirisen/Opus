@@ -23,7 +23,7 @@
     contain: content;
     height: 150px;
     overflow: hidden;
-
+    z-index: 3;
 }
 
 .topnav-create-container {

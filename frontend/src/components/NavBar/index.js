@@ -14,51 +14,27 @@ function NavBar(){
         dispatch(logout());
     }
 
-    const getLinks = () => {
-      if (loggedIn) {
-        return (
-          <div className="links-nav">
-            <Link to={'/'}>test</Link>
-            <Link to={'/'}>test</Link>
-            <Link to={'/'}>test</Link>
-            <button onClick={logoutUser}>Logout</button>
-          </div>
-        );
-      } else {
-        return (
-          <div className="links-auth">
-            <Link to={'/signup'}>Signup</Link>
-            <Link to={'/login'}>Login</Link>
-          </div>
-        );
-      }
-    }
-
     return (
       <>
-        <h1>Chirper</h1>
-        <h2>hello</h2>
-        { getLinks() }
+        <div className="topnav">
+            <div className="topnav-home-button">
+                <img src="http://localhost:3000/static/media/Opus.a63d74be1b462178414e.png" alt=""/>
+            </div>
+            <div className="topnav-create-container">
+                create
+            </div>
+            <div className="topnav-explore-container">
+                explore
+            </div>
+            <div className="topnav-search-container">
+                search bar
+            </div>
+            <div className="topnav-login-container">
+                login
+            </div>
+        </div>
       </>
     );
 }
-
-// <div class="topnav">
-//     <div class="topnav-home-button">
-//         <img src="Opus.png" alt="">
-//     </div>
-//     <div class="topnav-create-container">
-//         create
-//     </div>
-//     <div class="topnav-explore-container">
-//         explore
-//     </div>
-//     <div class="topnav-search-container">
-//         search bar
-//     </div>
-//     <div class="topnav-login-container">
-//         login
-//     </div>
-// </div>
 
 export default NavBar;
