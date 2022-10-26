@@ -1,10 +1,24 @@
 import React from "react"
+import { useSelector } from "react-redux";
 import './UserProfile.css'
 import profilePic from '../../assets/profile/goat.jpeg'
 import editCamera from '../../assets/profile/cameratrans.png'
 
-
 const UserProfile = ()=>{
+    const currentUser = useSelector(state => state.session.user);
+
+    const handleCameraClick = () => {
+        document.querySelector(".profile-picture-input").click();
+    };
+
+    const fileSelectedHandler = e => {
+        
+    }
+
+    const handleSubmit = () => {
+        
+    }
+
     return(
         <>
         <div className="spacing-top">
@@ -14,14 +28,15 @@ const UserProfile = ()=>{
             <div className="profile-picture-container">
                 <img src={profilePic} alt="" />
             </div>
-            <div className="profile-picture-edit-container">
-                <img src={editCamera} alt=""/>
-            </div>
+            <form className="profile-picture-edit-container" onSubmit={handleSubmit}>
+                 <img className="profile-picture-camera-pic" src={editCamera} onClick={handleCameraClick} alt=""/>
+                 <input className="profile-picture-input" type="file" onChange={fileSelectedHandler}/>
+            </form>
         </div>
             <div className="profile-bio-wrapper">
                 <div className="profile-bio-container">
                     <div className="profile-bio-heading-container">
-                        <h2>Av1sek</h2>
+                        <h2>{currentUser.username}</h2>
                             <div className="profile-edit-button-container">
                                 <button className="profile-edit-button">
                                     edit
@@ -29,7 +44,7 @@ const UserProfile = ()=>{
                             </div>
                         </div>
                     <div className="profile-bio-text-container">
-                      hello the text goes here
+                      {currentUser.bio}
                     </div>
                 </div>
             </div>
