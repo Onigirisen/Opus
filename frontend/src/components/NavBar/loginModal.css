@@ -157,3 +157,8 @@
     font-weight: bold;
     font-size: 12px;
 }
+
+.login-register-btn:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
