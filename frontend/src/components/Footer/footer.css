@@ -1,0 +1,116 @@
+.footer-navbar-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: rgb(0, 0, 0);
+    position: relative;
+    width: 100%;
+    height: 40px;
+    color: white;
+    bottom: 0;
+    /* border: 1px solid red; */
+}
+
+.footer-navbar-column {
+    width: 100%;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    float: left;
+    width: 19%;
+    height: 40px;
+    /* border: 1px solid blue; */
+}
+
+.column:hover{
+    background-color: red;
+    cursor: pointer;
+}
+
+.drop-up-content{
+    background-color: rgba(70, 70, 70, 0.72);
+    height: 150px;
+    width: 100%;
+    margin-top: -150px;
+    display: none;
+}
+
+.column:hover  .drop-up-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    ;
+}
+
+.link-list-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-left: 30px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.giticon{
+    height: 25px
+}
+
+.linkedin{
+    height: 25px
+}
+
+.angel{
+    height: 25px
+}
+
+.git-list-container{
+    display:flex;
+    flex-direction: row;
+    padding-bottom: 15px;
+    width: 100%;
+}
+
+.linkedin-list-container{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 15px;
+    width: 100%;
+}
+
+.angel-list-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.git-text{
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 5px;
+    padding-left: 15px;
+    width: 100%;
+}
+
+.linkedin-text{
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 5px;
+    padding-left: 15px;
+    width: 100%;
+}
+
+.angel-text{
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 5px;
+    padding-left: 15px;
+    width: 100%;
+}
