@@ -15,6 +15,14 @@ const userSchema = Schema(
       type: String,
       required: true,
     },
+    bio: {
+      type: String,
+      required: false, 
+    },
+    profilePictureUrl: {
+      type: String,
+      required: false,
+    }
   },
   {
     timestamps: true,
