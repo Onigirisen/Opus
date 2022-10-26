@@ -80,14 +80,14 @@
     cursor: pointer;
     color: rgb(247, 230, 182);
     text-shadow: 1px 1px rgb(255, 41, 41);
-    margin-left: -10px;
+    padding-left: 10px;
     transition: all .25s;
 }
 
 .nav-navlink:active {
     color: rgb(218, 81, 17);
     text-shadow: 1px 1px rgb(55, 44, 44);
-    margin-left: -10px;
+    padding-left: 10px;
     transition: all .25s;
 }
 
@@ -106,13 +106,13 @@
     cursor: pointer;
     color: rgb(247, 230, 182);
     text-shadow: 1px 1px rgb(255, 41, 41);
-    margin-left: -10px;
+    padding-left: 10px;
     transition: all .25s;
 }
 
 .nav-login-button:active {
     color: rgb(218, 81, 17);
     text-shadow: 1px 1px rgb(55, 44, 44);
-    margin-left: -10px;
+    padding-left: 10px;
     transition: all .25s;
 }

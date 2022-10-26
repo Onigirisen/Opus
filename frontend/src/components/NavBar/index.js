@@ -40,11 +40,14 @@ function NavBar(){
             <NavLink className="nav-navlink" to="/">Explore</NavLink>
           </div>
           <div className="topnav-profile-container">
-            <NavLink className="nav-navlink" to="/">Profile</NavLink>
+            {loggedIn ? 
+            <NavLink className="nav-navlink" to="/profile">Profile</NavLink> : 
+            <text className="nav-navlink" onClick={e => setModalOpen(true)}>Profile</text>
+            }
           </div>
           <div className="topnav-login-container">
             {loggedIn ? 
-              <button className="nav-login-button" onClick={logoutUser}>Logged In</button> : 
+              <button className="nav-login-button" onClick={logoutUser}>Logout</button> : 
               <button className="nav-login-button" onClick={e => setModalOpen(true)}>Login</button> }
               <Modal modalOpen={modalOpen && !loggedIn} modalClose={handleModalClose}>
                 <LoginModal></LoginModal>
