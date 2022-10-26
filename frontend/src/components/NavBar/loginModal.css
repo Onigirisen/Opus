@@ -1,0 +1,164 @@
+.login-Modal {
+    position: absolute;
+    width: 450px;
+    height: 550px;
+    border-radius: 5px;
+    background-color: rgb(149, 20, 20);
+    animation-name: popUp;
+    animation-duration: .5s;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgb(20, 10, 10);
+}
+
+@keyframes popUp {
+    from {margin-top: 100px};
+    to {margin-top: 0px};
+}
+
+.login-Modal-logo {
+    background-image: url('../../assets/navbar/Opus.png');
+    background-position: -100px -100px;
+    width: 450px;
+    height: 200px;
+    background-size: none;
+    margin-left: 40px;
+    margin-top: -10px;
+}
+
+.login-form {
+    color: rgb(255, 245, 214);
+    background-color: transparent;
+    text-decoration: none;
+    font-family: cursive;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    transition: all .15s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 40px;
+    margin-top: -30px;
+}
+
+.errors {
+    color: rgb(255, 255, 0);
+    font-size: 0.875em;
+    height: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.login-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.golden-stripe {
+    width: 40px;
+    height: 100%;
+    border-radius: 5px;
+    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+    radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);;    position: absolute;
+}
+
+.login-input {
+    background-color: rgb(30, 25, 25);
+    outline: none;
+    border: none;
+    color: rgb(10, 9, 5);
+    font-size: 14px;
+    font-weight: bold;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+    radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    width: 250px;
+    height: 40px;
+}
+
+.login-submit {
+    outline: none;
+    border: none;
+    color: white;
+    background-color: rgb(74, 1, 1);
+    font-size: 14px;
+    font-weight: bold;
+    font-family: script;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    width: 250px;
+    height: 40px;
+    box-shadow: 5px 5px 5px black;
+}
+
+.login-submit:hover {
+    background-color: rgb(64, 1, 1);
+    cursor: pointer;
+}
+
+.login-submit:active {
+    background-color: rgb(50, 4, 4);
+    box-shadow: 3px 3px 3px black;
+    margin-top: 10px;
+    transition: all .1s;
+}
+
+.login-demo {
+    position: absolute;
+    bottom: 45px;
+    outline: none;
+    border: none;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: script;
+    margin-bottom: 10px;
+    background-color: rgb(74, 1, 1);
+    border-radius: 10px;
+    width: 250px;
+    height: 40px;
+    margin-left: 120px;
+    box-shadow: 5px 5px 5px black;
+    transition: all .1s;
+}
+
+.login-demo:hover {
+    background-color: rgb(64, 1, 1);
+    cursor: pointer;
+}
+
+.login-demo:active {
+    background-color: rgb(50, 4, 4);
+    bottom: 40px;
+    box-shadow: 3px 3px 3px black;
+    transition: all .1s;
+}
+
+.login-register-div {
+    margin-top: -10px;
+    margin-bottom: 0px;
+}
+
+.login-register-txt {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 12px;
+}
+.login-register-btn {
+    color: rgb(244, 254, 174);
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.login-register-btn:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}

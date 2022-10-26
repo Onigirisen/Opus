@@ -22,6 +22,7 @@ const logoutUser = () => ({
   type: RECEIVE_USER_LOGOUT
 });
 
+
 // Dispatch clearSessionErrors to clear any session errors.
 export const clearSessionErrors = () => ({
   type: CLEAR_SESSION_ERRORS
@@ -48,6 +49,12 @@ const startSession = (userInfo, route) => async dispatch => {
   }
 };
 
+export const getCurrentUser = () => async dispatch => {
+  const res = await jwtFetch('/api/users/current');
+  const user = await res.json();
+  return dispatch(receiveCurrentUser(user));
+};
+
 export const logout = () => dispatch => {
   localStorage.removeItem('jwtToken');
   dispatch(logoutUser());
@@ -60,6 +67,7 @@ const initialState = {
 const sessionReducer = (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
+      // debugger
       return { user: action.currentUser };
     case RECEIVE_USER_LOGOUT:
       return initialState;

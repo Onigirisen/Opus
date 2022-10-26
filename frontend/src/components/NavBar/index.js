@@ -1,62 +1,56 @@
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { NavLink, Link } from 'react-router-dom';
+import { useState } from "react"
+import { logout } from "../../store/session";
+import Opus from '../../assets/navbar/Opus.png'
+import { LoginModal } from "./loginModal";
+import { SignUpModal } from "./signUpModal";
+import Modal from "../../Modal/Modal";
 import "./navbar.css"
 
-
-
 function NavBar(){
-    const loggedIn = useSelector(state => !!state.session.user);
-    const dispatch = useDispatch
-  
-    const logoutUser = e => {
-        e.preventDefault();
-        dispatch(logout());
-    }
+  const dispatch = useDispatch()
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modal, setModal] = useState('login')
+  const loggedIn = useSelector(state => !!state.session.user);
 
-    const getLinks = () => {
-      if (loggedIn) {
-        return (
-          <div className="links-nav">
-            <Link to={'/'}>test</Link>
-            <Link to={'/'}>test</Link>
-            <Link to={'/'}>test</Link>
-            <button onClick={logoutUser}>Logout</button>
-          </div>
-        );
-      } else {
-        return (
-          <div className="links-auth">
-            <Link to={'/signup'}>Signup</Link>
-            <Link to={'/login'}>Login</Link>
-          </div>
-        );
-      }
-    }
+  const logoutUser = e => {
+      e.preventDefault();
+      dispatch(logout());
+  }
 
-    return (
-      <>
-        <h1>Chirper</h1>
-        <h2>hello</h2>
-        { getLinks() }
-      </>
-    );
+  const handleModalClose = () => {
+    setModalOpen(false);
+    setModal('login');
+  }
+
+  return (
+    <>
+      <div className="topnav">
+          <div className="topnav-home-container">
+            <NavLink className="nav-homelink"to="/"></NavLink>
+            <img className="nav-home-img" src={Opus} alt="" />
+          </div>
+          <div className="topnav-create-container">
+            <NavLink className="nav-navlink" to="/">Create</NavLink>
+          </div>
+          <div className="topnav-explore-container">
+            <NavLink className="nav-navlink" to="/">Explore</NavLink>
+          </div>
+          <div className="topnav-search-container">
+            SEARCHBAAAR
+          </div>
+          <div className="topnav-login-container">
+            {loggedIn ? <button className="nav-login-button" onClick={e => setModalOpen(true)}>Logged In</button> : 
+              <button className="nav-login-button" onClick={e => setModalOpen(true)}>Login</button> }
+              <Modal modalOpen={modalOpen} modalClose={handleModalClose}>
+                <LoginModal></LoginModal>
+              </Modal>
+          </div>
+      </div>
+    </>
+  );
 }
-
-// <div class="topnav">
-//     <div class="topnav-home-button">
-//         <img src="Opus.png" alt="">
-//     </div>
-//     <div class="topnav-create-container">
-//         create
-//     </div>
-//     <div class="topnav-explore-container">
-//         explore
-//     </div>
-//     <div class="topnav-search-container">
-//         search bar
-//     </div>
-//     <div class="topnav-login-container">
-//         login
-//     </div>
-// </div>
 
 export default NavBar;

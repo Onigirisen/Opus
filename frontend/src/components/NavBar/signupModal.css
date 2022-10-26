@@ -1,0 +1,11 @@
+.signUp-Modal {
+    position: absolute;
+    width: 450px;
+    height: 640px;
+    border-radius: 5px;
+    background-color: rgb(149, 20, 20);
+    animation-name: popUp;
+    animation-duration: .5s;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgb(20, 10, 10);
+}
