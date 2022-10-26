@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearSessionErrors } from "../../store/session";
 import { signup } from '../../store/session';
+import { login } from "../../store/session";
 import { logout } from "../../store/session";
 
 export const SignUpModal = () => {
@@ -24,6 +25,10 @@ export const SignUpModal = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(signup({username, email, password}));
+    }
+
+    const handleDemo = (e) => {
+        dispatch(login({email: 'demo@user.io', password: 'password'}))
     }
     
     const logoutUser = e => {
@@ -70,7 +75,7 @@ export const SignUpModal = () => {
                     </label>
                 <input className="login-submit" type="submit" value="Sign Up"/>
                 </form>
-                <button className="login-demo">Demo User</button>
+                <button className="login-demo" onClick={handleDemo}>Demo User</button>
             </div>
     );
 

@@ -42,7 +42,7 @@ function NavBar(){
           <div className="topnav-profile-container">
             {loggedIn ? 
             <NavLink className="nav-navlink" to="/profile">Profile</NavLink> : 
-            <text className="nav-navlink" onClick={e => setModalOpen(true)}>Profile</text>
+            <div className="nav-navlink" onClick={e => setModalOpen(true)}>Profile</div>
             }
           </div>
           <div className="topnav-login-container">

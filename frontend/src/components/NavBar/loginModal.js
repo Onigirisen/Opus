@@ -28,6 +28,10 @@ export const LoginModal = () => {
         dispatch(login({email, password}))
     }
     
+    const handleDemo = (e) => {
+        dispatch(login({email: 'demo@user.io', password: 'password'}))
+    }
+
     const logoutUser = e => {
         e.preventDefault();
         dispatch(logout());
@@ -68,7 +72,7 @@ export const LoginModal = () => {
                     </div>
                     <input className="login-submit" type="submit" value="Login"/>
                     </form>
-                    <button className="login-demo">Demo User</button>
+                    <button className="login-demo" onClick={handleDemo}>Demo User</button>
                 </div>
         );
     } else {
