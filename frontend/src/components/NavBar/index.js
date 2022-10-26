@@ -42,7 +42,8 @@ function NavBar(){
             SEARCHBAAAR
           </div>
           <div className="topnav-login-container">
-            {loggedIn ? <button className="nav-login-button" onClick={e => setModalOpen(true)}>Logged In</button> : 
+            {loggedIn ? 
+              <button className="nav-login-button">Logged In</button> : 
               <button className="nav-login-button" onClick={e => setModalOpen(true)}>Login</button> }
               <Modal modalOpen={modalOpen} modalClose={handleModalClose}>
                 <LoginModal></LoginModal>

@@ -4,9 +4,9 @@
     height: 550px;
     border-radius: 5px;
     background-color: rgb(149, 20, 20);
+    border-radius: 20px;
     animation-name: popUp;
     animation-duration: .5s;
-    border-radius: 20px;
     box-shadow: 10px 10px 10px rgb(20, 10, 10);
 }
 
@@ -21,8 +21,9 @@
     width: 450px;
     height: 200px;
     background-size: none;
-    margin-left: 40px;
-    margin-top: -10px;
+    margin-left: 0px;
+    margin-top: 20px;
+    border-bottom: 1px rgb(208, 188, 129) solid;
 }
 
 .login-form {
@@ -38,7 +39,7 @@
     flex-direction: column;
     align-items: center;
     margin-left: 40px;
-    margin-top: -30px;
+    margin-top: 0px;
 }
 
 .errors {
@@ -56,10 +57,18 @@
     align-items: center;
 }
 
+.login-input::placeholder { 
+    color: rgb(107, 93, 31);;
+    opacity: 1; 
+  }
+
 .golden-stripe {
     width: 40px;
     height: 100%;
-    border-radius: 5px;
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 60px;
+    border-right: 1px rgb(67, 8, 8) solid;
+    margin-left: -20px;
     background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
     radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);;    position: absolute;
 }
@@ -72,8 +81,9 @@
     font-size: 14px;
     font-weight: bold;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
-    radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);;
+    /* background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+    radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);; */
+    background-color: rgb(255, 255, 255);
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
