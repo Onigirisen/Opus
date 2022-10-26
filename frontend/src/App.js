@@ -2,6 +2,7 @@ import { Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from './components/Routes/routes';
 import NavBar from './components/NavBar';
 import SplashPage from './components/SplashPage/SplashPage';
+import UserProfile from './components/userProfile';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getCurrentUser } from './store/session';
@@ -19,6 +20,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/" component={SplashPage} />
+        <ProtectedRoute exact path="/profile" component={UserProfile} />
       </Switch>
     </>
   );

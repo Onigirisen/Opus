@@ -42,26 +42,29 @@ export const SignUpModal = () => {
                 <div className="golden-stripe"></div>
                 <div className="login-Modal-logo"></div>
                 <form className="login-form" onSubmit={handleSubmit}>
-                <label className="login-label">Username
+                <label className="login-label">
                     <div className="errors">{errors?.username}</div>
                     <input
                     className="login-input"
                     type="text" value={username}
+                    placeholder="Username"
                     onChange={e => setUsername(e.target.value)}
                     ></input>
                 </label>
-                <label className="login-label">Email
+                <label className="login-label">
                     <div className="errors">{errors?.email}</div>
                     <input 
                     className="login-input" 
                     type="text" value={email} 
+                    placeholder="Email"
                     onChange={e => setEmail(e.target.value)}>
                     </input>
                 </label>
-                <label className="login-label">Password
+                <label className="login-label">
                     <div className="errors">{errors?.password}</div>
                     <input className="login-input" type="password"
                     value={password}
+                    placeholder="Password"
                     onChange={e => setPassword(e.target.value)}
                     ></input>                    
                     </label>
