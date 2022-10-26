@@ -1,3 +1,4 @@
 mode_modules
 .env
 keys.js
+.DS_Store
