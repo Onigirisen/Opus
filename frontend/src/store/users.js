@@ -17,7 +17,7 @@ try {
     const uploadProfilePicture = new FormData();
     formData.append("image-upload", convertedUrlToFile);
 
-    const res = await jwtFetch("/api/users/setProfilePic", {
+    const res = await jwtFetch("/api/profilePicture/setProfilePic", {
         method: "POST",
         body: formData,
     });
