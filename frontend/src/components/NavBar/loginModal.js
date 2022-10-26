@@ -25,7 +25,7 @@ export const LoginModal = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(login({email, password}));
+        dispatch(login({email, password}))
     }
     
     const logoutUser = e => {

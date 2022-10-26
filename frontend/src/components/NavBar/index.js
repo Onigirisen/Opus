@@ -17,6 +17,7 @@ function NavBar(){
 
   const logoutUser = e => {
       e.preventDefault();
+      setModalOpen(false);
       dispatch(logout());
   }
 
@@ -38,14 +39,14 @@ function NavBar(){
           <div className="topnav-explore-container">
             <NavLink className="nav-navlink" to="/">Explore</NavLink>
           </div>
-          <div className="topnav-search-container">
-            SEARCHBAAAR
+          <div className="topnav-profile-container">
+            <NavLink className="nav-navlink" to="/">Profile</NavLink>
           </div>
           <div className="topnav-login-container">
             {loggedIn ? 
-              <button className="nav-login-button">Logged In</button> : 
+              <button className="nav-login-button" onClick={logoutUser}>Logged In</button> : 
               <button className="nav-login-button" onClick={e => setModalOpen(true)}>Login</button> }
-              <Modal modalOpen={modalOpen} modalClose={handleModalClose}>
+              <Modal modalOpen={modalOpen && !loggedIn} modalClose={handleModalClose}>
                 <LoginModal></LoginModal>
               </Modal>
           </div>
