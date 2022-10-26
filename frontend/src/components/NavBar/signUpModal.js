@@ -4,15 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearSessionErrors } from "../../store/session";
 import { signup } from '../../store/session';
 import { login } from "../../store/session";
-import { logout } from "../../store/session";
 
 export const SignUpModal = () => {
     const dispatch = useDispatch()
-    const [modalOpen, setModalOpen] = useState(false);
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const loggedIn = useSelector(state => !!state.session.user);
     const errors = useSelector(state => state.errors.session);
 
     useEffect(() => {
@@ -30,18 +27,7 @@ export const SignUpModal = () => {
     const handleDemo = (e) => {
         dispatch(login({email: 'demo@user.io', password: 'password'}))
     }
-    
-    const logoutUser = e => {
-        e.preventDefault();
-        dispatch(logout());
-    }
 
-    const handleModalClose = () => {
-        setModalOpen(false);
-        setPassword('')
-        setEmail('')
-        dispatch(clearSessionErrors());
-    }
     return(
             <div className="signUp-Modal">
                 <div className="golden-stripe"></div>
