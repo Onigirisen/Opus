@@ -2,7 +2,7 @@ import { Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from './components/Routes/routes';
 import NavBar from './components/NavBar';
 import SplashPage from './components/SplashPage/SplashPage';
-import UserProfile from './components/userProfile';
+import UserProfile from './components/UserProfile';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getCurrentUser } from './store/session';
