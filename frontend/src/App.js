@@ -29,6 +29,8 @@ function App() {
           <ProtectedRoute exact path="/profile" component={UserProfile} />
           <Route exact path="/book" component={BookComponent} />
           <Route exact path="/book/create" component={CreateBookPage} />
+          <Route exact path="/books/:book_id/chapters/:chapter_id"/>
+
         </Switch>
         <Footer />
       </>
