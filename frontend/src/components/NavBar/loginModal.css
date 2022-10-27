@@ -3,11 +3,15 @@
     width: 450px;
     height: 550px;
     border-radius: 5px;
-    background-color: rgb(149, 20, 20);
+    border: 1px #8A6E2F solid;
+    /* background-color: rgb(255, 255, 255); */
+    background: linear-gradient(-120deg, rgb(71, 10, 101), rgb(134, 134, 134));
     border-radius: 20px;
+    border-bottom-left-radius: 38px;
+    border-top-left-radius: 38px;
     animation-name: popUp;
     animation-duration: .5s;
-    box-shadow: 10px 10px 10px rgb(20, 10, 10);
+    box-shadow: 2px 4px 4px rgba(6, 0, 0, 0.687);
 }
 
 @keyframes popUp {
@@ -43,11 +47,12 @@
 }
 
 .errors {
-    color: rgb(255, 255, 0);
-    font-size: 0.875em;
-    height: 15px;
+    color: rgb(254, 210, 91);
+    font-size: 0.575em;
+    height: 13px;
     display: flex;
     align-items: center;
+    padding-top: 5px;
 }
 
 .login-label {
@@ -58,16 +63,17 @@
 }
 
 .login-input::placeholder { 
-    color: rgb(107, 93, 31);;
+    color: rgb(178, 178, 178);
+    font-weight: 100;
     opacity: 1; 
   }
 
 .golden-stripe {
-    width: 40px;
+    width: 60px;
     height: 100%;
     border-top-left-radius: 60px;
     border-bottom-left-radius: 60px;
-    border-right: 1px rgb(67, 8, 8) solid;
+    border-right: 1px rgb(132, 109, 45) solid;
     margin-left: -20px;
     background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
     radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);;    position: absolute;
@@ -87,6 +93,7 @@
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
+    border: 1px solid #8A6E2F;
     width: 250px;
     height: 40px;
 }
@@ -95,26 +102,30 @@
     outline: none;
     border: none;
     color: white;
-    background-color: rgb(74, 1, 1);
+    background-color: rgb(92, 0, 141);
     font-size: 14px;
     font-weight: bold;
     font-family: script;
-    margin-top: 5px;
+    margin-top: 2px;
     margin-bottom: 10px;
     border-radius: 10px;
     width: 250px;
     height: 40px;
-    box-shadow: 5px 5px 5px black;
+  
 }
 
 .login-submit:hover {
-    background-color: rgb(64, 1, 1);
+    background-color: rgba(94, 1, 144, 0.653);
     cursor: pointer;
+    color: #b2995e;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.476);
+    transition: all .1s;
+    /* border: solid 1px #b2995e; */
 }
 
 .login-submit:active {
-    background-color: rgb(50, 4, 4);
-    box-shadow: 3px 3px 3px black;
+    background-color: rgb(60, 0, 93);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.476);
     margin-top: 10px;
     transition: all .1s;
 }
@@ -129,26 +140,30 @@
     font-weight: bold;
     font-family: script;
     margin-bottom: 10px;
-    background-color: rgb(74, 1, 1);
+    background-color: rgb(92, 0, 141);
     border-radius: 10px;
     width: 250px;
     height: 40px;
     margin-left: 120px;
-    box-shadow: 5px 5px 5px black;
-    transition: all .1s;
+    
 }
 
 .login-demo:hover {
-    background-color: rgb(64, 1, 1);
+    background-color: rgba(94, 1, 144, 0.653);
     cursor: pointer;
+    color: #b2995e;
+    /* border: solid 1px #b2995e; */
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.476);
+    transition: all .1s;
 }
 
 .login-demo:active {
-    background-color: rgb(50, 4, 4);
+    background-color: rgb(60, 0, 93);
     bottom: 40px;
-    box-shadow: 3px 3px 3px black;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.476);
     transition: all .1s;
 }
+
 
 .login-register-div {
     margin-top: -10px;
@@ -171,4 +186,8 @@
 .login-register-btn:hover {
     cursor: pointer;
     text-decoration: underline;
+}
+
+.login-input:active{
+    border: solid 1px #b2995e;
 }

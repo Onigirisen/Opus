@@ -16,6 +16,8 @@ const { isProduction } = require("./config/keys");
 const usersRouter = require("./routes/api/users");
 const csrfRouter = require("./routes/api/csrf");
 const booksRouter = require("./routes/api/books");
+const chaptersRouter = require("./routes/api/chapters");
+const pagesRouter = require("./routes/api/pages");
 
 const app = express();
 
@@ -49,6 +51,8 @@ app.use(
 app.use("/api/users", usersRouter);
 app.use("/api/csrf", csrfRouter);
 app.use("/api/books", booksRouter);
+app.use("/api/books/:book_id/chapters", chaptersRouter);
+app.use("/api/books/:book_id/chapters/:chapter_id/pages", pagesRouter);
 
 // Express custom middleware for catching all unmatched requests and formatting
 // a 404 error to be sent as the response.

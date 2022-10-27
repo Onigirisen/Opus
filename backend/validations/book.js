@@ -12,6 +12,7 @@ const validateBookInput = [
     .exists({ checkFalsy: true })
     .isLength({ max: 50 })
     .withMessage("Cover Color is invalid"),
+  check("coverColor").exists({ checkFalsy: true }),
   handleValidationErrors,
 ];
 

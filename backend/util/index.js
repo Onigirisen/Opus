@@ -6,4 +6,9 @@ const normalized = (array) => {
   return normalizedObj;
 };
 
-module.exports = { normalized };
+const toObjectId = function (string) {
+  const ObjectId = require("mongoose").Types.ObjectId;
+  return new ObjectId(string);
+};
+
+module.exports = { normalized, toObjectId };

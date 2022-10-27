@@ -11,9 +11,14 @@ const bookSchema = Schema(
       type: String,
       required: true,
     },
+    genre: {
+      type: String,
+      required: true,
+    },
     user: {
       type: Schema.Types.ObjectId,
       ref: "User",
+      required: true,
     },
     public: {
       type: Boolean,

@@ -1,3 +1,7 @@
+.body-container {
+    width: 100%;
+    height: 1000px;
+}
 
 .spacing-top{
     height: 150px;
@@ -44,8 +48,8 @@
     background-color: rgb(255, 255, 255);
     z-index: 99;
     -webkit-box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.983);
-        -moz-box-shadow: 0 2px 8px -1px rgb(0, 0, 0);
-        box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0 2px 8px -1px rgb(0, 0, 0);
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.75);
 }
 
 .profile-picture-edit-container{
@@ -156,8 +160,6 @@
         
 }
 
-/* .profile-bio-text-container:hover {
-} */
 
 ::-webkit-scrollbar-track {
     background: rgb(225, 225, 225);
