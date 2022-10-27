@@ -17,12 +17,18 @@ const userSchema = Schema(
     },
     bio: {
       type: String,
-      required: false, 
+      required: false,
     },
     profilePictureUrl: {
       type: String,
       required: false,
-    }
+    },
+    books: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Book",
+      },
+    ],
   },
   {
     timestamps: true,
