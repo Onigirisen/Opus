@@ -19,8 +19,6 @@ export const removeChapter = chapterId => ({
     chapterId
 });
 
-
-
 export const fetchChapter = (bookId, chapterId)  => async dispatch => {
     const res = await jwtFetch(`/api/books/${bookId}/chapters/${chapterId}`);
     const data = await res.json();
@@ -59,7 +57,7 @@ const chaptersReducer = (state= {}, action) => {
         case RECEIVE_CHAPTER:
             nextState[action.chapter.id] = action.chapter;
             return nextState;
-        case REMOVE_BOOK:
+        case REMOVE_CHAPTER:
             delete nextState[action.chapterId];
             return nextState;
         default:
