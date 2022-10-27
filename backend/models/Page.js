@@ -9,10 +9,12 @@ const pageSchema = Schema(
     },
     content: {
       type: String,
+      required: true,
     },
     chapter: {
       type: Schema.Types.ObjectId,
       ref: "Chapter",
+      required: true,
     },
   },
   { timestamps: true }
