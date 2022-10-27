@@ -2,7 +2,7 @@ const express = require("express");
 const passport = require("passport");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
-
+const {requireUser} = require('../../config/passport')
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const Book = mongoose.model("Book");
@@ -11,6 +11,7 @@ const validateLoginInput = require("../../validations/login");
 const { loginUser, restoreUser } = require("../../config/passport");
 const { isProduction } = require("../../config/keys");
 const { normalized } = require("../../util");
+const { update } = require("../../models/User");
 
 /* GET users listing. */
 router.get("/", function (req, res, next) {
@@ -90,8 +91,24 @@ router.get("/current", restoreUser, (req, res) => {
     _id: req.user._id,
     username: req.user.username,
     email: req.user.email,
+    bio: req.user.bio
   });
 });
+
+
+router.get("/users",
+  //passport.authenticate("jwt", { session: false }), //requireUser,
+  (req, res) => {
+    try {
+      const users = User.find();
+
+      return req.json(users);
+    }
+    catch (err) {
+      res.json(err);
+    }
+  }
+);
 
 //An index of all public books
 router.get(
@@ -104,5 +121,30 @@ router.get(
       .catch((err) => res.status(404).json({ error: "No books found" }));
   }
 );
+
+// router.patch("/:book_id", validateBookInput, async (req, res) => {
+//   await passport.authenticate("jwt", { session: false });
+//   Book.findByIdAndUpdate(req.params.book_id, req.body, (err) => {
+//     if (err) res.status(400).send(err);
+//   })
+//     .clone()
+//     .then((book) => res.json(book));
+// });
+
+// router.patch('/:user_id', async (req, res, next) => {
+  
+//   const user_id = req.params.user_id;
+//   const user = User.findOne({_id: user_id});
+//   user.update({bio: req.body});
+// });
+
+
+router.patch("/:user_id", async (req, res) => {
+  await User.findByIdAndUpdate(req.params.user_id, req.body, (err) => {
+    if (err) res.status(400).send(err);
+  })
+    .clone()
+    .then((bio) => res.json(bio));
+});
 
 module.exports = router;
