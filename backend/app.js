@@ -1,5 +1,8 @@
 require("./models/User");
 require("./config/passport");
+require("./models/Book");
+require("./models/Chapter");
+require("./models/Page");
 const debug = require("debug");
 const express = require("express");
 const cookieParser = require("cookie-parser");
@@ -12,6 +15,7 @@ const { isProduction } = require("./config/keys");
 
 const usersRouter = require("./routes/api/users");
 const csrfRouter = require("./routes/api/csrf");
+const booksRouter = require("./routes/api/books");
 
 const app = express();
 
@@ -44,6 +48,7 @@ app.use(
 // Attach Express routers
 app.use("/api/users", usersRouter);
 app.use("/api/csrf", csrfRouter);
+app.use("/api/books", booksRouter);
 
 // Express custom middleware for catching all unmatched requests and formatting
 // a 404 error to be sent as the response.

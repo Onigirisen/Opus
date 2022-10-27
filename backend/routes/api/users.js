@@ -5,10 +5,12 @@ const bcrypt = require("bcryptjs");
 
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
+const Book = mongoose.model("Book");
 const validateRegisterInput = require("../../validations/register");
 const validateLoginInput = require("../../validations/login");
 const { loginUser, restoreUser } = require("../../config/passport");
 const { isProduction } = require("../../config/keys");
+const { normalized } = require("../../util");
 
 /* GET users listing. */
 router.get("/", function (req, res, next) {
@@ -91,5 +93,16 @@ router.get("/current", restoreUser, (req, res) => {
   });
 });
 
-module.exports = router;
+//An index of all public books
+router.get(
+  "/books",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    console.log(req.user);
+    Book.find({ user: req.user._id })
+      .then((books) => res.json(normalized(books)))
+      .catch((err) => res.status(404).json({ error: "No books found" }));
+  }
+);
 
+module.exports = router;
