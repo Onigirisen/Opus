@@ -31,6 +31,18 @@ export const fetchPages = (bookId, chapterId) => async dispatch => {
     dispatch(receivePages(data.pages));
 };
 
+export const createPage = (bookId, chapterId, page) => async (dispatch) => {
+    const res = await fetch(`/api/books/${bookId}/chapters/${chapterId}`, {
+      method: "POST",
+      body: JSON.stringify(page),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await res.json();
+    dispatch(receiveReport(data));
+};
+
 export const deletePage = (bookId, chapterId, pageId) => async dispatch => {
     await jwtFetch(`/api/books/${bookId}/chapters/${chapterId}/pages/${pageId}`, {method: "DELETE"});
     dispatch(removePage(chapterId));
