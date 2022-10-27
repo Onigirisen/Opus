@@ -3,17 +3,15 @@ const handleValidationErrors = require("./handleValidationErrors");
 
 // validateLoginInput is a combination Express middleware that uses the `check`
 // middleware to validate the keys in the body of a request to login a user
-const validateBookInput = [
+const validateChapterInput = [
   check("title")
     .exists({ checkFalsy: true })
     .isLength({ max: 250 })
     .withMessage("Title is invalid"),
-  check("coverColor")
+  check("chapterNumber")
     .exists({ checkFalsy: true })
-    .isLength({ max: 50 })
-    .withMessage("Cover Color is invalid"),
-  check("coverColor").exists({ checkFalsy: true }),
+    .isInt({ min: 1, max: 40 }),
   handleValidationErrors,
 ];
 
-module.exports = validateBookInput;
+module.exports = validateChapterInput;
