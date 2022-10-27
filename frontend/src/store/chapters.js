@@ -38,10 +38,10 @@ export const deleteChapter = (bookId, chapterId) => async dispatch => {
     dispatch(removeChapter(chapterId));
 };
 
-export const updateChapter = (bookId, chapterId) => async dispatch => {
+export const updateChapter = (bookId, chapterId, chapter) => async dispatch => {
     const res = await jwtFetch(`/api/books/${bookId}/chapters/${chapterId}`, {
       method: 'PATCH',
-      body: JSON.stringify(chapterId),
+      body: JSON.stringify(chapter),
       headers: {
         'Content-Type': 'application/json'
       }
