@@ -1,4 +1,5 @@
 import './SplashPage.css'
+import Carousel from '../Carousel';
 
 function SplashPage() {
   return (
@@ -14,6 +15,7 @@ function SplashPage() {
         <div className="splash-featured-carousel">
           <img src="http://localhost:3000/static/media/carouseltemp.31398055deaebff73d15.png" />
         </div>
+        
         <div className="spacing">
         </div>
       </div>
