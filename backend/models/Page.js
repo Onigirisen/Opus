@@ -9,7 +9,6 @@ const pageSchema = Schema(
     },
     content: {
       type: String,
-      require: true,
     },
     chapter: {
       type: Schema.Types.ObjectId,
