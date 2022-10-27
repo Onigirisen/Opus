@@ -31,7 +31,7 @@ function NavBar(){
             <img className="nav-home-img" src={Opus} alt="" />
           </div>
           <div className="topnav-create-container">
-            <NavLink className="nav-navlink" to="/">Create</NavLink>
+            <NavLink className="nav-navlink" to="/book/create">Create</NavLink>
           </div>
           <div className="topnav-explore-container">
             <NavLink className="nav-navlink" to="/book">Explore</NavLink>

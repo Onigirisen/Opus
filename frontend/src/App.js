@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import SplashPage from './components/SplashPage/SplashPage';
 import UserProfile from './components/userProfile';
 import BookComponent from './components/Book';
+import CreateBookPage from './components/CreateBookPage';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getCurrentUser } from './store/session';
@@ -23,6 +24,7 @@ function App() {
         <Route exact path="/" component={SplashPage} />
         <ProtectedRoute exact path="/profile" component={UserProfile} />
         <Route exact path="/book" component={BookComponent} />
+        <Route exact path="/book/create" component={CreateBookPage} />
       </Switch>
     </>
   );
