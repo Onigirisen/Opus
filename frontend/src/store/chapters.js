@@ -1,6 +1,6 @@
 const { default: jwtFetch} = require("./jwt");
 
-export const RECEIVE_CHAPTER = "books/RECEIVE_CHAPTER";
+export const RECEIVE_CHAPTER = "chapters/RECEIVE_CHAPTER";
 export const RECEIVE_CHAPTERS = "chapters/RECEIVE_CHAPTERS";
 export const REMOVE_CHAPTER = "chapters/REMOVE_CHAPTER";
 
