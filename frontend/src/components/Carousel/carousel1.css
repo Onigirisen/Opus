@@ -1,0 +1,24 @@
+#carouselExampleControls {
+    width: 700px;
+    height: 500px;
+    border: 1px solid black;
+}
+
+.carousel-container{
+    display: flex;
+    height: 300px;
+    width: 100%;
+}
+
+.img-container{
+    display: flex;
+    border: 1px red solid;
+    width: 33%;
+    display: flex;
+    flex-direction: row;
+    margin-top: -175px;
+}
+
+
+.d-block w-100{
+}

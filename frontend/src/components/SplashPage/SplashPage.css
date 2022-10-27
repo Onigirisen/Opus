@@ -12,13 +12,18 @@
 
 }
 
+.splash-page-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
 .splash-body-carousel{
 
     /* height: 900px; */
     /* width:100%; */
-    object-fit: cover;
+    /* object-fit: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
     overflow: hidden;
     background-size: contain;
     border: 1px solid green;
@@ -27,7 +32,7 @@
     margin-bottom: 0px;
 }
 
-.splash-featured-carousel{
+/* .splash-featured-carousel{
     display: flex;
     height: 90%;
     min-width: 50%;
@@ -38,27 +43,13 @@
     overflow: hidden;
     background-size: contain;
     border: 1px solid green;
-    border-radius: 10px;
+    border-radius: 10px; */
     /* margin-bottom: 40px; */
-}
+
 
 .spacing{
     display: flex;
-    height: 50px
-}
-
-.footer-navbar-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    background-color: rgb(183, 183, 183);
-    position: sticky;
-    width: 100%;
-    height: 200px;
-}
-
-.footer-navbar-column{
-    width: 100%;
+    height: 950px
 }
 
 .column {
@@ -75,6 +66,14 @@
     display: table;
     clear: both;
 }
+
+.splash-container {
+    width: 100vw;
+    margin-top: 200px;
+    border: 1px solid black;
+}
+
+
 
 
 

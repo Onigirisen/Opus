@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "bootstrap": "^5.2.2",
     "react-flickity-component": "^3.6.3"
   }
 }
