@@ -18,6 +18,7 @@ const userSchema = Schema(
     bio: {
       type: String,
       required: false,
+      default: 'Nothing to see here~'
     },
     profilePictureUrl: {
       type: String,

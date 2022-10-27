@@ -156,8 +156,8 @@
         
 }
 
-.profile-bio-text-container:hover {
-}
+/* .profile-bio-text-container:hover {
+} */
 
 ::-webkit-scrollbar-track {
     background: rgb(225, 225, 225);
@@ -177,4 +177,11 @@
 
 .spacing{
     height: 50px;
+}
+
+.profile_edit_textarea{
+    height: 150px;
+    z-index: 999;
+    width: 100%;
+    resize: none;
 }
