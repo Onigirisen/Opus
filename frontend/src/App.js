@@ -7,6 +7,8 @@ import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getCurrentUser } from './store/session';
 import { Route } from 'react-router-dom';
+import Footer from './components/Footer';
+import Carousel from './components/Carousel';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -22,6 +24,7 @@ function App() {
         <Route exact path="/" component={SplashPage} />
         <ProtectedRoute exact path="/profile" component={UserProfile} />
       </Switch>
+      <Footer />
     </>
   );
 }
