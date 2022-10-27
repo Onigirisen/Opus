@@ -19,8 +19,6 @@ export const removeBook = bookId => ({
     bookId
 });
 
-
-
 export const fetchBook = bookId => async dispatch => {
     const res = await jwtFetch(`/api/books/${bookId}`);
     const data = await res.json();
@@ -37,6 +35,18 @@ export const deleteBook = bookId => async dispatch => {
     await jwtFetch(`/api/books/${bookId}`, {method: "DELETE"});
     dispatch(removeBook(bookId));
 };
+
+export const createBook = (book) => async (dispatch) => {
+    const res = await fetch("/api/books", {
+      method: "POST",
+      body: JSON.stringify(book),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await res.json();
+    dispatch(receiveReport(data));
+  };
 
 export const updateBook = book => async dispatch => {
     const res = await jwtFetch(`/api/books/${book.id}`, {
