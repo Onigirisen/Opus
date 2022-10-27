@@ -1,0 +1,146 @@
+.create-book-container {
+    width: 100%;
+    height: 700px;
+    margin-top: 75px;
+    background-color: rgb(244, 244, 244);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10px black;
+}
+
+.create-book-cover {
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgb(0, 0, 0);
+    margin-left: 100px;
+    border-radius: 20px;
+}
+
+
+.create-book-spine {
+    width: 40px;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-image: url('../../assets/croctrxture.jpeg');
+    background-size: cover;
+    background-position: 100px 10px;
+}
+
+.create-book-text-container {
+    width: 300px;
+    height: 400px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-book-title {
+    width: 300px;
+    height: 100px;
+    text-align: center;
+    font-size: 30px;
+    font-family: cursive;
+    overflow: hidden;
+}
+
+.create-book-author {
+    width: 300px;
+    height: 30px;
+    text-align: center;
+    font-size: 20px;
+    font-family: cursive;
+    overflow: hidden;
+    margin-top: 100px;
+}
+
+.create-book-title-bio-container {
+    width: 700px;
+    height: 400px;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-book-title-text {
+    font-size: 90px;
+    font-family: cursive;
+    width: 700px;
+    height: 125px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: transparent;
+    text-align: center;
+    outline: none;
+    border: none;
+}
+
+.create-book-description-text {
+    width: 650px;
+    height: 20px;
+    resize: none;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+.create-book-description {
+    background-color: rgb(232, 234, 214);
+    resize: none;
+    width: 650px;
+    height: 300px;
+    border: none;
+    outline: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.create-book-description::-webkit-scrollbar {
+    visibility: hidden;
+}
+
+.create-book-button {
+    border: none;
+    background-color: purple;
+    color: rgb(253, 239, 198);
+    font-family: cursive;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-left: 300px;
+    box-shadow: 0px 0px 10px black;
+}
+
+.colorpicker {
+    position: absolute;
+    margin-top: -6px;
+    width: 50px;
+    height: 30px;
+    border: none;
+}
+
+.create-book-cc-txt {
+    position: absolute;
+    margin-top: 600px;
+    margin-left: -50px;
+}
+
+.create-book-button:hover {
+    cursor: pointer;
+}
