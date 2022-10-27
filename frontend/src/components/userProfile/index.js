@@ -1,36 +1,50 @@
-import React from "react"
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import './UserProfile.css'
 import profilePic from '../../assets/profile/goat.jpeg'
 import editCamera from '../../assets/profile/cameratrans.png'
+import { uploadProfilePicture } from "../../store/users";
 
 const UserProfile = ()=>{
+    const dispatch = useDispatch();
     const currentUser = useSelector(state => state.session.user);
 
     const handleCameraClick = () => {
         document.querySelector(".profile-picture-input").click();
     };
 
-    const fileSelectedHandler = e => {
-        
+    // const convertPicToFormData = () => {
+    //     debugger
+    //     dispatch(
+    //         uploadProfilePicture({
+    //             pic,
+    //             uploaderId: currentUser._id
+    //     }))
+    // }
+
+    const handleClick = (e) => {
+        debugger
+        //(e.currentTarget.files[0]);
+
+        dispatch(
+            uploadProfilePicture({
+                pic: (e.currentTarget.files[0]),
+                uploaderId: currentUser._id
+        }))
     }
 
-    const handleSubmit = () => {
-        
-    }
 
     return(
-        <>
+    <>
         <div className="spacing-top">
         </div>
-    <div className="profile-body-container">
+    <div className="profile-body-container">``
         <div className="profile-picture-wrapper">
             <div className="profile-picture-container">
                 <img src={profilePic} alt="" />
             </div>
-            <form className="profile-picture-edit-container" onSubmit={handleSubmit}>
-                 <img className="profile-picture-camera-pic" src={editCamera} onClick={handleCameraClick} alt=""/>
-                 <input className="profile-picture-input" type="file" onChange={fileSelectedHandler}/>
+            <form className="profile-picture-edit-container">
+                 <img className="profile-picture-camera-pic" src={editCamera} onClick={handleCameraClick} alt="camera"/>
+                 <input className="profile-picture-input" type="file" onChange={handleClick}/>
             </form>
         </div>
             <div className="profile-bio-wrapper">

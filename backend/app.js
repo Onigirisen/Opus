@@ -12,6 +12,8 @@ const { isProduction } = require("./config/keys");
 
 const usersRouter = require("./routes/api/users");
 const csrfRouter = require("./routes/api/csrf");
+const profilePictureRouter = require('./routes/api/profilePicture');
+
 
 const app = express();
 
@@ -42,6 +44,7 @@ app.use(
 );
 
 // Attach Express routers
+//app.use('/api/profilePicture', profilePictureRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/csrf", csrfRouter);
 
