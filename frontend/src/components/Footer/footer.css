@@ -1,3 +1,5 @@
+
+
 .footer-navbar-container {
     display: flex;
     flex-direction: column;
@@ -18,16 +20,44 @@
 .column {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     float: left;
-    width: 19%;
+    width: 20%;
     height: 40px;
+    font-family: cursive;
+    font-size: 17px;
     /* border: 1px solid blue; */
 }
 
-.column:hover{
-    background-color: red;
+.dev-container:hover{
+    background-color: rgb(88, 17, 100);
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+    background-color: #f3ec78;
+        background-image: linear-gradient(45deg, #f3ec78, #af4261);
+        background-size: 100%;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-text-fill-color: transparent;
+}
+
+.dev-container{
+    /* border: 1px solid red; */
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 100%;
 }
 
 .drop-up-content{
@@ -36,13 +66,13 @@
     width: 100%;
     margin-top: -150px;
     display: none;
+    
 }
 
 .column:hover  .drop-up-content {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    ;
 }
 
 .link-list-container{
@@ -50,7 +80,9 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    margin-left: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+    /* padding-left: 30px; */
 }
 
 .row:after {
@@ -60,14 +92,18 @@
 }
 
 .giticon{
+    padding-left: 30px;
     height: 25px
 }
 
 .linkedin{
+    padding-top: 5px;
+    padding-left: 30px;
     height: 25px
 }
 
 .angel{
+    padding-left: 30px;
     height: 25px
 }
 
@@ -76,6 +112,21 @@
     flex-direction: row;
     padding-bottom: 15px;
     width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.598);
+}
+
+.git-list-container:hover {
+    display:flex;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    background-color: #f3ec78;
+    background-image: linear-gradient(45deg, #f3ec78, #af4261);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
 }
 
 .linkedin-list-container{
@@ -83,12 +134,44 @@
     flex-direction: row;
     padding-bottom: 15px;
     width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.598);
 }
+
+.linkedin-list-container:hover{
+    width: 100%;
+    display: flex;
+    height: 100%;
+    cursor: pointer;
+    background-color: #f3ec78;
+    background-image: linear-gradient(45deg, #f3ec78, #af4261);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;   
+}
+
+
 
 .angel-list-container{
     display: flex;
     flex-direction: row;
     width: 100%;
+}
+
+.angel-list-container:hover {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    cursor: pointer;
+    color: rgb(92, 0, 141);
+    background-color: #f3ec78;
+    background-image: linear-gradient(45deg, #f3ec78, #af4261);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
 }
 
 .git-text{
@@ -102,7 +185,7 @@
 .linkedin-text{
     display: flex;
     justify-content: flex-start;
-    padding-top: 5px;
+    padding-top: 8px;
     padding-left: 15px;
     width: 100%;
 }
@@ -113,4 +196,17 @@
     padding-top: 5px;
     padding-left: 15px;
     width: 100%;
+}
+
+.developers-container{
+    display: flex;
+    background-color: rgb(88, 17, 100);
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    border-right: 1px solid grey;
+    font-family: cursive;
+    font-size: 17px; 
 }

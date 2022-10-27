@@ -7,6 +7,7 @@ import editCamera from '../../assets/profile/cameratrans.png'
 const UserProfile = ()=>{
     return(
         <>
+        <div className="body-container">
         <div className="spacing-top">
         </div>
     <div className="profile-body-container">
@@ -33,6 +34,8 @@ const UserProfile = ()=>{
                     </div>
                 </div>
             </div>
+        </div>
+        <div className="spacing-top"></div>
         </div>
     </>
     )

@@ -10,7 +10,9 @@ const Footer = ()=>{
          <div class="footer-navbar-container">
             <div footer-navbar-column>
                 <div class="column">
-                    devs
+                    <div className="developers-container">
+                    Developers
+                    </div>
                 </div>
                 <div className="column">
                     <div className="drop-up-content">
@@ -36,7 +38,9 @@ const Footer = ()=>{
                         </div>
                         </div>
                     </div>
-                    david
+                    <div className="dev-container">
+                        David
+                    </div>
                 </div>
 
                 
@@ -64,7 +68,9 @@ const Footer = ()=>{
                         </div>
                     </div>
                     
-                    avisek
+                    <div className="dev-container">
+                      Avisek
+                    </div>
                 </div>
                 <div className="column">
                     <div className="drop-up-content"><div className="link-list-container">
@@ -89,7 +95,9 @@ const Footer = ()=>{
                         </div>
                         </div>
                     </div>
-                    ryan
+                    <div className="dev-container">
+                        Ryan
+                    </div>
                 </div>
                 <div className="column">
                     <div className="drop-up-content"><div className="link-list-container">
@@ -114,7 +122,7 @@ const Footer = ()=>{
                         </div>
                         </div>
                     </div>
-                    darian
+                   <div className="dev-container">Darian</div>
                 </div>
             </div>
         </div>
