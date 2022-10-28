@@ -45,7 +45,7 @@ function NavBar(){
           </div>
           <div className="topnav-login-container">
             {loggedIn ? 
-              <button className="nav-login-button" onClick={logoutUser}>Logout</button> : 
+              <NavLink className="nav-login-button" to="/" onClick={logoutUser}>Logout</NavLink> : 
               <button className="nav-login-button" onClick={e => setModalOpen(true)}>Login</button> }
               <Modal modalOpen={modalOpen && !loggedIn} modalClose={handleModalClose}>
                 <LoginModal></LoginModal>

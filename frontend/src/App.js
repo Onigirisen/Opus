@@ -6,6 +6,7 @@ import UserProfile from "./components/UserProfile";
 import BookComponent from "./components/Book";
 import BooksIndex from "./components/BookIndex";
 import CreateBookPage from "./components/CreateBookPage";
+import BookShow from "./components/BookShow";
 
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
@@ -28,7 +29,8 @@ function App() {
         <Route exact path="/" component={SplashPage} />
         <ProtectedRoute exact path="/profile" component={UserProfile} />
         <Route exact path="/books" component={BooksIndex} />
-        <Route exact path="/book" component={BookComponent} />
+        <Route exact path="/books/read" component={BookComponent}></Route>
+        <Route exact path="/books/:bookId" component={BookShow} />
         <ProtectedRoute exact path="/book/create" component={CreateBookPage} />
       </Switch>
       <Footer />

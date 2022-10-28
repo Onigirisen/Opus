@@ -1,0 +1,26 @@
+.book-show-read-button {
+    border: none;
+    background-color: rgb(187, 104, 187);
+    font-size: 20px;
+    color: rgb(253, 239, 198);
+    font-family: cursive;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-left: 300px;
+    box-shadow: 0px 0px 10px black;
+}
+
+.book-show-read-button:hover {
+    cursor: pointer;
+    background-color: rgb(163, 93, 163);
+    transition: all .2s;
+}
+
+
+.book-show-read-button:active {
+    cursor: pointer;
+    background-color: rgb(128, 72, 128);
+    transition: all .2s;
+}

@@ -23,7 +23,7 @@ export const removeBook = bookId => ({
 export const fetchBook = bookId => async dispatch => {
     const res = await jwtFetch(`/api/books/${bookId}`);
     const data = await res.json();
-    dispatch(receiveBook(data.book));
+    dispatch(receiveBook(data));
 };
 
 export const fetchBooks = () => async dispatch => {
@@ -68,7 +68,7 @@ const booksReducer = (state= {}, action) => {
         case RECEIVE_BOOKS:
             return {...state, ...action.books};
         case RECEIVE_BOOK:
-            nextState[action.book.id] = action.book;
+            nextState[action.book._id] = action.book;
             return nextState;
         case REMOVE_BOOK:
             delete nextState[action.bookId];
