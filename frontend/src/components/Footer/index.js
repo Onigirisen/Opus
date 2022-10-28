@@ -7,9 +7,9 @@ import angelicon from '../../assets/footer/angellist.png'
 const Footer = ()=>{
     return(
         <>
-         <div class="footer-navbar-container">
-            <div footer-navbar-column>
-                <div class="column">
+         <div className="footer-navbar-container">
+            <div className="footer-navbar-column">
+                <div className="column">
                     <div className="developers-container">
                     Developers
                     </div>

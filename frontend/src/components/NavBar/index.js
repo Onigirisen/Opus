@@ -35,7 +35,7 @@ function NavBar(){
             <NavLink className="nav-navlink" to="/book/create">Create</NavLink>
           </div>
           <div className="topnav-explore-container">
-            <NavLink className="nav-navlink" to="/book">Explore</NavLink>
+            <NavLink className="nav-navlink" to="/books">Explore</NavLink>
           </div>
           <div className="topnav-profile-container">
             {loggedIn ? 

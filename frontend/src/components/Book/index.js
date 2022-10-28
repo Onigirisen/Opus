@@ -25,7 +25,7 @@ const BookComponent = () => {
 
                     </div>
                     <div className="right-page">
-                        <textarea className="book-page-content"></textarea>
+                        <textarea className="book-page-content" spellCheck='false'></textarea>
                         <div className="book-page-number">50</div>
                         <div className="prev-page" onClick={() => {nextPage(); setFlipDir("left")}}>{"<"}</div>
                         <div className="next-page" onClick={() => {nextPage(); setFlipDir("right")}}>{">"}</div>

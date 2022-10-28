@@ -1,0 +1,6 @@
+.books-index-title {
+    font-size: 50px;
+    display: grid;
+    grid-template-columns: 3;
+    grid-template-rows: 4;
+}
