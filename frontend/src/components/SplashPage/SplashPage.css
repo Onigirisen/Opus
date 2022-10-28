@@ -26,7 +26,7 @@
     background-repeat: no-repeat; */
     overflow: hidden;
     background-size: contain;
-    border: 1px solid green;
+    border: 1px solid rgb(139, 139, 139);
     border-radius: 10px;
     padding-top: 0px;
     margin-bottom: 0px;
@@ -68,9 +68,10 @@
 }
 
 .splash-container {
-    width: 100vw;
+    margin-left: 5vw;
+    width: 90vw;
     margin-top: 200px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 

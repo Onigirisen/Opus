@@ -12,12 +12,15 @@
 
 .img-container{
     display: flex;
-    border: 1px red solid;
+    justify-content: space-between;
+    /* border: 1px red solid; */
     width: 33%;
     display: flex;
     flex-direction: row;
-    margin-top: -175px;
+    gap: 10px;
 }
+
+
 
 
 .d-block w-100{
