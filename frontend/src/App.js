@@ -4,6 +4,9 @@ import { AuthRoute, ProtectedRoute } from './components/Routes/routes';
 import NavBar from './components/NavBar';
 import SplashPage from './components/SplashPage/SplashPage';
 import UserProfile from './components/UserProfile';
+import BookComponent from './components/Book';
+import CreateBookPage from './components/CreateBookPage';
+import CreateChapterPage from './components/CreateChapterPage'
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getCurrentUser } from './store/session';
