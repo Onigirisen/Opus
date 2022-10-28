@@ -30,7 +30,7 @@ const BookComponent = () => {
             }, 900)
         }
     }
-
+    
     return (
         <>
             <div className="book-container">
@@ -41,12 +41,20 @@ const BookComponent = () => {
                     <div className="spine">
 
                     </div>
+                    {flipDir === "right" ?  
                     <div className="right-page">
-                        <textarea className="book-page-content" spellCheck='false'>{pageTxt}</textarea>
+                        <textarea className="book-page-content" spellCheck='false' readOnly>{pageTxt}</textarea>
                         <div className="book-page-number">{pageNum}</div>
                         <div className="prev-page" onClick={() => {nextPage(); setFlipDir("left"); setPageTxt(text1); setPageNum(1)}}>{"<"}</div>
                         <div className="next-page" onClick={() => {nextPage(); setFlipDir("right"); setPageTxt(text2); setPageNum(2)}}>{">"}</div>
+                    </div> : 
+                    <div className="right-page">
+                    <textarea className="book-page-content" spellCheck='false' readOnly>{pageTxt}</textarea>
+                    <div className="book-page-number">{pageNum}</div>
+                    <div className="prev-page" onClick={() => {nextPage(); setFlipDir("left"); setPageTxt(text1); setPageNum(1)}}>{"<"}</div>
+                    <div className="next-page" onClick={() => {nextPage(); setFlipDir("right"); setPageTxt(text2); setPageNum(2)}}>{">"}</div>
                     </div>
+                }
                 </div>
                 {flip ? 
                     flipDir === "right" ? 
