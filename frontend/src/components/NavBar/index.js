@@ -5,15 +5,14 @@ import { useState } from "react"
 import { logout } from "../../store/session";
 import Opus from '../../assets/navbar/Opus.png'
 import { LoginModal } from "./loginModal";
-import { SignUpModal } from "./signUpModal";
 import Modal from "../../Modal/Modal";
 import "./navbar.css"
 
 function NavBar(){
   const dispatch = useDispatch()
   const [modalOpen, setModalOpen] = useState(false);
-  const [modal, setModal] = useState('login')
   const loggedIn = useSelector(state => !!state.session.user);
+  const sessionUser = useSelector(state => state.session.user)
 
   const logoutUser = e => {
       e.preventDefault();
@@ -23,7 +22,6 @@ function NavBar(){
 
   const handleModalClose = () => {
     setModalOpen(false);
-    setModal('login');
   }
 
   return (
@@ -34,10 +32,10 @@ function NavBar(){
             <img className="nav-home-img" src={Opus} alt="" />
           </div>
           <div className="topnav-create-container">
-            <NavLink className="nav-navlink" to="/">Create</NavLink>
+            <NavLink className="nav-navlink" to="/book/create">Create</NavLink>
           </div>
           <div className="topnav-explore-container">
-            <NavLink className="nav-navlink" to="/">Explore</NavLink>
+            <NavLink className="nav-navlink" to="/book">Explore</NavLink>
           </div>
           <div className="topnav-profile-container">
             {loggedIn ? 

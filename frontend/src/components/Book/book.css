@@ -1,0 +1,248 @@
+.book-container {
+    width: 100%;
+    height: 700px;
+    margin-top: 75px;
+    background-color: rgb(244, 244, 244);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10px black;
+}
+
+.book-cover {
+    width: 1000px;
+    height: 600px;
+    background-color: rgb(57, 63, 77);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    box-shadow: 0px 0px 30px rgb(77, 48, 48);
+    perspective: 1500px;
+    transform-style: preserve-3d;
+
+}
+
+.spine {
+    height: 570px;
+    width: 10px;
+    background-color: rgb(204, 179, 109);
+}
+
+.left-page {
+    width: 470px;
+    height: 570px;
+    background-color: rgb(246, 203, 139);
+    box-shadow: -5px 5px 10px black;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.right-page {
+    width: 470px;
+    height: 570px;
+    background-color: rgb(246, 203, 139);
+    box-shadow: 5px 5px 10px black;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1500px;
+}
+
+.book-page-content {
+    width: 400px;
+    height: 525px;
+    background-color: transparent;
+    outline: none;
+    margin-top: -10px;
+    border: none;
+    text-align: start;
+    resize: none;
+}
+
+.book-page-content::-webkit-scrollbar {
+    visibility: hidden;
+}
+
+.book-page-number {
+    position: absolute;
+    margin-top: 540px;
+    margin-left: 440px;
+    font-weight: bold;
+}
+
+.prev-page {
+    position: absolute;
+    margin-top: 540px;
+    margin-left: -20px;
+    width: 10px;
+    height: 10px;
+    font-weight: bold;
+    transform: scale(1,1.5);
+    text-align: center;
+    line-height: 10px;
+    font-size: 16px;
+    transition: all .1s;
+    user-select: none;
+}
+
+.prev-page:hover {
+    cursor: pointer;
+    font-size: 18px;
+    padding-right: 5px;
+    color: rgb(161, 214, 252);
+    text-shadow: 0px 0px 2px rgb(0, 0, 0);
+    transition: all .1s;
+}
+
+.prev-page:active {
+    color: rgb(136, 177, 206);
+    text-shadow: 0px 0px 2px rgb(0, 0, 0);
+    transition: all .1s;
+}
+
+.next-page {
+    position: absolute;
+    margin-top: 540px;
+    margin-left: 20px;
+    width: 10px;
+    height: 10px;
+    font-weight: bold;
+    transform: scale(1,1.5);
+    text-align: center;
+    line-height: 10px;
+    font-size: 16px;
+    transition: all .1s;
+    user-select: none;
+}
+
+.next-page:hover {
+    cursor: pointer;
+    font-size: 18px;
+    padding-left: 5px;
+    color: rgb(161, 214, 252);
+    text-shadow: 0px 0px 2px rgb(0, 0, 0);
+    transition: all .1s;
+}
+
+.next-page:active {
+    color: rgb(136, 177, 206);
+    text-shadow: 0px 0px 2px rgb(0, 0, 0);
+    transition: all .1s;
+}
+
+
+.fake-right-page {
+    position: absolute;
+    margin-left: 480px;
+    width: 470px;
+    height: 570px;
+    background-color: rgb(246, 203, 139);
+    box-shadow: 5px 5px 10px black;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    align-items: center;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    perspective: 1500px;
+    animation: flipRight .9s;
+    backface-visibility: hidden;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fake-right-back-page {
+    position: absolute;
+    margin-left: 480px;
+    width: 470px;
+    height: 570px;
+    background-color: rgb(246, 203, 139);
+    box-shadow: 5px 5px 10px black;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    align-items: center;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    perspective: 1500px;
+    animation: flipRight .9s;
+    z-index: 0;
+}
+
+.fake-left-page {
+    position: absolute;
+    margin-left: 480px;
+    width: 470px;
+    height: 570px;
+    background-color: rgb(246, 203, 139);
+    box-shadow: 5px 5px 10px black;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    align-items: center;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    perspective: 1500px;
+    backface-visibility: hidden;
+    z-index: 1999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(0deg);
+    transform-origin: right;
+    transform-style: preserve-3d;
+    animation: flipLeft .9s;
+}
+
+.fake-left-back-page {
+    position: absolute;
+    margin-left: 480px;
+    width: 470px;
+    height: 570px;
+    background-color: rgb(246, 203, 139);
+    box-shadow: 5px 5px 10px black;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    align-items: center;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    perspective: 1500px;
+    /* backface-visibility: hidden; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(0deg);
+    transform-origin: right;
+    transform-style: preserve-3d;
+    animation: flipLeft .9s;
+}
+
+
+
+@keyframes flipRight {
+    to {
+        transform: rotateY(-180deg);
+        transform-origin: left;
+        transform-style: preserve-3d;
+        margin-left: 460px;
+    }
+}
+
+@keyframes flipLeft {
+    from {
+        transform: rotateY(-180deg);
+        transform-origin: left;
+        transform-style: preserve-3d;
+        margin-left: 460px;
+    }
+    to {
+        transform: rotateY(0deg);
+        margin-left: 480px;
+        transform-origin: left;
+        transform-style: preserve-3d;
+    }
+}
+

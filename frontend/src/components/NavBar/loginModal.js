@@ -3,17 +3,14 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearSessionErrors } from "../../store/session";
 import { login } from "../../store/session";
-import { logout } from "../../store/session";
 import { SignUpModal } from './signUpModal';
 
 
 export const LoginModal = () => {
     const dispatch = useDispatch()
-    const [modalOpen, setModalOpen] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [openSignUp, setOpenSignUp] = useState(false)
-    const loggedIn = useSelector(state => !!state.session.user);
     const errors = useSelector(state => state.errors.session);
 
     useEffect(() => {
@@ -32,17 +29,6 @@ export const LoginModal = () => {
         dispatch(login({email: 'demo@user.io', password: 'password'}))
     }
 
-    const logoutUser = e => {
-        e.preventDefault();
-        dispatch(logout());
-    }
-
-    const handleModalClose = () => {
-        setModalOpen(false);
-        setPassword('')
-        setEmail('')
-        dispatch(clearSessionErrors());
-    }
     if (!openSignUp) {
         return(
                 <div className="login-Modal">

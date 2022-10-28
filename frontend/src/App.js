@@ -1,3 +1,4 @@
+
 import { Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from './components/Routes/routes';
 import NavBar from './components/NavBar';
@@ -10,22 +11,30 @@ import { Route } from 'react-router-dom';
 import Footer from './components/Footer';
 
 
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCurrentUser()).then(() => setLoaded(true));
   }, [dispatch]);
+  
+  return (
+    loaded && (
+      <>
+        <NavBar />
+        <Switch>
+          <Route exact path="/" component={SplashPage} />
+          <ProtectedRoute exact path="/profile" component={UserProfile} />
+          <Route exact path="/book" component={BookComponent} />
+          <Route exact path="/book/create" component={CreateBookPage} />
+          <Route exact path="/books/:bookId/chapters/create" component={CreateChapterPage}/>
+          <Route exact path="/books/:book_id/chapters/:chapter_id"/>
+        </Switch>
+        <Footer />
+      </>
+    )
 
-  return loaded && (
-    <>
-      <NavBar />
-      <Switch>
-        <Route exact path="/" component={SplashPage} />
-        <ProtectedRoute exact path="/profile" component={UserProfile} />
-      </Switch>
-      <Footer />
-    </>
   );
 }
 

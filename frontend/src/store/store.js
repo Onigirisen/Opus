@@ -2,11 +2,19 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session';
 import errors from './errors';
+import users from './users';
+import books  from './books';
+import chapters from './chapters';
+import pages from './pages';
 import jwtFetch from './jwt';
 
 const rootReducer = combineReducers({
   session,
-  errors
+  errors,
+  users,
+  books,
+  chapters,
+  pages
 });
 
 let enhancer;
