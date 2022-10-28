@@ -31,6 +31,7 @@ router.post(
         user: req.user._id,
         coverColor: req.body.coverColor,
         public: req.body.public || false,
+        genre: req.body.genre
       });
 
       newBook.save().then((book) => res.json(book));

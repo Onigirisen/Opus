@@ -1,4 +1,3 @@
-
 import { Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from './components/Routes/routes';
 import NavBar from './components/NavBar';
@@ -37,7 +36,6 @@ function App() {
         <Footer />
       </>
     )
-
   );
 }
 

@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import Modal from '../../Modal/Modal'
+import { createBook } from "../../store/books";
 import './CreateBookPage.css'
 
 const CreateBookPage = () => {
     const dispatch = useDispatch()
+    const history = useHistory()
     const sessionUser = useSelector(state => state.session.user)
-    const [modalOpen, setModalOpen] = useState(true)
+    const [modalOpen, setModalOpen] = useState(false)
     const [coverColor, setCoverColor] = useState('#F8AAAA')
     const [bookTitle, setBookTitle] = useState('Insert Title')
     const [genre, setGenre] = useState('Fiction')
@@ -14,10 +17,18 @@ const CreateBookPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const book = {title: bookTitle, coverColor: coverColor, genre: genre, user: sessionUser._id, public: true}
+        dispatch(createBook(book))
+        setModalOpen(true);
     }
 
     const handleModalClose = () => {
         setModalOpen(false);
+    }
+
+    const redirPfp = () => {
+        setModalOpen(false);
+       history.push(`/profile/`);
     }
 
     return  (
@@ -25,7 +36,9 @@ const CreateBookPage = () => {
 
         <Modal modalOpen={modalOpen} modalClose={handleModalClose}>
             <div className="book-created-div">
-                <button className="book-created-exit-btn">X</button>
+                <button className="book-created-exit-btn" onClick={handleModalClose}>X</button>
+                <div className="book-created-modal-text">{bookTitle} has been created. Go to your profile page to check it out.</div>
+                <button className="book-created-pfp-btn" onClick={redirPfp}>Visit Page</button>
             </div>
         </Modal>
 
