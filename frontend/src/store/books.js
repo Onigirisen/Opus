@@ -19,7 +19,6 @@ export const removeBook = bookId => ({
     bookId
 });
 
-
 export const fetchBook = bookId => async dispatch => {
     const res = await jwtFetch(`/api/books/${bookId}`);
     const data = await res.json();
