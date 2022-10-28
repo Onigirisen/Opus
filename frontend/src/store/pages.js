@@ -32,7 +32,8 @@ export const fetchPages = (bookId, chapterId) => async dispatch => {
 };
 
 export const createPage = (bookId, chapterId, page) => async (dispatch) => {
-    const res = await jwtFetch(`/api/books/${bookId}/chapters/${chapterId}`, {
+    debugger
+    const res = await jwtFetch(`/api/books/${bookId}/chapters/${chapterId}/pages`, {
       method: "POST",
       body: JSON.stringify(page),
       headers: {

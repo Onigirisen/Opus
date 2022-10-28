@@ -12,7 +12,7 @@ const CreateChapterPage = () => {
     const { bookId } = useParams();
 
     const handleSubmit = (e) => {
-        debugger
+
         //e.PreventDefault();
         const chapter = {title: title, chapterNumber: chapterNumber};
         dispatch(createChapter(bookId, chapter));
