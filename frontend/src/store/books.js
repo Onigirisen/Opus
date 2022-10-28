@@ -19,6 +19,8 @@ export const removeBook = bookId => ({
     bookId
 });
 
+
+
 export const fetchBook = bookId => async dispatch => {
     const res = await jwtFetch(`/api/books/${bookId}`);
     const data = await res.json();
@@ -45,7 +47,7 @@ export const createBook = (book) => async (dispatch) => {
       },
     });
     const data = await res.json();
-    dispatch(receiveReport(data));
+    dispatch(receiveBook(data));
   };
 
 export const updateBook = book => async dispatch => {

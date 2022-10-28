@@ -1,3 +1,4 @@
+
 import { Switch } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "./components/Routes/routes";
 import NavBar from "./components/NavBar";
@@ -20,7 +21,7 @@ function App() {
   useEffect(() => {
     dispatch(getCurrentUser()).then(() => setLoaded(true));
   }, [dispatch]);
-
+  
   return (
     loaded && (
       <>
@@ -36,6 +37,7 @@ function App() {
         <Footer />
       </>
     )
+
   );
 }
 
