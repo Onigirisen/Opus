@@ -42,7 +42,7 @@ const BookComponent = () => {
 
                     </div>
                     <div className="right-page">
-                        <textarea className="book-page-content" spellCheck='false' value={pageTxt}></textarea>
+                        <textarea className="book-page-content" spellCheck='false'>{pageTxt}</textarea>
                         <div className="book-page-number">{pageNum}</div>
                         <div className="prev-page" onClick={() => {nextPage(); setFlipDir("left"); setPageTxt(text1); setPageNum(1)}}>{"<"}</div>
                         <div className="next-page" onClick={() => {nextPage(); setFlipDir("right"); setPageTxt(text2); setPageNum(2)}}>{">"}</div>

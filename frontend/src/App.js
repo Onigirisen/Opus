@@ -5,7 +5,9 @@ import SplashPage from './components/SplashPage/SplashPage';
 import UserProfile from './components/UserProfile';
 import BookComponent from './components/Book';
 import CreateBookPage from './components/CreateBookPage';
-import CreateChapterPage from './components/CreateChapterPage'
+// import CreateChapterPage from './components/CreateChapterPage';
+import BooksIndex from './components/BookIndex';
+import BookShow from './components/BookShow';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getCurrentUser } from './store/session';
@@ -20,23 +22,21 @@ function App() {
   useEffect(() => {
     dispatch(getCurrentUser()).then(() => setLoaded(true));
   }, [dispatch]);
-  
-  return (
-    loaded && (
-      <>
-        <NavBar />
-        <Switch>
-          <Route exact path="/" component={SplashPage} />
-          <ProtectedRoute exact path="/profile" component={UserProfile} />
-          <Route exact path="/book" component={BookComponent} />
-          <Route exact path="/book/create" component={CreateBookPage} />
-          <Route exact path="/books/:bookId/chapters/create" component={CreateChapterPage}/>
-          <Route exact path="/books/:book_id/chapters/:chapter_id"/>
-        </Switch>
-        <Footer />
-      </>
-    )
-  );
+
+  return loaded && (
+    <>
+      <NavBar />
+      <Switch>
+        <Route exact path="/" component={SplashPage} />
+        <ProtectedRoute exact path="/profile" component={UserProfile} />
+        <Route exact path="/books" component={BooksIndex} />
+        <Route exact path="/books/read" component={BookComponent}></Route>
+        <Route exact path="/books/:bookId" component={BookShow} />
+        <ProtectedRoute exact path="/book/create" component={CreateBookPage} />
+      </Switch>
+      <Footer />
+    </>
+  )
 }
 
 export default App;

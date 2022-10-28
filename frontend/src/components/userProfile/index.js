@@ -10,13 +10,14 @@ const UserProfile = () => {
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch();
     const [bio, setBio] = useState(sessionUser.bio);
+    const [loaded, setLoaded] = useState(false);
     const [buttonText, setButtonText] = useState("edit")
     const [editClicked, setEditClick] = useState(false);
     const [text, setText] = useState(sessionUser.bio)
 
     useEffect(() => {
-        dispatch(getCurrentUser)
-    })
+        dispatch(getCurrentUser()).then(() => setLoaded(true))
+    }, [])
 
     const handleClick = (e) => {
         if (buttonText === "edit"){
@@ -38,7 +39,7 @@ const UserProfile = () => {
         //dispatch(getCurrentUser)
     }
 
-    return(
+    return loaded && (
         <>
         <div className="body-container">
         <div className="spacing-top">
@@ -63,7 +64,7 @@ const UserProfile = () => {
                             </div>
                         </div>
                     <div className="profile-bio-text-container">
-                    { text ? text : ""}
+                    { text ? text : "" }
 
                     { editClicked ? 
                         <form onSubmit={handleSubmit}>

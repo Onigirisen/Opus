@@ -38,3 +38,17 @@ const CreateChapterPage = () => {
 };
 
 export default CreateChapterPage;
+
+// return loaded && (
+//     <>
+//       <NavBar />
+//       <Switch>
+//         <Route exact path="/" component={SplashPage} />
+//         <ProtectedRoute exact path="/profile" component={UserProfile} />
+//         <Route exact path="/books" component={BooksIndex} />
+//         <Route exact path="/books/read" component={BookComponent}></Route>
+//         <Route exact path="/books/:bookId" component={BookShow} />
+//         <ProtectedRoute exact path="/book/create" component={CreateBookPage} />
+//       </Switch>
+//       <Footer />
+//     </>
