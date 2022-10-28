@@ -26,9 +26,22 @@ export const fetchChapter = (bookId, chapterId)  => async dispatch => {
 };
 
 export const fetchChapters = (bookId) => async dispatch => {
-    const res = await jwtFetch(`/api/books/${bookId}/chapters/`);
+    const res = await jwtFetch(`/api/books/${bookId}/chapters`);
     const data = await res.json();
     dispatch(receiveChapters(data.chapters));
+};
+
+export const createChapter = (bookId, chapter) => async (dispatch) => {
+    debugger
+    const res = await jwtFetch(`/api/books/${bookId}/chapters`, {
+      method: "POST",
+      body: JSON.stringify(chapter),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await res.json();
+    dispatch(receiveChapter(data));
 };
 
 export const deleteChapter = (bookId, chapterId) => async dispatch => {
