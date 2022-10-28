@@ -32,7 +32,7 @@ export const fetchPages = (bookId, chapterId) => async dispatch => {
 };
 
 export const createPage = (bookId, chapterId, page) => async (dispatch) => {
-    const res = await fetch(`/api/books/${bookId}/chapters/${chapterId}`, {
+    const res = await jwtFetch(`/api/books/${bookId}/chapters/${chapterId}`, {
       method: "POST",
       body: JSON.stringify(page),
       headers: {
@@ -40,7 +40,7 @@ export const createPage = (bookId, chapterId, page) => async (dispatch) => {
       },
     });
     const data = await res.json();
-    dispatch(receiveReport(data));
+    dispatch(receivePage(data));
 };
 
 export const deletePage = (bookId, chapterId, pageId) => async dispatch => {

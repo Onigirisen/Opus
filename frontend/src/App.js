@@ -12,6 +12,7 @@ import { getCurrentUser } from "./store/session";
 import { Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Carousel from "./components/Carousel";
+import CreateChapterPage from "./components/CreateChapterPage";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -29,8 +30,8 @@ function App() {
           <ProtectedRoute exact path="/profile" component={UserProfile} />
           <Route exact path="/book" component={BookComponent} />
           <Route exact path="/book/create" component={CreateBookPage} />
+          <Route exact path="/books/:bookId/chapters/create" component={CreateChapterPage}/>
           <Route exact path="/books/:book_id/chapters/:chapter_id"/>
-
         </Switch>
         <Footer />
       </>
