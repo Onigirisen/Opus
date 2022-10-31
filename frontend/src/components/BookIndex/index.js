@@ -16,8 +16,6 @@ const BooksIndex = () => {
         dispatch(fetchBooks()).then(() => setLoaded(true));
     },[])
 
-    console.log(loaded)
-
     const booksList = Object.values(books).map(book => 
         <div className="books-index-div">
             <div className="books-index-cover" style={{backgroundColor: book.coverColor}} onClick={() => history.push(`/books/${book._id}`)}>

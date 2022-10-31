@@ -115,7 +115,6 @@ router.get(
   "/books",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    console.log(req.user);
     Book.find({ user: req.user._id })
       .then((books) => res.json(normalized(books)))
       .catch((err) => res.status(404).json({ error: "No books found" }));

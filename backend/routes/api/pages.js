@@ -11,7 +11,6 @@ router.get("/", (req, res) => {
   Page.find({ page: toObjectId(req.params.page_id) })
     .then((pages) => res.json(normalized(pages)))
     .catch((err) => {
-      console.log(err);
       res.status(404).json({ error: "No pages found" });
     });
 });
@@ -34,7 +33,6 @@ router.post(
       });
 
       newPage.save().then((page) => {
-        console.log(page);
         res.json(page);
       });
     }
