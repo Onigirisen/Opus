@@ -2,7 +2,7 @@ const express = require("express");
 const passport = require("passport");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
-const {requireUser} = require('../../config/passport')
+// const {requireUser} = require('../../config/passport')
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const Book = mongoose.model("Book");
@@ -91,20 +91,19 @@ router.get("/current", restoreUser, (req, res) => {
     _id: req.user._id,
     username: req.user.username,
     email: req.user.email,
-    bio: req.user.bio
+    bio: req.user.bio,
   });
 });
 
-
-router.get("/users",
+router.get(
+  "/users",
   //passport.authenticate("jwt", { session: false }), //requireUser,
   (req, res) => {
     try {
       const users = User.find();
 
       return req.json(users);
-    }
-    catch (err) {
+    } catch (err) {
       res.json(err);
     }
   }
@@ -131,12 +130,11 @@ router.get(
 // });
 
 // router.patch('/:user_id', async (req, res, next) => {
-  
+
 //   const user_id = req.params.user_id;
 //   const user = User.findOne({_id: user_id});
 //   user.update({bio: req.body});
 // });
-
 
 router.patch("/:user_id", async (req, res) => {
   await User.findByIdAndUpdate(req.params.user_id, req.body, (err) => {
