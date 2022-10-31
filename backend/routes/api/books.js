@@ -5,8 +5,8 @@ const mongoose = require("mongoose");
 const Book = mongoose.model("Book");
 const validateBookInput = require("../../validations/book");
 const { normalized } = require("../../util");
-const validateChapterInput = require("../../validations/chapter");
-const Chapter = require("../../models/Chapter");
+// const validateChapterInput = require("../../validations/chapter");
+// const Chapter = require("../../models/Chapter");
 
 //An index of all public books
 router.get("/", (req, res) => {
@@ -31,7 +31,7 @@ router.post(
         user: req.user._id,
         coverColor: req.body.coverColor,
         public: req.body.public || false,
-        genre: req.body.genre
+        genre: req.body.genre,
       });
 
       newBook.save().then((book) => res.json(book));
