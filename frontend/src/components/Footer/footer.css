@@ -58,6 +58,8 @@
     width: 100%;
 }
 
+
+
 .drop-up-content{
     background-color: rgba(70, 70, 70, 0.72);
     height: 150px;
@@ -70,7 +72,7 @@
 .column:hover  .drop-up-content {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-evenly;  
 }
 
 .link-list-container{
@@ -80,6 +82,7 @@
     gap: 10px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 15px;
+    color: white;
     /* padding-left: 30px; */
 }
 
