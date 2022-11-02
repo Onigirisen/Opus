@@ -5,7 +5,7 @@
     border-radius: 5px;
     border: 1px #8A6E2F solid;
     /* background-color: rgb(255, 255, 255); */
-    background: linear-gradient(-120deg, rgb(71, 10, 101), rgb(134, 134, 134));
+    background: linear-gradient(-120deg, rgb(71, 10, 101), rgb(41, 37, 37));
     border-radius: 20px;
     border-bottom-left-radius: 38px;
     border-top-left-radius: 38px;
@@ -106,7 +106,7 @@
     font-size: 14px;
     font-weight: bold;
     font-family: script;
-    margin-top: 2px;
+    margin-top: 15px;
     margin-bottom: 10px;
     border-radius: 10px;
     width: 250px;
@@ -126,7 +126,7 @@
 .login-submit:active {
     background-color: rgb(60, 0, 93);
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.476);
-    margin-top: 10px;
+    margin-top: 20px;
     transition: all .1s;
 }
 
@@ -177,7 +177,6 @@
 }
 .login-register-btn {
     color: rgb(244, 254, 174);
-    margin-top: 0px;
     margin-bottom: 0px;
     font-weight: bold;
     font-size: 12px;

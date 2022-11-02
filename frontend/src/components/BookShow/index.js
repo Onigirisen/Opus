@@ -3,10 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 // import Modal from '../../Modal/Modal'
 import { fetchBook } from "../../store/books";
+import { fetchUsers, getUser, getUsers } from "../../store/users";
 import "./BookShow.css";
 
 const BookShow = () => {
   const dispatch = useDispatch();
+  const users = useSelector(getUsers)
   const history = useHistory();
   const [loaded, setLoaded] = useState(false);
   const books = useSelector((state) => state.books);
@@ -15,7 +17,10 @@ const BookShow = () => {
 
   useEffect(() => {
     dispatch(fetchBook(bookId)).then(() => setLoaded(true));
+    dispatch(fetchUsers());
   }, []);
+
+  let authorName = "";
 
   return (
     loaded && (
@@ -28,7 +33,8 @@ const BookShow = () => {
           <div className="create-book-text-container">
             <div className="create-book-title">{book.title}</div>
             <div className="create-book-genre">genre: {book.genre}</div>
-            <div className="create-book-author">Author: {book.user}</div>
+            {Object.keys(users).forEach((user) => {if (book.user === users[user]._id) {authorName = users[user].username}})}
+            <div className="books-index-author">Author: {authorName}</div>
           </div>
         </div>
         <div className="create-book-form">

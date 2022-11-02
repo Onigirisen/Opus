@@ -1,23 +1,38 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import './UserProfile.css'
 import profilePic from '../../assets/profile/goat.jpeg'
 import editCamera from '../../assets/profile/cameratrans.png'
-import { updateBio } from "../../store/users";
+import { fetchUser, fetchUsers, getUser, updateBio } from "../../store/users";
 import { getCurrentUser } from "../../store/session";
+import { useParams } from "react-router-dom";
 
 const UserProfile = () => {
-    const sessionUser = useSelector(state => state.session.user);
+    const { userId } = useParams();
     const dispatch = useDispatch();
-    const [bio, setBio] = useState(sessionUser.bio);
+    const user = useSelector(getUser(userId));
+    const [bio, setBio] = useState(user ? user.bio : " ");
     const [loaded, setLoaded] = useState(false);
     const [buttonText, setButtonText] = useState("edit")
     const [editClicked, setEditClick] = useState(false);
-    const [text, setText] = useState(sessionUser.bio)
+    const [text, setText] = useState(user ? user.bio : " ")
+    const displayingBio = useRef();
 
     useEffect(() => {
-        dispatch(getCurrentUser()).then(() => setLoaded(true))
-    }, [])
+        dispatch(fetchUser(userId)).then(() => {
+            setLoaded(true);
+            displayingBio.current = true;
+        });
+    }, [dispatch])
+
+    useEffect(() => {
+        dispatch(fetchUser(userId))
+        if (displayingBio.current === true) {
+            setBio(user.bio);
+            setText(user.bio);
+        }
+    }, [displayingBio.current])
+
 
     const handleClick = (e) => {
         if (buttonText === "edit"){
@@ -25,7 +40,7 @@ const UserProfile = () => {
             setText("");
         } else {
             setButtonText("edit");
-            setText(sessionUser.bio);
+            setText(user.bio);
         }
         setEditClick(!editClicked);
     }
@@ -34,7 +49,7 @@ const UserProfile = () => {
         e.preventDefault();
         setEditClick(false);
         setButtonText("edit");
-        dispatch(updateBio(sessionUser._id, bio));
+        dispatch(updateBio(userId, bio));
         setText(bio)
         //dispatch(getCurrentUser)
     }
@@ -56,7 +71,7 @@ const UserProfile = () => {
             <div className="profile-bio-wrapper">
                 <div className="profile-bio-container">
                     <div className="profile-bio-heading-container">
-                        <h2>{sessionUser.username}</h2>
+                        <h2>{user.username}</h2>
                             <div className="profile-edit-button-container">
                                 <button className="profile-edit-button" onClick={handleClick}>
                                     {buttonText}
