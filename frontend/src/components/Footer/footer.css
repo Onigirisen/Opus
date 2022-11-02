@@ -4,13 +4,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    background-color: rgb(100, 100, 100);
-    position: relative;
+    background-color: rgb(183, 183, 183);
     width: 100%;
     height: 40px;
-    color: white;
+    margin-top: 50px;
     bottom: 0;
-    /* border: 1px solid red; */
 }
 
 .footer-navbar-column {
@@ -30,7 +28,7 @@
     /* border: 1px solid blue; */
 }
 
-.dev-container:hover{
+/* .dev-container:hover {
     background-color: rgb(88, 17, 100);
     cursor: pointer;
     display: flex;
@@ -40,13 +38,14 @@
     width: 100%;
     border-left: 1px solid grey;
     border-right: 1px solid grey;
-    /* background-image: linear-gradient(45deg, #f3ec78, #af4261);
+    color: white;
+    background-image: linear-gradient(45deg, #f3ec78, #af4261);
     background-size: 100%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent; */
-}
+    -moz-text-fill-color: transparent; 
+} */
 
 .dev-container{
     /* border: 1px solid red; */
@@ -60,7 +59,7 @@
 }
 
 .drop-up-content{
-    background-color: rgba(70, 70, 70, 0.72);
+    background-color: rgba(227, 227, 227, 0.915);
     height: 150px;
     width: 100%;
     margin-top: -150px;
@@ -72,6 +71,21 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    z-index: 999;
+
+}
+
+.column:hover .dev-container {
+    background-color: rgba(88, 17, 100, 0.835);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+    /* border-left: 1px solid grey;
+    border-right: 1px solid grey; */
+    color: white;
 }
 
 .link-list-container{
@@ -179,6 +193,8 @@
     padding-top: 5px;
     padding-left: 15px;
     width: 100%;
+    color: black;
+    text-decoration: none;
 }
 
 .linkedin-text{
@@ -187,6 +203,8 @@
     padding-top: 8px;
     padding-left: 15px;
     width: 100%;
+    color: black;
+    text-decoration: none;
 }
 
 .angel-text{
@@ -195,6 +213,8 @@
     padding-top: 5px;
     padding-left: 15px;
     width: 100%;
+    color: black;
+    text-decoration: none;
 }
 
 .developers-container{
@@ -205,7 +225,7 @@
     justify-content: center;
     align-items: center;
     height: 40px;
-    border-right: 1px solid grey;
     font-family: cursive;
     font-size: 17px;
+    color: white;
 }

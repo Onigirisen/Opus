@@ -31,7 +31,7 @@ export const fetchUsers = () => async dispatch => {
 }
 
 export const updateBio = (user_id, bio) => async dispatch => {
-    const res = await jwtFetch(`api/users/${user_id}`, {
+    const res = await jwtFetch(`/api/users/${user_id}`, {
         method: "PATCH",
         body: JSON.stringify({bio})
     });
@@ -45,8 +45,10 @@ const usersReducer = (state = {}, action) => {
     const nextState = {...state};
     switch(action.type) {
         case RECEIVE_USER: 
-            nextState[action.user.id] = action.user;
+            nextState[action.user._id] = action.user;
             return nextState;
+        case RECEIVE_USERS:
+            return {...state, ...action.users}
         default: 
             return state;
     }

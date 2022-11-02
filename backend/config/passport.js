@@ -29,7 +29,6 @@ passport.use(
 const options = {};
 options.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 options.secretOrKey = secretOrKey;
-// console.log(options.jwtFromRequest);
 passport.use(
   new JwtStrategy(options, async (jwtPayload, done) => {
     try {

@@ -8,11 +8,9 @@ const { toObjectId, normalized } = require("../../util");
 
 //An index of all chapters
 router.get("/", (req, res) => {
-  console.log(toObjectId(req.params.book_id));
   Chapter.find({ book: toObjectId(req.params.book_id) })
     .then((chapters) => res.json(normalized(chapters)))
     .catch((err) => {
-      console.log(err);
       res.status(404).json({ error: "No chapters found" });
     });
 });
@@ -35,7 +33,6 @@ router.post(
       });
 
       newChapter.save().then((chapter) => {
-        console.log(chapter);
         res.json(chapter);
       });
     }
@@ -100,7 +97,6 @@ const _checkUnique = async (req) => {
   if (chapter) {
     err = new Error("Validation Error");
     err.statusCode = 422;
-    console.log(chapter.book.toString(), req.params.book_id);
     const errors = {};
     if (
       chapter.title === req.body.title &&

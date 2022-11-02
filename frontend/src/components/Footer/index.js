@@ -7,9 +7,9 @@ import angelicon from '../../assets/footer/angellist.png'
 const Footer = ()=>{
     return(
         <>
-         <div class="footer-navbar-container">
-            <div footer-navbar-column>
-                <div class="column">
+         <div className="footer-navbar-container">
+            <div className="footer-navbar-column">
+                <div className="column">
                     <div className="developers-container">
                     Developers
                     </div>
@@ -19,22 +19,22 @@ const Footer = ()=>{
                         <div className="link-list-container">
                             <div className="git-list-container">
                                 <img className="giticon" src={giticon}/>
-                                    <div className="git-text"> 
+                                    <a className="git-text" href="https://github.com/dlaucodes"> 
                                         Github
-                                    </div>
+                                    </a>
                             </div>
 
                          <div className="linkedin-list-container">
                             <img className="linkedin" src={linkedin}/>
-                            <div className="linkedin-text">
+                            <a className="linkedin-text" href="https://www.linkedin.com/in/dlaucodes/">
                             Linkedin
-                            </div>
+                            </a>
                         </div>
                          <div className="angel-list-container">
                              <img className="angel" src={angelicon}/>
-                             <div className="angel-text">
+                             <a className="angel-text" href="https://angel.co/u/chun-k-lau">
                              AngelList
-                             </div> 
+                             </a> 
                         </div>
                         </div>
                     </div>
@@ -48,22 +48,22 @@ const Footer = ()=>{
                     <div className="drop-up-content"><div className="link-list-container">
                             <div className="git-list-container">
                                 <img className="giticon" src={giticon}/>
-                                    <div className="git-text"> 
+                                    <a className="git-text" href="https://github.com/Av1sek"> 
                                         Github
-                                    </div>
+                                    </a>
                             </div>
 
                          <div className="linkedin-list-container">
                             <img className="linkedin" src={linkedin}/>
-                            <div className="linkedin-text">
+                            <a className="linkedin-text" href="https://www.linkedin.com/in/avisek-pandit-374096247">
                             Linkedin
-                            </div>
+                            </a>
                         </div>
                          <div className="angel-list-container">
                              <img className="angel" src={angelicon}/>
-                             <div className="angel-text">
+                             <a className="angel-text" href="https://angel.co/u/avisek-pandit">
                              AngelList
-                             </div> 
+                             </a> 
                         </div>
                         </div>
                     </div>
@@ -73,25 +73,26 @@ const Footer = ()=>{
                     </div>
                 </div>
                 <div className="column">
-                    <div className="drop-up-content"><div className="link-list-container">
+                    <div className="drop-up-content">
+                        <div className="link-list-container">
                             <div className="git-list-container">
                                 <img className="giticon" src={giticon}/>
-                                    <div className="git-text"> 
+                                    <a className="git-text" href="https://github.com/Onigirisen"> 
                                         Github
-                                    </div>
+                                    </a>
                             </div>
 
                          <div className="linkedin-list-container">
                             <img className="linkedin" src={linkedin}/>
-                            <div className="linkedin-text">
+                            <a className="linkedin-text" href="https://www.linkedin.com/in/ryan-kok-6ab427b6/">
                             Linkedin
-                            </div>
+                            </a>
                         </div>
                          <div className="angel-list-container">
                              <img className="angel" src={angelicon}/>
-                             <div className="angel-text">
+                             <a className="angel-text" href="https://angel.co/u/ryan-kok">
                              AngelList
-                             </div> 
+                             </a> 
                         </div>
                         </div>
                     </div>
@@ -99,26 +100,29 @@ const Footer = ()=>{
                         Ryan
                     </div>
                 </div>
+
                 <div className="column">
-                    <div className="drop-up-content"><div className="link-list-container">
+                    <div className="drop-up-content">
+                        <div className="link-list-container">
                             <div className="git-list-container">
                                 <img className="giticon" src={giticon}/>
-                                    <div className="git-text"> 
+                                    <a className="git-text" href="https://github.com/darianchen"> 
                                         Github
-                                    </div>
+                                    </a>
                             </div>
 
                          <div className="linkedin-list-container">
-                            <img className="linkedin" src={linkedin}/>
-                            <div className="linkedin-text">
+                             <img className="linkedin" src={linkedin}/>
+                            <a className="linkedin-text" href="https://www.linkedin.com/in/darianchen">
+                    
                             Linkedin
-                            </div>
+                            </a>
                         </div>
                          <div className="angel-list-container">
                              <img className="angel" src={angelicon}/>
-                             <div className="angel-text">
+                             <a className="angel-text" href="https://angel.co/u/darian-chen">
                              AngelList
-                             </div> 
+                             </a> 
                         </div>
                         </div>
                     </div>

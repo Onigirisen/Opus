@@ -126,16 +126,32 @@
 
 .create-book-button {
     border: none;
-    background-color: purple;
+    background-color: rgb(3, 81, 159);
     color: rgb(253, 239, 198);
     font-family: cursive;
     width: 200px;
     height: 50px;
     border-radius: 10px;
+    font-size: 20px;
     margin-top: 50px;
     margin-left: 300px;
     box-shadow: 0px 0px 10px black;
 }
+
+
+.create-book-button:hover {
+    cursor: pointer;
+    background-color: rgb(2, 59, 115);
+    transition: all .2s;
+}
+
+
+.create-book-button:active {
+    cursor: pointer;
+    background-color: rgb(1, 42, 84);
+    transition: all .2s;
+}
+
 
 .colorpicker {
     position: absolute;
@@ -177,15 +193,54 @@
     z-index: 2;
     border-radius: 20px;
     box-shadow: 0px 0px 10px rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .book-created-exit-btn {
-    position: relative; 
-    left: 265px;   
+    position: absolute; 
     width: 25px;
     height: 25px;
-    margin-top: 10px;
+    margin-top: -250px;
+    margin-left: 250px;
     background-color: red;
     color: white;
     font-weight: bold;
+}
+
+.book-created-modal-text {
+    height: 200px;
+    width: 200px;
+    text-align: center;
+    font-size: 25px;
+    font-family: cursive;
+}
+
+.book-created-pfp-btn {
+    position: absolute; 
+    width: 100px;
+    height: 40px;
+    margin-top: 200px;
+    background-color: rgb(234, 189, 241);
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    font-family: cursive;
+    font-size: 18px;
+    box-shadow: 0px 0px 10px black;
+}
+
+.book-created-pfp-btn:hover {
+    cursor: pointer;
+    background-color: rgb(205, 166, 211);
+    color: white;
+    transition: all .2s;
+}
+
+.book-created-pfp-btn:active {
+    cursor: pointer;
+    background-color: rgb(171, 139, 176);
+    transition: all .2s;
 }

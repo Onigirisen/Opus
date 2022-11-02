@@ -2,7 +2,7 @@ const express = require("express");
 const passport = require("passport");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
-const {requireUser} = require('../../config/passport')
+// const {requireUser} = require('../../config/passport')
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const Book = mongoose.model("Book");
@@ -12,13 +12,6 @@ const { loginUser, restoreUser } = require("../../config/passport");
 const { isProduction } = require("../../config/keys");
 const { normalized } = require("../../util");
 const { update } = require("../../models/User");
-
-/* GET users listing. */
-router.get("/", function (req, res, next) {
-  res.json({
-    message: "GET /api/users",
-  });
-});
 
 // POST /api/users/register
 router.post("/register", validateRegisterInput, async (req, res, next) => {
@@ -91,36 +84,37 @@ router.get("/current", restoreUser, (req, res) => {
     _id: req.user._id,
     username: req.user.username,
     email: req.user.email,
-    bio: req.user.bio
+    bio: req.user.bio,
   });
 });
 
+router.get("/", (req, res) => {
+  User.find()
+    .then((users) => res.json(normalized(users)))
+    .catch((err) => res.status(404).json({ error: "No users found" }));
+});
 
-router.get("/users",
-  //passport.authenticate("jwt", { session: false }), //requireUser,
-  (req, res) => {
-    try {
-      const users = User.find();
-
-      return req.json(users);
-    }
-    catch (err) {
-      res.json(err);
-    }
-  }
-);
 
 //An index of all public books
 router.get(
   "/books",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    console.log(req.user);
     Book.find({ user: req.user._id })
       .then((books) => res.json(normalized(books)))
       .catch((err) => res.status(404).json({ error: "No books found" }));
   }
 );
+
+router.get("/:user_id", (req, res) => {
+  User.findById(req.params.user_id)
+    .then((user) => res.json(user))
+    .catch((err) =>
+      res.status(404).json({ error: "No user found with that ID" })
+    );
+  }
+)
+
 
 // router.patch("/:book_id", validateBookInput, async (req, res) => {
 //   await passport.authenticate("jwt", { session: false });
@@ -132,12 +126,11 @@ router.get(
 // });
 
 // router.patch('/:user_id', async (req, res, next) => {
-  
+
 //   const user_id = req.params.user_id;
 //   const user = User.findOne({_id: user_id});
 //   user.update({bio: req.body});
 // });
-
 
 router.patch("/:user_id", async (req, res) => {
   await User.findByIdAndUpdate(req.params.user_id, req.body, (err) => {
