@@ -27,7 +27,7 @@ function App() {
         <NavBar />
         <Switch>
           <Route exact path="/" component={SplashPage} />
-          <ProtectedRoute exact path="/profile" component={UserProfile} />
+          <ProtectedRoute exact path="/profile/:userId" component={UserProfile} />
           <Route exact path="/books" component={BooksIndex} />
           <Route exact path="/books/read" component={BookComponent}></Route>
           <Route exact path="/books/:bookId" component={BookShow} />

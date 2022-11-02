@@ -12,6 +12,7 @@ function NavBar() {
   const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
   const loggedIn = useSelector((state) => !!state.session.user);
+  const sessionUser = useSelector(state => state.session.user)
   // const sessionUser = useSelector(state => state.session.user)
 
   const logoutUser = (e) => {
@@ -43,7 +44,7 @@ function NavBar() {
         </div>
         <div className="topnav-profile-container">
           {loggedIn ? (
-            <NavLink className="nav-navlink" to="/profile">
+            <NavLink className="nav-navlink" to={`/profile/${sessionUser._id}`}>
               Profile
             </NavLink>
           ) : (

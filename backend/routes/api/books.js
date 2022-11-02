@@ -10,7 +10,7 @@ const { normalized } = require("../../util");
 
 //An index of all public books
 router.get("/", (req, res) => {
-  Book.find({ public: true })
+  Book.find()
     .then((books) => res.json(normalized(books)))
     .catch((err) => res.status(404).json({ error: "No books found" }));
 });

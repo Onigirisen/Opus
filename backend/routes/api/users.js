@@ -13,13 +13,6 @@ const { isProduction } = require("../../config/keys");
 const { normalized } = require("../../util");
 const { update } = require("../../models/User");
 
-/* GET users listing. */
-router.get("/", function (req, res, next) {
-  res.json({
-    message: "GET /api/users",
-  });
-});
-
 // POST /api/users/register
 router.post("/register", validateRegisterInput, async (req, res, next) => {
   // Check to make sure no one has already registered with the proposed email or
@@ -95,19 +88,12 @@ router.get("/current", restoreUser, (req, res) => {
   });
 });
 
-router.get(
-  "/users",
-  //passport.authenticate("jwt", { session: false }), //requireUser,
-  (req, res) => {
-    try {
-      const users = User.find();
+router.get("/", (req, res) => {
+  User.find()
+    .then((users) => res.json(normalized(users)))
+    .catch((err) => res.status(404).json({ error: "No users found" }));
+});
 
-      return req.json(users);
-    } catch (err) {
-      res.json(err);
-    }
-  }
-);
 
 //An index of all public books
 router.get(
@@ -119,6 +105,16 @@ router.get(
       .catch((err) => res.status(404).json({ error: "No books found" }));
   }
 );
+
+router.get("/:user_id", (req, res) => {
+  User.findById(req.params.user_id)
+    .then((user) => res.json(user))
+    .catch((err) =>
+      res.status(404).json({ error: "No user found with that ID" })
+    );
+  }
+)
+
 
 // router.patch("/:book_id", validateBookInput, async (req, res) => {
 //   await passport.authenticate("jwt", { session: false });
