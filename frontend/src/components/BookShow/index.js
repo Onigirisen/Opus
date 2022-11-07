@@ -34,7 +34,7 @@ const BookShow = () => {
             <div className="create-book-title">{book.title}</div>
             <div className="create-book-genre">genre: {book.genre}</div>
             {Object.keys(users).forEach((user) => {if (book.user === users[user]._id) {authorName = users[user].username}})}
-            <div className="books-index-author">Author: {authorName}</div>
+            <div className="books-show-author" onClick={() => history.push(`/profile/${book.user}`)}>Author: {authorName}</div>
           </div>
         </div>
         <div className="create-book-form">

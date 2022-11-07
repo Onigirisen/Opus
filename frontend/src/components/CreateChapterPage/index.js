@@ -11,19 +11,11 @@ const CreateChapterPage = () => {
     const { bookId } = useParams();
 
     const handleSubmit = (e) => {
-
-        //e.PreventDefault();
-        const chapter = {title: title, chapterNumber: chapterNumber};
-        dispatch(createChapter(bookId, chapter));
-    }
-
-
-  const handleSubmit = (e) => {
-    debugger;
-    //e.PreventDefault();
-    const chapter = { title: title, chapterNumber: chapterNumber };
-    dispatch(createChapter(bookId, chapter));
-  };
+      debugger;
+      //e.PreventDefault();
+      const chapter = { title: title, chapterNumber: chapterNumber };
+      dispatch(createChapter(bookId, chapter));
+    };
 
   return (
     <div className="create-chapter-div">
@@ -52,17 +44,3 @@ const CreateChapterPage = () => {
 };
 
 export default CreateChapterPage;
-
-// return loaded && (
-//     <>
-//       <NavBar />
-//       <Switch>
-//         <Route exact path="/" component={SplashPage} />
-//         <ProtectedRoute exact path="/profile" component={UserProfile} />
-//         <Route exact path="/books" component={BooksIndex} />
-//         <Route exact path="/books/read" component={BookComponent}></Route>
-//         <Route exact path="/books/:bookId" component={BookShow} />
-//         <ProtectedRoute exact path="/book/create" component={CreateBookPage} />
-//       </Switch>
-//       <Footer />
-//     </>
