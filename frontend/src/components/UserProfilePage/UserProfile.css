@@ -11,15 +11,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* justify-content: center; */
-    /* flex-direction: column; */
-    /* background-image: -webkit-linear-gradient(45deg, #074a47 50%, #ffffff 50%); */
     min-width: 300px;
     width: 100%;
     height: 500px;
-    /* margin: 0; */
-    /* border: rgb(0, 0, 0) 1px solid; */
-    /* z-index: 10; */
     overflow-x: hidden;
     overflow-y: hidden;
     border-radius: 12px;

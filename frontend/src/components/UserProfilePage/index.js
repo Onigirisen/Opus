@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import './UserProfile.css'
 import profilePic from '../../assets/profile/goat.jpeg'
 import editCamera from '../../assets/profile/cameratrans.png'
-import { fetchUser, fetchUsers, getUser, updateBio } from "../../store/users";
-import { getCurrentUser } from "../../store/session";
+import { fetchUser, getUser, updateBio } from "../../store/users";
 import { useParams } from "react-router-dom";
 
 const UserProfile = () => {
@@ -95,7 +94,10 @@ const UserProfile = () => {
             </div>
  
         </div>
-        <div className="spacing-top"></div>
+            <div className="spacing-top"></div>
+        </div>
+        <div className="user-profile-books">
+            <div className="user-profile-select-books">All | Public | Private </div>
         </div>
     </>
     )
