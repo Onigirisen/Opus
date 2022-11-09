@@ -53,6 +53,12 @@ const UserProfile = () => {
         //dispatch(getCurrentUser)
     }
 
+
+    const cameraClick = (e) => {
+        debugger
+        document.querySelector(".cameraInput").click();
+    }
+
     return loaded && (
         <>
         <div className="body-container">
@@ -64,7 +70,8 @@ const UserProfile = () => {
                 <img src={profilePic} alt="" />
             </div>
             <div className="profile-picture-edit-container">
-                <img src={editCamera} alt=""/>
+                <img src={editCamera} className="camera" alt="camera" onClick={cameraClick}/>
+                <input className="cameraInput" type="file"/>
             </div>
         </div>
             <div className="profile-bio-wrapper">
