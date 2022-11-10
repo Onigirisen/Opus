@@ -15,6 +15,7 @@ import { Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import CreateChapterPage from "./components/CreateChapterPage";
 import CreatePagesPage from "./components/CreatePagesPage";
+import EditBookPage from "./components/EditBookPage";
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
             path="/book/create"
             component={CreateBookPage}
           />
+          <ProtectedRoute exact path="/books/:bookId/edit" component={EditBookPage} />
         </Switch>
         <Footer />
       </>

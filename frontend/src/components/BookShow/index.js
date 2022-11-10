@@ -23,6 +23,10 @@ const BookShow = () => {
     dispatch(fetchUsers());
   }, []);
 
+  const handleEdit = e => {
+    history.push(`/books/${bookId}/edit`)
+  }
+
   let authorName = "";
 
   return (
@@ -41,11 +45,11 @@ const BookShow = () => {
             <div className="books-show-author" onClick={() => history.push(`/profile/${book.user}`)}>Author: {authorName}</div>
 
             {sessionUser._id === book.user ? 
-              <div className="book-show-edit-button">
+              <div className="book-show-edit-button" onClick={handleEdit}>
                 Edit Book
               </div> 
             : <></>} 
-            
+
           </div>
         </div>
         <div className="create-book-form">
