@@ -23,6 +23,7 @@ const userSchema = Schema(
     profilePictureUrl: {
       type: String,
       required: false,
+      default: 'https://opus-seed-profile-pictures.s3.amazonaws.com/default+photo.png'
     },
     books: [
       {
