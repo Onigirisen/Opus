@@ -1,40 +1,73 @@
-const aws = require("aws-sdk");
-const multer = require("multer");
-const multerS3 = require("multer-s3");
+const express = require('express');
+const router = express.Router();
+const mongoose = require('mongoose');
+const User = mongoose.model('User');
+const { S3Client } = require('@aws-sdk/client-s3');
+const multer = require('multer');
+const multerS3 = require('multer-s3');
 
-const User = require("../../models/User")
+const s3 = new S3Client({
+   region: process.env.S3_BUCKET_REGION,
+   credentials: {
+      accessKeyId: process.env.S3_ACCESS_KEY,
+      secretAccessKey: process.env.S3_SECRET_ACCESS_KEY
+   }
+})
 
-const s3 = new aws.S3({
-    accessKeyId: process.env.S3_ACCESS_KEY,
-    secretAccess: process.env.S3_SECRET_ACCESS_KEY,
-    region: process.env.S3_BUCKET_REGION
-});
-
-const upload = (bucketName) =>  
-    multer({
+const upload = multer({
     storage: multerS3({
         s3,
-        bucket:bucketName,
-        metadata: (req, file, callback) => {
-            callback(null, { fieldName: file.fieldname });
+        bucket: 'opus-seed-profile-pictures',
+        metadata: function (req, file, cb) {
+            cb(null, { fieldName: file.fieldname})
         },
-        key: (req, file, callback) => {
-            callback(null, `image-${Date.now()}.jpeg`);
-        }, 
-    }),
-});
+        key: function (req, file, cb) {
+            cb (null, "image" + ".jpeg");
+        }
+    })
+})
 
-exports.setProfilePic =  (req, res, next) => {
-    const uploadSingle = upload("opus-seed-profile-pictures").single(
-        "image-upload"
-    );
+const singleUpload = upload.single("image-upload");
 
-    uploadSingle(req, res, async (err) => {
-        if (err)
-            return res.status(400).json({success: false, message: err.message});
+
+// router.post('/upload', upload.single("image-upload"), async (req, res) => {
+//     console.log(req.file.location);
+//     const user = await User.findById(req.body.uploaderId);
+//     user.profilePictureUrl = req.file.location;
+//     user.save();
+// })
+
+router.post("/upload", function (req, res) {
         
-        await User.create({profilePictureUrl: req.file.location });
+    singleUpload(req, res, function (err) {
+      if (err) {
+        return res.json({
+          success: false,
+          errors: {
+            title: "Image Upload Error",
+            detail: err.message,
+            error: err,
+          },
+        });
+      }
+  
+      let profilePictureUrl = { profilePictureUrl: req.file.location.replace('opus-seed-profile-pictures.opus-seed-profile-pictures.','opus-seed-profile-pictures.') };
+      //console.log("URL>>>>>",profilePictureUrl);
+      //console.log("REQ", req.file)
 
-        res.status(200).json({ data: req.files.location });
+      User.findByIdAndUpdate(req.body.uploaderId, profilePictureUrl)
+        .then((user) => res.status(200).json({ success: true, user: user }))
+        .catch((err) => res.status(400).json({ success: false, error: err }));
     });
-};
+  });
+
+
+
+// router.post('/upload', upload.single("image-upload"), async (req, res) => {
+//     console.log(req.file.location);
+//     const user = await User.findById(req.body.uploaderId);
+//     user.profilePictureUrl = req.file.location;
+//     user.save();
+// })
+
+module.exports = router;

@@ -5,6 +5,7 @@ import profilePic from '../../assets/profile/goat.jpeg'
 import editCamera from '../../assets/profile/cameratrans.png'
 import { fetchUser, getUser, updateBio } from "../../store/users";
 import { useParams } from "react-router-dom";
+import { uploadPic } from "../../store/pics";
 
 const UserProfile = () => {
     const { userId } = useParams();
@@ -16,6 +17,13 @@ const UserProfile = () => {
     const [editClicked, setEditClick] = useState(false);
     const [text, setText] = useState(user ? user.bio : " ")
     const displayingBio = useRef();
+    const [profilePic, setProfilePic] = useState(user ? user.profilePictureUrl : "");
+    
+ 
+
+    useEffect(() => {
+        dispatch(fetchUser(userId))
+    }, [])
 
     useEffect(() => {
         dispatch(fetchUser(userId)).then(() => {
@@ -50,14 +58,25 @@ const UserProfile = () => {
         setButtonText("edit");
         dispatch(updateBio(userId, bio));
         setText(bio)
-        //dispatch(getCurrentUser)
     }
 
 
     const cameraClick = (e) => {
-        debugger
         document.querySelector(".cameraInput").click();
     }
+
+    const picSubmit = async (e) => {
+        await dispatch(uploadPic({
+            pic: e.currentTarget.files[0],
+            uploaderId: user._id
+        }))
+        setTimeout(refresh, 3000);
+    }
+
+    const refresh = () => {
+        window.location.reload();
+    }
+
 
     return loaded && (
         <>
@@ -67,11 +86,11 @@ const UserProfile = () => {
     <div className="profile-body-container">
         <div className="profile-picture-wrapper">
             <div className="profile-picture-container">
-                <img src={profilePic} alt="" />
+                <img src={user.profilePictureUrl} alt="" />
             </div>
             <div className="profile-picture-edit-container">
                 <img src={editCamera} className="camera" alt="camera" onClick={cameraClick}/>
-                <input className="cameraInput" type="file"/>
+                <input className="cameraInput" type="file" onChange={picSubmit}/>
             </div>
         </div>
             <div className="profile-bio-wrapper">
@@ -79,7 +98,7 @@ const UserProfile = () => {
                     <div className="profile-bio-heading-container">
                         <h2>{user.username}</h2>
                             <div className="profile-edit-button-container">
-                                <button className="profile-edit-button" onClick={handleClick}>
+                                <button className="profile-edit-button" onClick={picSubmit}>
                                     {buttonText}
                                 </button>
                             </div>
