@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 // import Modal from '../../Modal/Modal'
 import { fetchBook } from "../../store/books";
+import { getCurrentUser } from "../../store/session";
 import { fetchUsers, getUser, getUsers } from "../../store/users";
 import "./BookShow.css";
 
 const BookShow = () => {
   const dispatch = useDispatch();
+  const sessionUser = useSelector((state) => state.session.user);
   const users = useSelector(getUsers)
   const history = useHistory();
   const [loaded, setLoaded] = useState(false);
@@ -16,6 +18,7 @@ const BookShow = () => {
   const book = books[bookId];
 
   useEffect(() => {
+    dispatch(getCurrentUser())
     dispatch(fetchBook(bookId)).then(() => setLoaded(true));
     dispatch(fetchUsers());
   }, []);
@@ -24,6 +27,7 @@ const BookShow = () => {
 
   return (
     loaded && (
+      <>
       <div className="create-book-container">
         <div
           className="create-book-cover"
@@ -35,6 +39,13 @@ const BookShow = () => {
             <div className="create-book-genre">genre: {book.genre}</div>
             {Object.keys(users).forEach((user) => {if (book.user === users[user]._id) {authorName = users[user].username}})}
             <div className="books-show-author" onClick={() => history.push(`/profile/${book.user}`)}>Author: {authorName}</div>
+
+            {sessionUser._id === book.user ? 
+              <div className="book-show-edit-button">
+                Edit Book
+              </div> 
+            : <></>} 
+            
           </div>
         </div>
         <div className="create-book-form">
@@ -69,6 +80,7 @@ const BookShow = () => {
           </button>
         </div>
       </div>
+      </>
     )
   );
 };

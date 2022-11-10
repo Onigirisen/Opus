@@ -46,3 +46,31 @@
     color: rgb(112, 112, 232);
     transition: all .1s;
 }
+
+.book-show-edit-button {
+    position: absolute;
+    border: none;
+    background-color: red;
+    font-size: 20px;
+    color: rgb(253, 239, 198);
+    font-family: cursive;
+    width: 125px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 600px;
+    box-shadow: 0px 0px 5px black;
+    user-select: none;
+}
+
+.book-show-edit-button:hover {
+    background-color: rgb(225, 3, 3);
+    color: rgb(250, 244, 224);
+    cursor: pointer;
+}
+
+.book-show-edit-button:active {
+    background-color: rgb(180, 3, 3);
+    color: rgb(254, 252, 245);
+}
