@@ -1,18 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import Modal from "../../Modal/Modal";
-import { createBook } from "../../store/books";
+import { fetchBook, deleteBook, updateBook } from "../../store/books";
 import "./EditBookPage.css";
 
 const EditBookPage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const { bookId } = useParams();
+  const book = useSelector(state => state.books)[bookId]
   const sessionUser = useSelector((state) => state.session.user);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [coverColor, setCoverColor] = useState("#F8AAAA");
-  const [bookTitle, setBookTitle] = useState("Insert Title");
-  const [genre, setGenre] = useState("Fiction");
+  const [loaded,setLoaded] = useState(false);
+  const [coverColor, setCoverColor] = useState(" ");
+  const [bookTitle, setBookTitle] = useState(" ");
+  const [genre, setGenre] = useState(" ");
+  const loadedBook = useRef();
+
+  useEffect(() => {
+    dispatch(fetchBook(bookId)).then(() => {
+      setLoaded(true);
+      loadedBook.current = true;
+    });
+  }, []) 
+
+  useEffect(() => {
+    dispatch(fetchBook(bookId));
+    if (loadedBook.current) {
+      setCoverColor(book.coverColor);
+      setBookTitle(book.title);
+      setGenre(book.genre);
+    }
+  }, [loadedBook.current])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,39 +39,19 @@ const EditBookPage = () => {
       title: bookTitle,
       coverColor: coverColor,
       genre: genre,
-      user: sessionUser._id,
       public: true,
     };
-    dispatch(createBook(book));
-    setModalOpen(true);
+    dispatch(updateBook(book));
+    history.push(`/books`);
   };
 
-  const handleModalClose = () => {
-    setModalOpen(false);
-  };
+  const bookDelete = (e) => {
+    dispatch(deleteBook(bookId));
+    history.push(`/profile/${sessionUser._id}`);
+  }
 
-  const redirPfp = () => {
-    setModalOpen(false);
-    history.push(`/profile/`);
-  };
-
-  return (
+  return loaded && (
     <>
-      <Modal modalOpen={modalOpen} modalClose={handleModalClose}>
-        <div className="book-created-div">
-          <button className="book-created-exit-btn" onClick={handleModalClose}>
-            X
-          </button>
-          <div className="book-created-modal-text">
-            {bookTitle} has been created. Go to your profile page to check it
-            out.
-          </div>
-          <button className="book-created-pfp-btn" onClick={redirPfp}>
-            Visit Page
-          </button>
-        </div>
-      </Modal>
-
       <div className="create-book-container">
         <div
           className="create-book-cover"
@@ -71,7 +70,7 @@ const EditBookPage = () => {
                 type="color"
                 className="colorpicker"
                 onChange={(e) => setCoverColor(e.target.value)}
-                defaultValue={"#F8AAAA"}
+                defaultValue={book.coverColor}
               />
             </div>
           </div>
@@ -99,8 +98,11 @@ const EditBookPage = () => {
               spellCheck="false"
             ></textarea>
           </div>
-          <button type="submit" className="create-book-button">
-            Create Book
+          <button type="submit" className="edit-book-button">
+            Edit Book
+          </button>
+          <button className="delete-book-button" onClick={bookDelete}>
+            Delete Book
           </button>
         </form>
       </div>

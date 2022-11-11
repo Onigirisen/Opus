@@ -167,10 +167,6 @@
     margin-left: -50px;
 }
 
-.create-book-button:hover {
-    cursor: pointer;
-}
-
 .create-book-genre-div {
     font-weight: bold;
 }

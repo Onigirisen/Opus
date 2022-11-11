@@ -13,14 +13,15 @@ const BookShow = () => {
   const users = useSelector(getUsers)
   const history = useHistory();
   const [loaded, setLoaded] = useState(false);
+  const [usersLoaded, setUsersLoaded] = useState(false);
   const books = useSelector((state) => state.books);
   const { bookId } = useParams();
   const book = books[bookId];
 
   useEffect(() => {
     dispatch(getCurrentUser())
+    dispatch(fetchUsers()).then(() => setUsersLoaded(true));
     dispatch(fetchBook(bookId)).then(() => setLoaded(true));
-    dispatch(fetchUsers());
   }, []);
 
   const handleEdit = e => {
@@ -30,7 +31,7 @@ const BookShow = () => {
   let authorName = "";
 
   return (
-    loaded && (
+    loaded && usersLoaded && (
       <>
       <div className="create-book-container">
         <div
@@ -44,7 +45,7 @@ const BookShow = () => {
             {Object.keys(users).forEach((user) => {if (book.user === users[user]._id) {authorName = users[user].username}})}
             <div className="books-show-author" onClick={() => history.push(`/profile/${book.user}`)}>Author: {authorName}</div>
 
-            {sessionUser._id === book.user ? 
+            {sessionUser && sessionUser._id === book.user ? 
               <div className="book-show-edit-button" onClick={handleEdit}>
                 Edit Book
               </div> 
