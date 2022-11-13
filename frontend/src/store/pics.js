@@ -12,8 +12,8 @@ export const receivePic = picData => ({
 export const uploadPic = picData => async dispatch => {
     const { pic, uploaderId} = picData
     const formData = new FormData();
-    formData.append("image-upload", pic);
     formData.append("uploaderId", uploaderId);
+    formData.append("image-upload", pic);
     const res = await jwtFetch('/api/profilePicture/upload', {
         method: 'POST',
         body: formData

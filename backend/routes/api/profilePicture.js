@@ -22,14 +22,14 @@ const upload = multer({
             cb(null, { fieldName: file.fieldname})
         },
         key: function (req, file, cb) {
-            cb (null, "image" + ".jpeg");
+            cb (null, "image" + req.body.uploaderId);
         }
     })
 })
 
 const singleUpload = upload.single("image-upload");
 
-
+//Old code to refer to
 // router.post('/upload', upload.single("image-upload"), async (req, res) => {
 //     console.log(req.file.location);
 //     const user = await User.findById(req.body.uploaderId);
@@ -38,9 +38,8 @@ const singleUpload = upload.single("image-upload");
 // })
 
 router.post("/upload", function (req, res) {
-        
     singleUpload(req, res, function (err) {
-      if (err) {
+          if (err) {
         return res.json({
           success: false,
           errors: {
@@ -52,22 +51,10 @@ router.post("/upload", function (req, res) {
       }
   
       let profilePictureUrl = { profilePictureUrl: req.file.location.replace('opus-seed-profile-pictures.opus-seed-profile-pictures.','opus-seed-profile-pictures.') };
-      //console.log("URL>>>>>",profilePictureUrl);
-      //console.log("REQ", req.file)
-
       User.findByIdAndUpdate(req.body.uploaderId, profilePictureUrl)
         .then((user) => res.status(200).json({ success: true, user: user }))
         .catch((err) => res.status(400).json({ success: false, error: err }));
     });
   });
-
-
-
-// router.post('/upload', upload.single("image-upload"), async (req, res) => {
-//     console.log(req.file.location);
-//     const user = await User.findById(req.body.uploaderId);
-//     user.profilePictureUrl = req.file.location;
-//     user.save();
-// })
 
 module.exports = router;

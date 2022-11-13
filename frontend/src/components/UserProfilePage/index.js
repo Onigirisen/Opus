@@ -20,9 +20,9 @@ const UserProfile = () => {
     const [profilePic, setProfilePic] = useState(user ? user.profilePictureUrl : "");
     
  
-    useEffect(() => {
-        dispatch(fetchUser(userId))
-    }, [])
+    // useEffect(() => {
+    //     dispatch(fetchUser(userId))
+    // }, [])
 
     useEffect(() => {
         dispatch(fetchUser(userId)).then(() => {
@@ -69,7 +69,7 @@ const UserProfile = () => {
             pic: e.currentTarget.files[0],
             uploaderId: user._id
         }))
-        setTimeout(refresh, 3000);
+        setTimeout(refresh, 1000);
     }
 
     const refresh = () => {
@@ -85,7 +85,7 @@ const UserProfile = () => {
     <div className="profile-body-container">
         <div className="profile-picture-wrapper">
             <div className="profile-picture-container">
-                <img src={user.profilePictureUrl} alt="" />
+                <img src={user.profilePictureUrl} alt="profile picture" />
             </div>
             <div className="profile-picture-edit-container">
                 <img src={editCamera} className="camera" alt="camera" onClick={cameraClick}/>
