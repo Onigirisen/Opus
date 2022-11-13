@@ -15,16 +15,19 @@ async function jwtFetch(url, options = {}) {
   // Set the "Authorization" header to the value of "jwtToken" in localStorage.
   const jwtToken = localStorage.getItem("jwtToken");
 
+
   options.headers["Authorization"] = "bearer " + jwtToken;
-  
-  // If the options.method is not 'GET', then set the "Content-Type" header to
+
+      // If the options.method is not 'GET', then set the "Content-Type" header to
   // "application/json".
-   if (options.method.toUpperCase() !== "GET") {
-    options.headers["Content-Type"] =
-      options.headers["Content-Type"] || "application/json";
-    options.headers["CSRF-Token"] = getCookie("CSRF-TOKEN");
+  if (options.method.toUpperCase() !== "GET") {
+    if (!options.headers['Content-Type'] && !(options.body instanceof FormData)) {
+      options.headers['Content-Type'] = 'application/json';
+    }
+      options.headers["CSRF-Token"] = getCookie("CSRF-TOKEN");
   }
 
+  
   // Call fetch with the url and the updated options hash.
   const res = await fetch(url, options);
 
