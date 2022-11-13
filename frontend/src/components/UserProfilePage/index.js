@@ -20,7 +20,6 @@ const UserProfile = () => {
     const [profilePic, setProfilePic] = useState(user ? user.profilePictureUrl : "");
     
  
-
     useEffect(() => {
         dispatch(fetchUser(userId))
     }, [])
