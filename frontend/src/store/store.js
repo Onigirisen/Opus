@@ -6,7 +6,11 @@ import users from "./users";
 import books from "./books";
 import chapters from "./chapters";
 import pages from "./pages";
+
 import pics from "./pics";
+
+import reviews from "./reviews";
+
 // import jwtFetch from './jwt';
 
 const rootReducer = combineReducers({
@@ -16,7 +20,8 @@ const rootReducer = combineReducers({
   books,
   chapters,
   pages,
-  pics
+  pics,
+  reviews
 });
 
 let enhancer;
