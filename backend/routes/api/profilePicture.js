@@ -22,7 +22,7 @@ const upload = multer({
             cb(null, { fieldName: file.fieldname})
         },
         key: function (req, file, cb) {
-            cb (null, "image" + req.body.uploaderId);
+            cb (null, "" + req.body.uploaderId + "." + file.fieldname);
         }
     })
 })
