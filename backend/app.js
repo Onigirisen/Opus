@@ -20,6 +20,7 @@ const booksRouter = require("./routes/api/books");
 const chaptersRouter = require("./routes/api/chapters");
 const pagesRouter = require("./routes/api/pages");
 const reviewsRouter = require("./routes/api/reviews");
+const profilePictureRouter = require("./routes/api/profilePicture")
 
 const app = express();
 
@@ -56,6 +57,7 @@ app.use("/api/books", booksRouter);
 app.use("/api/books/:book_id/reviews", reviewsRouter);
 app.use("/api/books/:book_id/chapters", chaptersRouter);
 app.use("/api/books/:book_id/chapters/:chapter_id/pages", pagesRouter);
+app.use("/api/profilePicture", profilePictureRouter)
 
 if (isProduction) {
   const path = require("path");

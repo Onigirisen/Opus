@@ -7,6 +7,7 @@ import books from "./books";
 import chapters from "./chapters";
 import pages from "./pages";
 import reviews from "./reviews";
+import pics from "./pics";
 // import jwtFetch from './jwt';
 
 const rootReducer = combineReducers({
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   books,
   chapters,
   pages,
-  reviews
+  reviews,
+  pics
 });
 
 let enhancer;
