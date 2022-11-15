@@ -28,7 +28,7 @@ export const fetchChapter = (bookId, chapterId)  => async dispatch => {
 export const fetchChapters = (bookId) => async dispatch => {
     const res = await jwtFetch(`/api/books/${bookId}/chapters`);
     const data = await res.json();
-    dispatch(receiveChapters(data.chapters));
+    dispatch(receiveChapters(data));
 };
 
 export const createChapter = (bookId, chapter) => async (dispatch) => {

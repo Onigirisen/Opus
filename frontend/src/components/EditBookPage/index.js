@@ -36,13 +36,14 @@ const EditBookPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const book = {
+      _id: bookId,
       title: bookTitle,
       coverColor: coverColor,
       genre: genre,
       public: true,
     };
     dispatch(updateBook(book));
-    history.push(`/books`);
+    history.push(`/books/${bookId}`);
   };
 
   const bookDelete = (e) => {

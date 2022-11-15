@@ -7,6 +7,8 @@ import { getCurrentUser } from "../../store/session";
 import { fetchUsers, getUser, getUsers } from "../../store/users";
 import "./BookShow.css";
 
+import ChaptersIndex from "./chapters";
+
 const BookShow = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
@@ -85,6 +87,7 @@ const BookShow = () => {
           </button>
         </div>
       </div>
+      <ChaptersIndex />
       </>
     )
   );
