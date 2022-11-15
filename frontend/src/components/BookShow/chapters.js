@@ -14,12 +14,19 @@ const ChaptersIndex = () => {
     dispatch(fetchChapters(bookId)).then(() => setLoaded(true));
   }, []);
 
-  console.log(chapters);
+  const chaptersList = Object.values(chapters).map((chapter) => (
+    <div>
+        {chapter._id}
+    </div>
+  ))
+  
 
   return loaded && (
-      <>
-      <div className="chapters"></div>
-      </>
+    <div className="chapters-container">
+        <div className="chapters">
+            {chaptersList}
+        </div>
+    </div>
   );
 };
 
