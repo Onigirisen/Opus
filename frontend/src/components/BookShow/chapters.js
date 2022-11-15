@@ -15,7 +15,7 @@ const ChaptersIndex = () => {
   }, []);
 
   const chaptersList = Object.values(chapters).map((chapter) => (
-    <div>
+    <div key={chapter._id}>
         {chapter._id}
     </div>
   ))
@@ -23,9 +23,11 @@ const ChaptersIndex = () => {
 
   return loaded && (
     <div className="chapters-container">
-        <div className="chapters">
-            {chaptersList}
+        <div className="chapters-header">
+            <div className="chapters-header-text">Chapters</div>
+            <div className="chapters-create">+</div>
         </div>
+            {chaptersList}
     </div>
   );
 };
