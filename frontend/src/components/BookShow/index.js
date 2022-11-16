@@ -35,7 +35,7 @@ const BookShow = () => {
   return (
     loaded && usersLoaded && (
       <>
-      <div className="create-book-container">
+      <div className="book-show-container">
         <div
           className="create-book-cover"
           style={{ backgroundColor: book.coverColor }}
