@@ -10,14 +10,18 @@ const ChaptersIndex = () => {
     const dispatch = useDispatch();
     const [loaded, setLoaded] = useState(false);
     const [createOpen, setCreateOpen] = useState(false);
-    const [updatingCh, setUpdatingCh] = useState(false);
+    const [chUpdated, setChUpdated] = useState(false);
     const chapters = useSelector((state) => state.chapters);
     const { bookId } = useParams();
-  
+    
     useEffect(() => {
         dispatch(fetchChapters(bookId)).then(() => setLoaded(true));
     }, []);
-    
+
+    useEffect(() => {
+        dispatch(fetchChapters(bookId));
+    }, [chUpdated]);
+
     const chaptersArr = [];
 
     Object.values(chapters).forEach((chapter) => {if (chapter.book === bookId && !chaptersArr.includes(chapter)) chaptersArr.push(chapter)})
@@ -31,18 +35,13 @@ const ChaptersIndex = () => {
                 chaptersArr.forEach((updatedChapter) => {
                     if (updatedChapter.chapterNumber > chapter.chapterNumber) {
                         const newChNum = {title: updatedChapter.title, chapterNumber: (updatedChapter.chapterNumber - 1)}
-                        dispatch(updateChapter(bookId, updatedChapter._id, newChNum))
+                        dispatch(updateChapter(bookId, updatedChapter._id, newChNum));
                     }
                 })
-                dispatch(deleteChapter(bookId, chapter._id))
-                setUpdatingCh(!updatingCh);
+                dispatch(deleteChapter(bookId, chapter._id)).then(() => setChUpdated(!chUpdated));
             }}>X</div>
         </div>
     ))
-
-    useEffect(() => {
-        dispatch(fetchChapters(bookId))
-    }, [updatingCh])
 
     return loaded && (
         <>
