@@ -6,15 +6,17 @@ import "./CreateChapterPage.css";
 
 const CreateChapterPage = () => {
   const [title, setTitle] = useState();
-  const [chapterNumber, setChapterNumber] = useState();
   const chapters = useSelector(state => state.chapters)
   const dispatch = useDispatch();
   const { bookId } = useParams();
 
+  const chaptersArr = [];
+  
+  Object.values(chapters).forEach((chapter) => {if (chapter.book === bookId && !chaptersArr.includes(chapter)) chaptersArr.push(chapter)})
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const chapter = { title: title, chapterNumber: chapterNumber };
-    console.log(bookId + "Chapter");
+    const chapter = { title: title, chapterNumber: (chaptersArr.length + 1).toString() };
     dispatch(createChapter(bookId, chapter));
   };
 
@@ -26,14 +28,6 @@ const CreateChapterPage = () => {
           <input
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Enter a title"
-          ></input>
-        </label>
-
-        <label>
-          Chapter Number:
-          <input
-            onChange={(e) => setChapterNumber(e.target.value)}
-            placeholder="Enter a chapter number"
           ></input>
         </label>
       <button type="submit" className="chapter-add-btn">Add Chapter</button>
