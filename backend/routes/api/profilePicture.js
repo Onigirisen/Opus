@@ -18,11 +18,14 @@ const upload = multer({
     storage: multerS3({
         s3,
         bucket: 'opus-seed-profile-pictures',
+        contentType: function(rq, file, cb){
+            cb(null, file.fieldName);
+        },
         metadata: function (req, file, cb) {
-            cb(null, { fieldName: file.fieldname})
+            cb(null, { fieldName: file.fieldname});
         },
         key: function (req, file, cb) {
-            cb (null, "" + req.body.uploaderId + "." + file.fieldname);
+            cb (null, "" + req.body.uploaderId);
         }
     })
 })
