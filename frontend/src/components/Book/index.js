@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PageShow from "../PageShow";
 import './book.css'
 
 const BookComponent = () => {
@@ -33,6 +34,7 @@ const BookComponent = () => {
     
     return (
         <>
+            <PageShow></PageShow>
             <div className="book-container">
                 <div className="book-cover">
                     <div className="left-page">

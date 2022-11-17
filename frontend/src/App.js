@@ -29,7 +29,7 @@ function App() {
         <NavBar />
         <Switch>
           <Route exact path="/" component={SplashPage} />
-          <Route exact path="/books/:bookId/chapters/:chapterId/pages/:pageId" component={PageShow}/>
+          <Route exact path="/books/:bookId/chapters/:chapterId/pages/:pageId" component={BookComponent}/>
           <ProtectedRoute exact path="/profile/:userId" component={UserProfile} />
           <Route exact path="/books" component={BooksIndex} />
           <Route exact path="/books/read" component={BookComponent}></Route>
