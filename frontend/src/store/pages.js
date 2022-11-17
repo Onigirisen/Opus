@@ -45,7 +45,7 @@ export const createPage = (bookId, chapterId, page) => async (dispatch) => {
 
 export const deletePage = (bookId, chapterId, pageId) => async dispatch => {
     await jwtFetch(`/api/books/${bookId}/chapters/${chapterId}/pages/${pageId}`, {method: "DELETE"});
-    dispatch(removePage(chapterId));
+    dispatch(removePage(pageId));
 };
 
 export const updatePage = (bookId, chapterId, pageId, page) => async dispatch => {

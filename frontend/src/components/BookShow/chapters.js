@@ -7,7 +7,8 @@ import Modal from "../../Modal/Modal";
 import "./ChaptersIndex.css";
 import './ChapterModals.css'
 import './Pages.css'
-import { createPage, fetchPages } from "../../store/pages";
+import { createPage, deletePage, fetchPages, updatePage } from "../../store/pages";
+import { getCurrentUser } from "../../store/session";
 
 const ChaptersIndex = () => {
     const dispatch = useDispatch();
@@ -15,10 +16,13 @@ const ChaptersIndex = () => {
     const [loaded, setLoaded] = useState(false);
     const [createOpen, setCreateOpen] = useState(false);
     const [createPageOpen, setCreatePageOpen] = useState(false);
+    const [editPageOpen, setEditPageOpen] = useState(false);
     const [pageChId, setPageChId] = useState();
     const [editOpen, setEditOpen] = useState(false);
     const [editingChapterId, setEditingChapterId] = useState()
     const [chUpdated, setChUpdated] = useState(false);
+    const [pgUpdated, setPgUpdated] = useState(false);
+    const [editingPageId, setEditingPageId] = useState(false);
     const [title, setTitle] = useState()
     const [content, setContent] = useState()
     const chapters = useSelector((state) => state.chapters);
@@ -27,11 +31,22 @@ const ChaptersIndex = () => {
     const books = useSelector((state) => state.books);
     const { bookId } = useParams();
     const book = books[bookId];
-    const isAuthor = sessionUser._id === book.user
+    const [isAuthor,setIsAuthor] = useState(false)
     
     useEffect(() => {
-        dispatch(fetchChapters(bookId)).then(() => setLoaded(true));
+        dispatch(fetchChapters(bookId)).then(() => {
+            setLoaded(true);
+        });
     }, []);
+
+    useEffect(() => {
+        dispatch(getCurrentUser()).then(() => {
+            console.log(sessionUser);
+            if (sessionUser) {
+                setIsAuthor(sessionUser._id === book.user)
+            }
+        })
+    }, [])
 
     useEffect(() => {
         dispatch(fetchChapters(bookId));
@@ -39,7 +54,7 @@ const ChaptersIndex = () => {
 
     useEffect(() => {
         dispatch(fetchPages(bookId, pageChId))
-    }, [pageChId, dispatch])
+    }, [pageChId, pgUpdated])
 
     const chaptersArr = [];
     const pagesArr = [];
@@ -47,9 +62,41 @@ const ChaptersIndex = () => {
     Object.values(chapters).forEach((chapter) => {if (chapter.book === bookId && !chaptersArr.includes(chapter)) chaptersArr.push(chapter)})
     Object.values(pages).forEach((page) => {if (page.chapter === pageChId) pagesArr.push(page)})
 
+    const refreshDelPage = () => {
+        setTimeout(() => {
+            setPgUpdated(false)
+        }, 1000)
+    }
+
     const pagesList = pagesArr.map((page) => (
-        <div className="chapters-page-show">
-            {page.pageNumber}
+        <div className="chapters-page-container">
+            <div className="chapters-page-show">
+                <div className="chapters-page-number">{page.pageNumber}</div>
+                <div>{page.content}</div>
+                {isAuthor && <div className="chapters-page-edit" onClick={() => {
+                    if (pgUpdated === false) {
+                        setPgUpdated(true);
+                        setEditingPageId(page._id)
+                        setEditPageOpen(true);
+                    }
+                }}>Edit</div>}
+                {isAuthor && <div className="chapters-page-delete" onClick={() => {
+                    console.log(pgUpdated)
+                    if (pgUpdated === false) {
+                        setPgUpdated(true);
+                        pagesArr.forEach((updatedPage) => {
+                            if (updatedPage.pageNumber > page.pageNumber) {
+                                const newPageNum = {pageNumber: (updatedPage.pageNumber - 1), content: updatedPage.content};
+                                dispatch(updatePage(bookId, pageChId, updatedPage._id, newPageNum))
+                            }
+                        })
+                        setTimeout(() => {
+                            setPgUpdated(false)
+                        }, 1200)
+                        dispatch(deletePage(bookId, pageChId, page._id))
+                    }
+                }}>X</div>}
+            </div>
         </div>
     ))
     
@@ -57,7 +104,13 @@ const ChaptersIndex = () => {
         <>
             <div className="chapter-show-container" key={chapter._id}>
                 <div className="chapter-show-number">{chapter.chapterNumber}</div>
-                <div className="chapter-show-title" onClick={() => setPageChId(chapter._id)}>{chapter.title}</div>
+                <div className="chapter-show-title" onClick={() => {
+                    if (pageChId === chapter._id) {
+                        setPageChId();
+                    } else {
+                        setPageChId(chapter._id) 
+                    }
+                }}>{chapter.title}</div>
                 {isAuthor && <div className="chapter-show-edit" onClick={() => {
                     if (chUpdated === false) {
                         setChUpdated(true);
@@ -74,7 +127,10 @@ const ChaptersIndex = () => {
                                 dispatch(updateChapter(bookId, updatedChapter._id, newChNum));
                             }
                         })
-                        dispatch(deleteChapter(bookId, chapter._id)).then(() => setChUpdated(false));
+                        setTimeout(() => {
+                            setChUpdated(false)
+                        }, 1200);
+                        dispatch(deleteChapter(bookId, chapter._id));
                     }
                 }}>X</div>}
             </div>
@@ -103,8 +159,6 @@ const ChaptersIndex = () => {
 
     const handlePageCreate = (e) => {
         e.preventDefault();
-        console.log(pagesArr.length)
-        console.log(pagesArr)
         const page = {pageNumber: (pagesArr.length + 1).toString(), content: content};
         dispatch(createPage(bookId, pageChId, page)).then(() => {
             setChUpdated(false);
@@ -123,11 +177,36 @@ const ChaptersIndex = () => {
         setEditOpen(false);
     };
 
+    const handlePageEdit = (e) => {
+        e.preventDefault();
+        console.log(pages[editingPageId].pageNumber)
+        console.log(pageChId);
+        const page = {pageNumber: pages[editingPageId].pageNumber, content: content};
+        dispatch(updatePage(bookId, pageChId, editingPageId, page)).then(() => {
+            setPgUpdated(false);
+            setContent();
+            setEditPageOpen(false);
+        });
+    };
+
+
     return loaded && (
         <>
         <Modal modalOpen={createPageOpen} modalClose={() => {setCreatePageOpen(false); setChUpdated(false);}}>
             <div className="chapters-page-modal">
                 <form className="chapters-page-form" onSubmit={handlePageCreate}>
+                    <div>
+                        <label> Content:
+                            <textarea name="content" onChange={e => setContent(e.target.value)}></textarea>
+                        </label>
+                    </div>
+                    <button type="submit">Add page</button>
+                </form>
+            </div>
+        </Modal>
+        <Modal modalOpen={editPageOpen} modalClose={() => {setEditPageOpen(false); setPgUpdated(false);}}>
+            <div className="chapters-page-modal">
+                <form className="chapters-page-form" onSubmit={handlePageEdit}>
                     <div>
                         <label> Content:
                             <textarea name="content" onChange={e => setContent(e.target.value)}></textarea>
