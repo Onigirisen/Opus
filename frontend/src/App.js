@@ -5,7 +5,7 @@ import SplashPage from "./components/SplashPage/SplashPage";
 import UserProfile from "./components/UserProfilePage/index";
 import BookComponent from "./components/Book";
 import CreateBookPage from "./components/CreateBookPage";
-import ChapterIndexPage from "./components/ChapterIndex";
+import PageShow from "./components/PageShow";
 import BooksIndex from "./components/BookIndex";
 import BookShow from "./components/BookShow";
 import { useDispatch } from "react-redux";
@@ -30,8 +30,7 @@ function App() {
         <NavBar />
         <Switch>
           <Route exact path="/" component={SplashPage} />
-          <Route exact path="/books/:bookId/chapters/:chapterId" component={ChapterIndexPage}/>
-          <Route exact path="/books/:bookId/chapters/:chapterId/pages/create" component={CreatePagesPage}/>
+          <Route exact path="/books/:bookId/chapters/:chapterId/pages/:pageId" component={PageShow}/>
           <ProtectedRoute exact path="/profile/:userId" component={UserProfile} />
           <Route exact path="/books" component={BooksIndex} />
           <Route exact path="/books/read" component={BookComponent}></Route>

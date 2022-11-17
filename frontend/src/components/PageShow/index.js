@@ -1,7 +1,7 @@
 import React from "react";
-import './ChapterIndex.css'
+import './Page.css'
 
-const ChapterIndexPage = () => {
+const PageShow = () => {
 
     return (
         <div className="chapters-index-container">
@@ -10,4 +10,4 @@ const ChapterIndexPage = () => {
     );
 }
 
-export default ChapterIndexPage;
+export default PageShow;

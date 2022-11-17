@@ -71,8 +71,7 @@ const ChaptersIndex = () => {
     const pagesList = pagesArr.map((page) => (
         <div className="chapters-page-container">
             <div className="chapters-page-show">
-                <div className="chapters-page-number">{page.pageNumber}</div>
-                <div>{page.content}</div>
+                <div className="chapters-page-number">Read Page {page.pageNumber}</div>
                 {isAuthor && <div className="chapters-page-edit" onClick={() => {
                     if (pgUpdated === false) {
                         setPgUpdated(true);
