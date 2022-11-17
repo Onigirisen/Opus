@@ -62,16 +62,10 @@ const ChaptersIndex = () => {
     Object.values(chapters).forEach((chapter) => {if (chapter.book === bookId && !chaptersArr.includes(chapter)) chaptersArr.push(chapter)})
     Object.values(pages).forEach((page) => {if (page.chapter === pageChId) pagesArr.push(page)})
 
-    const refreshDelPage = () => {
-        setTimeout(() => {
-            setPgUpdated(false)
-        }, 1000)
-    }
-
     const pagesList = pagesArr.map((page) => (
         <div className="chapters-page-container">
             <div className="chapters-page-show">
-                <div className="chapters-page-number">Read Page {page.pageNumber}</div>
+                <div className="chapters-page-number" onClick={() => history.push(`/books/${bookId}/chapters/${pageChId}/pages/${page._id}`)}>Read Page {page.pageNumber}</div>
                 {isAuthor && <div className="chapters-page-edit" onClick={() => {
                     if (pgUpdated === false) {
                         setPgUpdated(true);

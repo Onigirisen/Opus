@@ -13,7 +13,6 @@ import { useEffect, useState } from "react";
 import { getCurrentUser } from "./store/session";
 import { Route } from "react-router-dom";
 import Footer from "./components/Footer";
-import CreatePagesPage from "./components/CreatePagesPage";
 import EditBookPage from "./components/EditBookPage";
 
 
