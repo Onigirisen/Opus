@@ -28,7 +28,7 @@
 
 .delete-book-button {
     border: none;
-    background-color: rgb(227, 37, 37);
+    background-color: rgb(240, 35, 35);
     color: rgb(253, 239, 198);
     font-family: cursive;
     width: 200px;
@@ -52,4 +52,9 @@
     background-color: rgb(161, 18, 18);
     color: rgb(251, 248, 236);
     transition: all .2s;
+}
+
+.create-book-form {
+    display: flex;
+    flex-direction: column;
 }

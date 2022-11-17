@@ -28,11 +28,10 @@ export const fetchPage = (bookId, chapterId, pageId)  => async dispatch => {
 export const fetchPages = (bookId, chapterId) => async dispatch => {
     const res = await jwtFetch(`/api/books/${bookId}/chapters/${chapterId}/pages`);
     const data = await res.json();
-    dispatch(receivePages(data.pages));
+    dispatch(receivePages(data));
 };
 
 export const createPage = (bookId, chapterId, page) => async (dispatch) => {
-    debugger
     const res = await jwtFetch(`/api/books/${bookId}/chapters/${chapterId}/pages`, {
       method: "POST",
       body: JSON.stringify(page),
@@ -68,7 +67,7 @@ const pagesReducer = (state= {}, action) => {
         case RECEIVE_PAGES:
             return {...state, ...action.pages};
         case RECEIVE_PAGE:
-            nextState[action.page.id] = action.page;
+            nextState[action.page._id] = action.page;
             return nextState;
         case REMOVE_PAGE:
             delete nextState[action.pageId];

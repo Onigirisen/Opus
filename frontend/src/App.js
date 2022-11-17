@@ -5,7 +5,7 @@ import SplashPage from "./components/SplashPage/SplashPage";
 import UserProfile from "./components/UserProfilePage/index";
 import BookComponent from "./components/Book";
 import CreateBookPage from "./components/CreateBookPage";
-// import CreateChapterPage from './components/CreateChapterPage';
+import ChapterIndexPage from "./components/ChapterIndex";
 import BooksIndex from "./components/BookIndex";
 import BookShow from "./components/BookShow";
 import { useDispatch } from "react-redux";
@@ -13,7 +13,6 @@ import { useEffect, useState } from "react";
 import { getCurrentUser } from "./store/session";
 import { Route } from "react-router-dom";
 import Footer from "./components/Footer";
-import CreateChapterPage from "./components/CreateChapterPage";
 import CreatePagesPage from "./components/CreatePagesPage";
 import EditBookPage from "./components/EditBookPage";
 
@@ -31,8 +30,7 @@ function App() {
         <NavBar />
         <Switch>
           <Route exact path="/" component={SplashPage} />
-          <Route exact path="/books/:bookId/chapters/create" component={CreateChapterPage}/>
-          <Route exact path="/books/:bookId/chapters/:chapterId"/>
+          <Route exact path="/books/:bookId/chapters/:chapterId" component={ChapterIndexPage}/>
           <Route exact path="/books/:bookId/chapters/:chapterId/pages/create" component={CreatePagesPage}/>
           <ProtectedRoute exact path="/profile/:userId" component={UserProfile} />
           <Route exact path="/books" component={BooksIndex} />
