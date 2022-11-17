@@ -18,7 +18,7 @@
     font-size: 30px;
 }
 
-.page-show-chapters-container {
+.page-show-chapter-container {
     font-family: cursive;
     color: rgb(255, 255, 255);
     display: flex;
@@ -39,4 +39,9 @@
     width: 220px;
     height: 30px;
     overflow: hidden;
+}
+
+.page-show-chapter-container:hover {
+    cursor: pointer;
+    color: gold;
 }
