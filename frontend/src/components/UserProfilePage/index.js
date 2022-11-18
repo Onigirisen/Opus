@@ -9,12 +9,12 @@ import { uploadPic } from "../../store/pics";
 import { fetchBooks } from "../../store/books";
 
 const UserProfile = () => {
-    const { userId } = useParams();
     const dispatch = useDispatch();
+    const { userId } = useParams();
     const user = useSelector(getUser(userId));
-    const [bio, setBio] = useState(user ? user.bio : " ");
-    const [bookLoaded, setBookLoaded] = useState(false);
+    const [booksLoaded, setBooksLoaded] = useState(false);
     const [userLoaded, setUserLoaded] = useState(false);
+    const [bio, setBio] = useState(user ? user.bio : " ");
     const [buttonText, setButtonText] = useState("edit")
     const [editClicked, setEditClick] = useState(false);
     const [text, setText] = useState(user ? user.bio : " ")
@@ -29,12 +29,9 @@ const UserProfile = () => {
           }
           return allBooks;
     } : [])()
-    
-    useEffect(() => {
-        dispatch(fetchBooks()).then(() => setBookLoaded(true));
-      }, []);
 
     useEffect(() => {
+        dispatch(fetchBooks()).then(() => setBooksLoaded(true));
         dispatch(fetchUser(userId)).then(() => setUserLoaded(true));
     }, []);
 
@@ -76,47 +73,49 @@ const UserProfile = () => {
     }
 
 
-    return bookLoaded && userLoaded && (
+    return booksLoaded && userLoaded && (
         <>
             <div className="body-container">
                 <div className="spacing-top"></div>
-                <div className="profile-body-container">
-                    <div className="profile-picture-wrapper">
-                        <div className="profile-picture-container">
-                    {/* <img src={user.profilePictureUrl} alt="profile picture" /> */}
-                    </div>
-                <div className="profile-picture-edit-container">
-                    <img src={editCamera} className="camera" alt="camera" onClick={cameraClick}/>
-                    <input className="cameraInput" type="file" onChange={picSubmit}/>
-                </div>
-                </div>
-                <div className="profile-bio-wrapper">
-                    <div className="profile-bio-container">
-                        <div className="profile-bio-heading-container">
-                            
-                                <div className="profile-edit-button-container">
+                    <div className="profile-body-container">
+                        <div className="profile-picture-wrapper">
+                            <div className="profile-picture-container">
+                                {/* <img src={user.profilePictureUrl} alt="profile picture" /> */}
+                            </div>
+                            <div className="profile-picture-edit-container">
+                                <img src={editCamera} className="camera" alt="camera" onClick={cameraClick}/>
+                                <input className="cameraInput" type="file" onChange={picSubmit}/>
+                            </div>
+                        </div>
+                        <div className="profile-bio-wrapper">
+                            <div className="profile-bio-container">
+                                <div className="profile-bio-heading-container">     
+                                    <div className="profile-edit-button-container">
                                     <button className="profile-edit-button" onClick={picSubmit}>
                                         {buttonText}
                                     </button>
                                 </div>
-                            </div>
-                        <div className="profile-bio-text-container">
-                        { text ? text : "" }
+                        </div>
+                                                                                            {/* <div className="profile-bio-text-container">
+                                                                                            { text ? text : "" }
 
-                        { editClicked ? 
-                            <form onSubmit={handleSubmit}>
-                                <textarea className="profile_edit_textarea" 
-                                    // value={bio}
-                                    onChange={e => setBio(e.target.value)}>
-                                </textarea>
-                                <button type="submit">update bio</button>
-                            </form> :
-                            ''}
+                                                                                            { editClicked ? 
+                                                                                                <form onSubmit={handleSubmit}>
+                                                                                                    <textarea className="profile_edit_textarea" 
+                                                                                                        // value={bio}
+                                                                                                        onChange={e => setBio(e.target.value)}>
+                                                                                                    </textarea>
+                                                                                                    <button type="submit">update bio</button>
+                                                                                                </form> :
+                                                                                                ''}
+                                                                                            </div> */}
+                            </div>
                         </div>
                     </div>
-                    </div>
-                    </div>
-                </div>
+            </div>
+
+
+
                 <div className="user-profile-books">
                     <div className="books-content">
                         <div className="user-profile-select-books">All | Public | Private </div>
