@@ -39,7 +39,7 @@
 
 .create-book-text-container {
     width: 300px;
-    height: 400px;
+    height: 500px;
     margin-left: 30px;
     display: flex;
     flex-direction: column;
@@ -87,7 +87,7 @@
 }
 
 .create-book-title-text {
-    font-size: 90px;
+    font-size: 60px;
     font-family: cursive;
     width: 700px;
     height: 125px;
@@ -97,6 +97,7 @@
     text-align: center;
     outline: none;
     border: none;
+    z-index: 9999;
 }
 
 .create-book-description-text {
