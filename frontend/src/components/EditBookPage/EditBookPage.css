@@ -1,0 +1,60 @@
+.edit-book-button {
+    border: none;
+    background-color: rgb(52, 207, 60);
+    color: rgb(253, 239, 198);
+    font-family: cursive;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-left: 300px;
+    box-shadow: 0px 0px 10px black;
+}
+
+.edit-book-button:hover {
+    cursor: pointer;
+    background-color: rgb(37, 173, 44);
+    color: rgb(251, 244, 224);
+    transition: all .2s;
+}
+
+.edit-book-button:active {
+    cursor: pointer;
+    background-color: rgb(26, 138, 32);
+    color: rgb(251, 248, 236);
+    transition: all .2s;
+}
+
+.delete-book-button {
+    border: none;
+    background-color: rgb(240, 35, 35);
+    color: rgb(253, 239, 198);
+    font-family: cursive;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 300px;
+    box-shadow: 0px 0px 10px black;
+}
+
+.delete-book-button:hover {
+    cursor: pointer;
+    background-color: rgb(193, 28, 28);
+    color: rgb(251, 244, 224);
+    transition: all .2s;
+}
+
+.delete-book-button:active {
+    cursor: pointer;
+    background-color: rgb(161, 18, 18);
+    color: rgb(251, 248, 236);
+    transition: all .2s;
+}
+
+.create-book-form {
+    display: flex;
+    flex-direction: column;
+}

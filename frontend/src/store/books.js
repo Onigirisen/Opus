@@ -49,7 +49,7 @@ export const createBook = (book) => async (dispatch) => {
   };
 
 export const updateBook = book => async dispatch => {
-    const res = await jwtFetch(`/api/books/${book.id}`, {
+    const res = await jwtFetch(`/api/books/${book._id}`, {
       method: 'PATCH',
       body: JSON.stringify(book),
       headers: {

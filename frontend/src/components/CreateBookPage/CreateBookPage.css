@@ -1,7 +1,7 @@
 .create-book-container {
     width: 100%;
     height: 700px;
-    margin-top: 75px;
+    margin-top: 105px;
     background-color: rgb(244, 244, 244);
     display: flex;
     flex-direction: row;
@@ -165,10 +165,6 @@
     position: absolute;
     margin-top: 600px;
     margin-left: -50px;
-}
-
-.create-book-button:hover {
-    cursor: pointer;
 }
 
 .create-book-genre-div {

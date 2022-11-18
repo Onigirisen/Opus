@@ -1,0 +1,91 @@
+.chapters-page-header {
+    margin-top: 10px;
+    width: 100%;
+    height: 30px;
+    background-color: rgb(233, 113, 113);
+    border-radius: 8px;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.chapters-page-create {
+    font-weight: lighter;
+    background-color: rgb(66, 221, 177);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-left: 700px;
+    width: 90px;
+    height: 20px;
+    margin-top: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    user-select: none;
+}
+
+.chapters-page-create:hover {
+    cursor: pointer;
+    background-color: rgb(54, 183, 146);
+}
+
+.chapters-page-create:active {
+    background-color: rgb(43, 155, 123);
+}
+
+.chapters-page-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.chapters-page-show {
+    width: 70%;
+    height: 30px;
+    background-color: rgb(148, 118, 118);
+    display: flex;
+    flex-direction: row;
+    margin-top: 1px;
+}
+
+.chapters-page-number {
+    width: 600px;
+    height: 30px;
+    text-align: center;
+    color: white;
+    font-family: script;
+}
+
+.chapters-page-number:hover {
+    color: gold;
+    cursor: pointer;
+    transition: all .15s;
+}
+
+.chapters-page-edit {
+    width: 30px;
+    height: 30px;
+    background-color: rgb(170, 156, 64);
+    text-align: center;
+}
+
+.chapters-page-edit:hover {
+    cursor: pointer;
+}
+
+.chapters-page-delete {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    text-align: center;
+}
+
+.chapters-page-delete:hover {
+    cursor: pointer;
+}

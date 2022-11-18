@@ -1,0 +1,44 @@
+.chapters-create-modal {
+    width: 400px;
+    height: 400px;
+    background-color: rgb(216, 209, 209);
+    border-radius: 50px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-chapter-form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.chapter-add-btn {
+    background-color: rgb(66, 216, 66);
+}
+
+.chapters-edit-modal {
+    width: 400px;
+    height: 400px;
+    background-color: rgb(216, 209, 209);
+    border-radius: 50px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.chapters-page-modal {
+    width: 400px;
+    height: 400px;
+    background-color: rgb(216, 209, 209);
+    border-radius: 50px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
