@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-// import Modal from '../../Modal/Modal'
 import { fetchBook } from "../../store/books";
 import { getCurrentUser } from "../../store/session";
 import { fetchUsers, getUser, getUsers } from "../../store/users";
