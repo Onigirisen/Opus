@@ -1,6 +1,6 @@
 .body-container {
     width: 100%;
-    height: 1000px;
+    height: 600px;
 }
 
 .spacing-top{
@@ -188,4 +188,15 @@
 
 .camera{
     cursor: pointer;
+}
+
+.user-profile-books{
+    display: flex;
+    justify-content: center;
+    height: 500px;
+}
+
+.books-content{
+    border: solid black 3px;
+    width: 90%;
 }
