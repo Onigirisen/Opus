@@ -5,7 +5,7 @@ import SplashPage from "./components/SplashPage/SplashPage";
 import UserProfile from "./components/UserProfilePage/index";
 import BookComponent from "./components/Book";
 import CreateBookPage from "./components/CreateBookPage";
-import PageShow from "./components/PageShow";
+import PageShow from "./components/ChaptersIndex";
 import BooksIndex from "./components/BookIndex";
 import BookShow from "./components/BookShow";
 import { useDispatch } from "react-redux";

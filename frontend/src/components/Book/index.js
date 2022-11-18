@@ -1,27 +1,54 @@
-import React, { useState } from "react";
-import PageShow from "../PageShow";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory, useParams } from "react-router-dom";
+import { fetchPages } from "../../store/pages";
+import ChaptersIndexPage from "../ChaptersIndex";
 import './book.css'
 
 const BookComponent = () => {
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const {bookId, chapterId, pageId} = useParams();
     const [flip, setFlip] = useState(false)
     const [flipDir, setFlipDir] = useState("right")
-    const [pageNum, setPageNum] = useState(1)
-    const text1 = `October 26, 2022 
-
-    Dear Diary, 
+    const [loaded, setLoaded] = useState(false);    
+    const [pageContent, setPageContent] = useState();
+    const [nextPageUrl, setNextPageUrl] = useState();
+    const pages = useSelector((state) => state.pages);
     
-        Today was a rough day. We continued working on our project. I was tasked to create a book that would feel as real as it could be. The task was daunting, but I got to work. After countless failures, I had finally created what I thought was a masterpiece. 
-         I turned to my right to see my team leader David. I got his attention and showed him the beautiful masterpiece I had created. He glanced at my screen and said "trash." I had to excuse myself from the room, and went outside to the bleachers to collect myself. 
-         Maybe Ryan would like it. That's what I thoguht. I headed back into the room only to see Ryan already at my computer staring at my screen. He squinted, pointed at the screen and yelled across the room, "What is this?" I said to him, its a book, its our book. He started laughing uncontrollably. 
-         On progress tracker, there were 2 anonymous reports made that day. `
+    useEffect(() => {
+        dispatch(fetchPages(bookId, chapterId)).then(() => {
+            setLoaded(true);
+        })
+    }, [])
 
-    const text2 = `October 27, 2022
+    useEffect(() => {
+        setPageContent()
+    }, [pageId])
 
-    Dear Diary,
-    
-        Today was another rough day. Kin only gave us a budget of $150 for our MERN stack project. Darian and I had already spent that on snacks. When our team leader David asked us where the budget went, Darian pointed at me. I was shocked. I couldn't believe it. 
-        David chased me around with a broomstick demanding I cough up either the food or the money. I told him, I could do neither. Another progress tracker report was made today. Although I'm not sure if anything is being done. I hope we can finish this project soon, I don't know how much more I can take. `
-    const [pageTxt, setPageTxt] = useState(text1)
+    const page = pages[pageId];
+    const pagesArr = [];
+    Object.values(pages).forEach((page) => {if (page.chapter === chapterId) pagesArr.push(page)})
+
+    const findNextPage = () => {
+        let returnPage;
+        pagesArr.forEach((nextPage) => {
+            if (nextPage.pageNumber === (page.pageNumber + 1)) {
+                returnPage = nextPage;
+            }
+        })
+        return returnPage;
+    }
+
+    const findPrevPage = () => {
+        let returnPage;
+        pagesArr.forEach((prevPage) => {
+            if (prevPage.pageNumber === (page.pageNumber - 1)) {
+                returnPage = prevPage;
+            }
+        })
+        return returnPage;
+    }
 
     const nextPage = () => {
         if (!flip) {
@@ -32,9 +59,10 @@ const BookComponent = () => {
         }
     }
     
-    return (
+    return loaded && (
         <>
-            <PageShow></PageShow>
+            {!pageContent ? setPageContent(page.content) : null}
+            <ChaptersIndexPage></ChaptersIndexPage>
             <div className="book-container">
                 <div className="book-cover">
                     <div className="left-page">
@@ -45,16 +73,46 @@ const BookComponent = () => {
                     </div>
                     {flipDir === "right" ?  
                     <div className="right-page">
-                        <div className="book-page-content" spellCheck='false' >{pageTxt}</div>
-                        <div className="book-page-number">{pageNum}</div>
-                        <div className="prev-page" onClick={() => {nextPage(); setFlipDir("left"); setPageTxt(text1); setPageNum(1)}}>{"<"}</div>
-                        <div className="next-page" onClick={() => {nextPage(); setFlipDir("right"); setPageTxt(text2); setPageNum(2)}}>{">"}</div>
+                        <div className="book-page-content" spellCheck='false' >{pageContent}</div>
+                        <div className="book-page-number">{page.pageNumber}</div>
+                            {page.pageNumber !== 1 && <div className="prev-page" onClick={() => 
+                                {
+                                    nextPage(); 
+                                    setFlipDir("left");
+                                    setTimeout(() => {
+                                        history.push(`/books/${bookId}/chapters/${chapterId}/pages/${findPrevPage()._id}`);
+                                    }, 900)
+                                }}>{"<"}</div>}
+                            {page.pageNumber !== pagesArr.length && <div className="next-page" onClick={() => 
+                                {
+                                    nextPage(); 
+                                    setFlipDir("right"); 
+                                    setPageContent(findNextPage().content);
+                                    setTimeout(() => {
+                                        history.push(`/books/${bookId}/chapters/${chapterId}/pages/${findNextPage()._id}`);
+                                    }, 900)
+                                }}>{">"}</div>}
                     </div> : 
                     <div className="right-page">
-                    <textarea className="book-page-content" spellCheck='false' readOnly>{pageTxt}</textarea>
-                    <div className="book-page-number">{pageNum}</div>
-                    <div className="prev-page" onClick={() => {nextPage(); setFlipDir("left"); setPageTxt(text1); setPageNum(1)}}>{"<"}</div>
-                    <div className="next-page" onClick={() => {nextPage(); setFlipDir("right"); setPageTxt(text2); setPageNum(2)}}>{">"}</div>
+                        <textarea className="book-page-content" spellCheck='false' readOnly defaultValue={pageContent}></textarea>
+                        <div className="book-page-number">{page.pageNumber}</div>
+                            {page.pageNumber !== 1 &&<div className="prev-page" onClick={() => 
+                                {
+                                    nextPage(); 
+                                    setFlipDir("left");
+                                    setTimeout(() => {
+                                        history.push(`/books/${bookId}/chapters/${chapterId}/pages/${findPrevPage()._id}`);
+                                    }, 900)
+                                }}>{"<"}</div>}
+                            {page.pageNumber !== pagesArr.length &&<div className="next-page" onClick={() => 
+                                {
+                                    nextPage(); 
+                                    setFlipDir("right"); 
+                                    setPageContent(findNextPage().content);
+                                    setTimeout(() => {
+                                        history.push(`/books/${bookId}/chapters/${chapterId}/pages/${findNextPage()._id}`);
+                                    }, 900)
+                                }}>{">"}</div>}
                     </div>
                 }
                 </div>
@@ -63,8 +121,8 @@ const BookComponent = () => {
                         <>
                             <div className="fake-right-back-page"></div> 
                             <div className="fake-right-page">
-                                <textarea className="book-page-content">{text2}</textarea>
-                                <div className="book-page-number">1</div>
+                                <textarea className="book-page-content" defaultValue={page.content}></textarea>
+                                <div className="book-page-number">{page.pageNumber + 1}</div>
                                 <div className="prev-page">{"<"}</div>
                                 <div className="next-page">{">"}</div>
                             </div>
@@ -72,8 +130,8 @@ const BookComponent = () => {
                         <>
                         <div className="fake-left-back-page"></div> 
                         <div className="fake-left-page">
-                            <textarea className="book-page-content">{text1}</textarea>
-                            <div className="book-page-number">2</div>
+                            <textarea className="book-page-content" defaultValue={findPrevPage().content}></textarea>
+                            <div className="book-page-number">{page.pageNumber - 1}</div>
                             <div className="prev-page">{"<"}</div>
                             <div className="next-page">{">"}</div>
                         </div>

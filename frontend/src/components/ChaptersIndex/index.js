@@ -5,7 +5,7 @@ import { fetchChapters } from "../../store/chapters";
 import { fetchPage, fetchPages } from "../../store/pages";
 import './Page.css'
 
-const PageShow = () => {
+const ChaptersIndexPage = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const chapters = useSelector((state) => state.chapters)
@@ -59,4 +59,4 @@ const PageShow = () => {
     );
 }
 
-export default PageShow;
+export default ChaptersIndexPage;
