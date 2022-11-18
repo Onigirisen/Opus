@@ -95,7 +95,7 @@ const UserProfile = () => {
             <div className="profile-bio-wrapper">
                 <div className="profile-bio-container">
                     <div className="profile-bio-heading-container">
-                        <h2>{user.username}</h2>
+                        <div className="profile-username">{user.username}</div>
                             <div className="profile-edit-button-container">
                                 <button className="profile-edit-button" onClick={picSubmit}>
                                     {buttonText}

@@ -88,19 +88,28 @@
     border-right: black 8px solid;
     border-bottom: rgb(126, 126, 126) 1px solid;
     margin-left: 20px;
+
+}
+
+.profile-username {
+    display: flex;
+    height: 70px;
+    font-size: 38px;
+    margin-top: 5px;
+
 }
 
 .profile-edit-button-container{
     display: flex;
     justify-content: flex-end;
     height: 28px;
-    padding-top: 18px;
-    padding-right: 200px;
+    padding-top: 23px;
+    padding-right: 100px;
 }
 
 .profile-edit-button{
     display: flex;
-    padding-top: 5px;
+    padding-top: 2px;
     justify-content: center;
     width: 90px;
     height: 30px;
