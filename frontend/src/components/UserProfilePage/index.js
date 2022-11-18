@@ -89,14 +89,14 @@ const UserProfile = () => {
                         </div>
                         <div className="profile-bio-wrapper">
                             <div className="profile-bio-container">
-                                <div className="profile-bio-heading-container">     
+                                <div className="profile-bio-heading-container">
                                     <div className="profile-edit-button-container">
                                     <button className="profile-edit-button" onClick={picSubmit}>
                                         {buttonText}
                                     </button>
                                 </div>
                         </div>
-                                                                                            {/* <div className="profile-bio-text-container">
+{/* <div className="profile-bio-text-container">
                                                                                             { text ? text : "" }
 
                                                                                             { editClicked ? 

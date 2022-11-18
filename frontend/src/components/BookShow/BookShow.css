@@ -12,7 +12,7 @@
 
 .book-show-read-button {
     border: none;
-    background-color: rgb(187, 104, 187);
+    background-color: rgb(88, 17, 100);
     font-size: 20px;
     color: rgb(253, 239, 198);
     font-family: cursive;
@@ -26,8 +26,16 @@
 
 .book-show-read-button:hover {
     cursor: pointer;
-    background-color: rgb(163, 93, 163);
-    transition: all .2s;
+    color: rgb(247, 230, 182);
+    /* text-shadow: 1px 1px rgb(255, 41, 41); */
+    padding-left: 10px;
+    transition: all .25s;
+    background-image: linear-gradient(45deg, #f3ec78, #af4261);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
 }
 
 
