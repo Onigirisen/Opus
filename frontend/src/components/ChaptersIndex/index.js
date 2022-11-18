@@ -30,7 +30,7 @@ const ChaptersIndexPage = () => {
     Object.values(pages).forEach((page) => {if (page.chapter === chapterShowing) pagesArr.push(page)})
 
     const pagesList = pagesArr.map((page) => (
-        <div className="page-show-container" onClick={() => {history.push(`/books/${bookId}/chapters/${chapterShowing}/pages/${page._id}`)}}>
+        <div className="page-show-container" key={page._id + "show"} onClick={() => {history.push(`/books/${bookId}/chapters/${chapterShowing}/pages/${page._id}`)}}>
             Read Page {page.pageNumber}
         </div>
     ))
@@ -38,8 +38,8 @@ const ChaptersIndexPage = () => {
     const chaptersList = chaptersArr.map((chapter) => (
         <>
         <div className="page-show-chapter-container" key={chapter._id + "page"} onClick={() => {
-            chapterShowing === chapter._id ? setChapterShowing() : setChapterShowing(chapter._id)
-        }}>
+                chapterShowing === chapter._id ? setChapterShowing() : setChapterShowing(chapter._id)
+            }}>
             <div className="page-show-chapter-number">{chapter.chapterNumber}</div>
             <div className="page-show-chapter-title">{chapter.title}</div>
         </div>
