@@ -19,7 +19,7 @@ const UserProfile = () => {
     const [buttonText, setButtonText] = useState("edit");
     const [bio, setBio] = useState(user ? user.bio : "");
     const [editBioText, setEditBioText] = useState(user ? user.bio : "");
-    let displayEditButton = true;
+    let profileOwner = true;
 
     const books = useSelector(({books}) => books ? () => {
         let allBooks = [];
@@ -173,7 +173,7 @@ const UserProfile = () => {
     }
 
     if (!sessionUser || sessionUser._id !== userId){
-        displayEditButton = false;
+        profileOwner = false;
     }
 
 
@@ -186,7 +186,7 @@ const UserProfile = () => {
                             <div className="profile-picture-container">
                                 {/* <img src={user.profilePictureUrl} alt="profile picture" /> */}
                             </div>
-                            {displayEditButton ? <div className="profile-picture-edit-container">
+                            {profileOwner ? <div className="profile-picture-edit-container">
                                 <img src={editCamera} className="camera" alt="camera" onClick={cameraClick}/>
                                 <input className="cameraInput" type="file" onChange={picSubmit}/>
                             </div> : ""}
@@ -195,7 +195,7 @@ const UserProfile = () => {
                             <div className="profile-bio-container">
                                 <div className="profile-bio-heading-container">  
                                     <div>{user.username}</div>   
-                                    {displayEditButton ? <div className="profile-edit-button-container">
+                                    {profileOwner ? <div className="profile-edit-button-container">
                                         <button className="profile-edit-button" onClick={handleClick}>
                                             {buttonText}
                                         </button>
@@ -211,18 +211,27 @@ const UserProfile = () => {
             </div>
 
             <div className="user-profile-books">
-                <div className="books-content">
-                    <div className="user-profile-select-books"><div className="choice all" onClick={handleAll}>All</div> | <div className="choice public" onClick={handlePublic}>Public</div> | <div className="choice private" onClick={handlePrivate}>Private</div></div>
-                    <div className="books all-container">
-                        {allBooks}
-                    </div>
-                    <div className="books public-container">
-                        {publicBooks}
-                    </div>
-                    <div className="books private-container">
-                        {privateBooks}
-                    </div>
-                </div>
+                {profileOwner ? 
+                    <div className="books-content">
+                        <div className="user-profile-select-books"><div className="choice all" onClick={handleAll}>All</div> | <div className="choice public" onClick={handlePublic}>Public</div> | <div className="choice private" onClick={handlePrivate}>Private</div></div>
+                        <div className="books all-container">
+                            {allBooks}
+                        </div>
+                        <div className="books public-container">
+                            {publicBooks}
+                        </div>
+                        <div className="books private-container">
+                            {privateBooks}
+                        </div>
+                    </div> 
+                    :   
+                    <div className="books-content">
+                        <div className="user-profile-select-books"><div className="choice">Books</div></div>
+                        <div className="books all-container">
+                            {allBooks}
+                        </div>
+                    </div> 
+                    }
             </div>
         </>
     )
