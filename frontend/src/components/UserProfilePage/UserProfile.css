@@ -189,10 +189,20 @@
     cursor: pointer;
 }
 
+.user-profile-select-books{
+    display: flex;
+    justify-content: space-evenly;
+    border: solid black 5px;
+    width: 900px;
+}
+
+.choice{
+    cursor: pointer;
+}
+
 .user-profile-books{
     display: flex;
     justify-content: center;
-    height: 500px;
 }
 
 .books-content{
@@ -203,3 +213,97 @@
 .bio-submit-button{
    display: none;
 }
+
+.books{
+    display: flex;
+    margin-top: 100px;
+    display: grid;
+    column-gap: 10px;
+    row-gap: 10px;
+    grid-template-columns: auto auto auto;
+    margin-left: 2%;
+}
+
+.books-index-cover-user{
+    width: 400px;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgb(0, 0, 0);
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.books-index-cover:hover {
+    cursor: pointer;
+}
+
+.books-index-spine-user{
+    width: 40px;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-image: url('../../assets/croctrxture.jpeg');
+    background-size: cover;
+    background-position: 100px 10px;
+}
+
+.books-index-text-container-user{
+    width: 300px;
+    height: 400px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(227, 227, 227);
+    text-shadow: 0 0 2px rgb(0, 0, 0);
+}
+
+.books-index-title-user{
+    width: 300px;
+    height: 100px;
+    text-align: center;
+    font-size: 30px;
+    font-family: cursive;
+    overflow: hidden;
+}
+
+.books-index-genre-user{
+    width: 300px;
+    height: 30px;
+    text-align: center;
+    font-size: 20px;
+    font-family: cursive;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.books-index-author-user{
+    width: 300px;
+    height: 30px;
+    text-align: center;
+    font-size: 20px;
+    font-family: cursive;
+    overflow: hidden;
+    margin-top: 80px;
+}
+
+.all{
+    color: blue;
+}
+
+.public-container{
+    display: none;
+}
+
+.private-container{
+    display: none;
+}
+
