@@ -14,11 +14,9 @@ const UserProfile = () => {
     const user = useSelector(getUser(userId));
     const [booksLoaded, setBooksLoaded] = useState(false);
     const [userLoaded, setUserLoaded] = useState(false);
-    const [bio, setBio] = useState(user ? user.bio : " ");
-    const [buttonText, setButtonText] = useState("edit")
-    const [editClicked, setEditClick] = useState(false);
-    const [text, setText] = useState(user ? user.bio : " ")
-    const displayingBio = useRef();
+    const [buttonText, setButtonText] = useState("edit");
+    const [bio, setBio] = useState(user ? user.bio : "");
+    const [editBioText, setEditBioText] = useState(user ? user.bio : "");
 
     const books = useSelector(({books}) => books ? () => {
         let allBooks = [];
@@ -35,26 +33,44 @@ const UserProfile = () => {
         dispatch(fetchUser(userId)).then(() => setUserLoaded(true));
     }, []);
 
+    useEffect(() => {
+        if(user){
+            setBio(user.bio);
+            setEditBioText(user.bio)
+        }
+    }, [user]);
 
-    const handleClick = (e) => {
+    const handleClick = () => {
         if (buttonText === "edit"){
             setButtonText("cancel");
-            setText("");
-        } else {
+            document.querySelector(".bio").style.display = "none";
+            document.querySelector(".profile_edit_textarea").style.display = "block";
+            document.querySelector(".bio-submit-button").style.display = "block";
+        } else{
             setButtonText("edit");
-            setText(user.bio);
+            setEditBioText(bio);
+            document.querySelector(".bio").style.display = "block";
+            document.querySelector(".profile_edit_textarea").style.display = "none";
+            document.querySelector(".bio-submit-button").style.display = "none";
         }
-        setEditClick(!editClicked);
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setEditClick(false);
+        setBio(editBioText);
+        document.querySelector(".bio").innerHTML = editBioText;
+        dispatch(updateBio(userId, editBioText));
         setButtonText("edit");
-        dispatch(updateBio(userId, bio));
-        setText(bio)
+        document.querySelector(".profile_edit_textarea").style.display = "none";
+        document.querySelector(".bio-submit-button").style.display = "none";
+        setTimeout(delay, 100);
     }
 
+    const delay = () => {
+        document.querySelector(".bio").innerHTML = editBioText;
+        setBio(editBioText);
+        document.querySelector(".bio").style.display = "block";
+    }
 
     const cameraClick = (e) => {
         document.querySelector(".cameraInput").click();
@@ -72,7 +88,6 @@ const UserProfile = () => {
         window.location.reload();
     }
 
-
     return booksLoaded && userLoaded && (
         <>
             <div className="body-container">
@@ -89,41 +104,31 @@ const UserProfile = () => {
                         </div>
                         <div className="profile-bio-wrapper">
                             <div className="profile-bio-container">
-                                <div className="profile-bio-heading-container">     
+                                <div className="profile-bio-heading-container">  
+                                    <div>{user.username}</div>   
                                     <div className="profile-edit-button-container">
-                                    <button className="profile-edit-button" onClick={picSubmit}>
-                                        {buttonText}
-                                    </button>
+                                        <button className="profile-edit-button" onClick={handleClick}>
+                                            {buttonText}
+                                        </button>
+                                    </div>
                                 </div>
-                        </div>
-                                                                                            {/* <div className="profile-bio-text-container">
-                                                                                            { text ? text : "" }
-
-                                                                                            { editClicked ? 
-                                                                                                <form onSubmit={handleSubmit}>
-                                                                                                    <textarea className="profile_edit_textarea" 
-                                                                                                        // value={bio}
-                                                                                                        onChange={e => setBio(e.target.value)}>
-                                                                                                    </textarea>
-                                                                                                    <button type="submit">update bio</button>
-                                                                                                </form> :
-                                                                                                ''}
-                                                                                            </div> */}
+                                    <form onSubmit={handleSubmit}>
+                                        <div className="profile-bio-text-container"><div className="bio">{bio}</div><textarea className="profile_edit_textarea" value={editBioText} onChange={e => {setEditBioText(e.target.value)}}></textarea></div>
+                                        <button className="bio-submit-button">update bio</button>
+                                    </form>
                             </div>
                         </div>
                     </div>
             </div>
 
-
-
-                <div className="user-profile-books">
-                    <div className="books-content">
-                        <div className="user-profile-select-books">All | Public | Private </div>
-                        <div className="books">
-                            {books[0].title}
-                        </div>
+            <div className="user-profile-books">
+                <div className="books-content">
+                    <div className="user-profile-select-books">All | Public | Private </div>
+                    <div className="books">
+                        {books[0].title}
                     </div>
                 </div>
+            </div>
         </>
     )
 }

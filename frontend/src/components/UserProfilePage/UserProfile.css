@@ -134,11 +134,9 @@
     -webkit-box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.983);
     -moz-box-shadow: 0 2px 8px -1px rgb(0, 0, 0);
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.75);
-     
 }
 
 .profile-bio-text-container{
-    height: 240px;
     word-wrap: break-word;
     overflow-y: scroll;
     padding-left: 15px;
@@ -154,8 +152,7 @@
     linear-gradient(to left, transparent 17px, black 17px);
     -webkit-mask-size: 100% 20000px;
     -webkit-mask-position: left bottom;
-    transition: mask-position 0.3s,-webkit-mask-position 0.3s;
-        
+    transition: mask-position 0.3s,-webkit-mask-position 0.3s;     
 }
 
 
@@ -166,6 +163,7 @@
 
 .profile-bio-container{
     background-color: rgb(245, 245, 245);
+    height: 100%;
 }
 
 .profile-picture-container img{
@@ -184,6 +182,7 @@
     z-index: 999;
     width: 100%;
     resize: none;
+    display: none;
 }
 
 .camera{
@@ -199,4 +198,8 @@
 .books-content{
     border: solid black 3px;
     width: 90%;
+}
+
+.bio-submit-button{
+   display: none;
 }
