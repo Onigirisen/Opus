@@ -45,7 +45,7 @@ const UserProfile = () => {
 
     const privateBooks = privateBooksArr.map((book) => (
         <div className="books-index-div-user private-books" key={book._id}>
-            <div className="books-index-cover-user" onClick={() => history.push(`/books/${book._id}`)}>
+            <div className="books-index-cover-user" onClick={() => history.push(`/books/${book._id}`)} style={{ backgroundColor: book.coverColor }}>
                 <div className="books-index-spine-user"></div>
                 <div className="books-index-text-container-user">
                     <div className="books-index-title-user">{book.title}</div>
@@ -59,7 +59,7 @@ const UserProfile = () => {
 
     const publicBooks = publicBooksArr.map((book) => (
         <div className="books-index-div-user public-books" key={book._id}>
-            <div className="books-index-cover-user" onClick={() => history.push(`/books/${book._id}`)}>
+            <div className="books-index-cover-user" onClick={() => history.push(`/books/${book._id}`)} style={{ backgroundColor: book.coverColor}}>
                 <div className="books-index-spine-user"></div>
                 <div className="books-index-text-container-user">
                     <div className="books-index-title-user">{book.title}</div>
@@ -73,7 +73,7 @@ const UserProfile = () => {
 
     const allBooks = books.map((book) => (
         <div className="books-index-div-user all-books" key={book._id}>
-            <div className="books-index-cover-user" onClick={() => history.push(`/books/${book._id}`)}>
+            <div className="books-index-cover-user" onClick={() => history.push(`/books/${book._id}`)} style={{ backgroundColor: book.coverColor }}>
                 <div className="books-index-spine-user"></div>
                 <div className="books-index-text-container-user">
                     <div className="books-index-title-user">{book.title}</div>
@@ -226,7 +226,7 @@ const UserProfile = () => {
                     </div> 
                     :   
                     <div className="books-content">
-                        <div className="user-profile-select-books"><div className="choice">Books</div></div>
+                        <div className="user-profile-select-books"><div className="only-books">Books</div></div>
                         <div className="books all-container">
                             {allBooks}
                         </div>
