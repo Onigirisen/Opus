@@ -222,7 +222,7 @@ const UserProfile = () => {
                             {publicBooks}
                         </div>
                         <div className="books private-container">
-                            {privateBooks}
+                            {privateBooks === [] ? privateBooks : <div className="not-found">no books found</div>}
                         </div>
                     </div> 
                     :   

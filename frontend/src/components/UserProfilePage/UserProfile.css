@@ -220,12 +220,13 @@
 
 .books{
     display: flex;
-    margin-top: 100px;
+    justify-content: center;
+    margin-top: 50px;
     display: grid;
     column-gap: 10px;
     row-gap: 10px;
     grid-template-columns: auto auto auto;
-    margin-left: 2%;
+
 }
 
 .books-index-cover-user{
@@ -310,5 +311,9 @@
 
 .private-container{
     display: none;
+    
 }
 
+.not-found{
+   
+}
