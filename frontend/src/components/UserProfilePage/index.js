@@ -195,7 +195,8 @@ const UserProfile = () => {
                             <div className="profile-bio-container">
                                 <div className="profile-bio-heading-container">  
                                     <div>{user.username}</div>   
-                                    {profileOwner ? <div className="profile-edit-button-container">
+                                    {profileOwner ?
+                                    <div className="profile-edit-button-container">
                                         <button className="profile-edit-button" onClick={handleClick}>
                                             {buttonText}
                                         </button>
@@ -228,10 +229,9 @@ const UserProfile = () => {
                     <div className="books-content">
                         <div className="user-profile-select-books"><div className="only-books">Books</div></div>
                         <div className="books all-container">
-                            {allBooks}
+                            {publicBooks}
                         </div>
-                    </div> 
-                    }
+                    </div>}
             </div>
         </>
     )
