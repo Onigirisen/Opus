@@ -193,7 +193,7 @@
     display: flex;
     justify-content: space-evenly;
     border: solid black 5px;
-    width: 900px;
+    width: 100%;
 }
 
 .choice{
