@@ -61,7 +61,7 @@ const CreateBookPage = () => {
           <div className="create-book-spine"></div>
           <div className="create-book-text-container">
             <div className="create-book-title">{bookTitle}</div>
-            <div className="create-book-genre">genre: {genre}</div>
+            <div className="create-book-genre">Genre: {genre}</div>
             <div className="create-book-author">
               Author: {sessionUser.username}
             </div>
@@ -85,7 +85,7 @@ const CreateBookPage = () => {
               value={bookTitle}
               onChange={(e) => setBookTitle(e.target.value)}
             />
-            <div className="create-book-genre-div">genre</div>
+            <div className="create-book-genre-div">Genre</div>
             <input
               type="text"
               className="create-book-genre-text"

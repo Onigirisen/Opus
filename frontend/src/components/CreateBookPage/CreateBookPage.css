@@ -1,12 +1,14 @@
 .create-book-container {
-    width: 100%;
+    display: flex;
+    width: 98%;
     height: 700px;
     margin-top: 105px;
     background-color: rgb(244, 244, 244);
     display: flex;
-    flex-direction: row;
+    margin-left: 20px;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
     box-shadow: 0px 0px 10px black;
 }
 
@@ -30,8 +32,8 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
     background-image: url('../../assets/croctrxture.jpeg');
     background-size: cover;
     background-position: 100px 10px;
@@ -53,7 +55,7 @@
     text-align: center;
     font-size: 30px;
     font-family: cursive;
-    overflow: hidden;
+    
 }
 
 .create-book-genre {
@@ -64,6 +66,7 @@
     font-family: cursive;
     overflow: hidden;
     margin-top: 20px;
+    
 }
 
 .create-book-author {
@@ -84,20 +87,55 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 .create-book-title-text {
     font-size: 60px;
     font-family: cursive;
-    width: 700px;
+    width: 300px;
     height: 125px;
     overflow: hidden;
-    text-overflow: ellipsis;
-    background-color: transparent;
+    
+    background-color: rgb(232, 234, 214);
     text-align: center;
     outline: none;
     border: none;
+    border-radius: 10px;
+    overflow: hidden;
+        /* Ensures the content is not revealed until the animation */
+        border-right: .15em solid rgb(60, 0, 255);
+        /* The typwriter cursor */
+        white-space: nowrap;
+        /* Keeps the content on a single line */
+        margin: 0 auto;
+        /* Gives that scrolling effect as the typing happens */
+        letter-spacing: .15em;
+        /* Adjust as needed */
+        animation:
+            typewriter 2s steps(44) 1s 1 normal both,
+                    blinkTextCursor 1000ms steps(44) infinite normal;
     z-index: 9999;
+}
+
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 10em;
+    }
+}
+
+@keyframes blinkTextCursor {
+    from {
+        border-right-color: rgba(127, 7, 254, 0.827);
+    }
+
+    to {
+        border-right-color: transparent;
+    }
 }
 
 .create-book-description-text {
@@ -117,8 +155,14 @@
     height: 300px;
     border: none;
     outline: none;
-    text-align: center;
+    text-align: left-center;
     margin-top: 20px;
+    border-radius: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 10px;
 }
 
 .create-book-description::-webkit-scrollbar {
@@ -127,8 +171,8 @@
 
 .create-book-button {
     border: none;
-    background-color: rgb(3, 81, 159);
-    color: rgb(253, 239, 198);
+    background-color: rgb(102, 0, 157);
+    color: rgb(222, 220, 112);
     font-family: cursive;
     width: 200px;
     height: 50px;
@@ -136,14 +180,19 @@
     font-size: 20px;
     margin-top: 50px;
     margin-left: 300px;
-    box-shadow: 0px 0px 10px black;
+    -webkit-box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.983);
+    -moz-box-shadow: 0 2px 8px -1px rgb(0, 0, 0);
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.75);
+    
 }
 
 
 .create-book-button:hover {
     cursor: pointer;
-    background-color: rgb(2, 59, 115);
-    transition: all .2s;
+        background-color: rgb(136, 0, 210);
+        -webkit-box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.983);
+        -moz-box-shadow: 0 2px 8px -1px rgb(0, 0, 0);
+        box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.75);
 }
 
 
@@ -178,9 +227,23 @@
     font-family: cursive;
     background-color: rgb(232, 234, 214);
     outline: 0;
-    border-radius: 20px;
+    border-radius: 5px;
     margin-top: 5px;
     margin-bottom: 5px;
+    overflow: hidden;
+        /* Ensures the content is not revealed until the animation */
+        border-right: .15em solid rgb(60, 0, 255);
+        /* The typwriter cursor */
+        white-space: nowrap;
+        /* Keeps the content on a single line */
+        margin: 0 auto;
+        /* Gives that scrolling effect as the typing happens */
+        letter-spacing: .15em;
+        /* Adjust as needed */
+        animation:
+            typewriter 2s steps(44) 1s 1 normal both,
+            blinkTextCursor 1000ms steps(44) infinite normal;
+        z-index: 9999;
 }
 
 .book-created-div {
