@@ -65,7 +65,8 @@
 .login-input::placeholder { 
     color: rgb(178, 178, 178);
     font-weight: 100;
-    opacity: 1; 
+    opacity: 1;
+    padding-left: 8px; 
   }
 
 .golden-stripe {
@@ -96,6 +97,7 @@
     border: 1px solid #8A6E2F;
     width: 250px;
     height: 40px;
+    padding-left: 8px;
 }
 
 .login-submit {
