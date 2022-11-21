@@ -26,8 +26,10 @@ function App() {
   return (
     loaded && (
       <>
-        <NavBar />
+        <div id="header"><NavBar /></div>
+        <div id="container">
         <Switch>
+          
           <Route exact path="/" component={SplashPage} />
           <Route exact path="/books/:bookId/chapters/:chapterId/pages/:pageId" component={BookComponent}/>
           <Route exact path="/profile/:userId" component={UserProfile} />
@@ -40,8 +42,12 @@ function App() {
             component={CreateBookPage}
           />
           <ProtectedRoute exact path="/books/:bookId/edit" component={EditBookPage} />
+          
         </Switch>
+        
         <Footer />
+        </div>
+        
       </>
     )
   );

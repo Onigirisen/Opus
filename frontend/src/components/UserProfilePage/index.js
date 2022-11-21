@@ -86,7 +86,7 @@ const UserProfile = () => {
     ));
 
     const handleAll = () => {
-        document.querySelector(".all").style.color = "blue";
+        document.querySelector(".all").style.color = "white";
         document.querySelector(".public").style.color = "black";
         document.querySelector(".private").style.color = "black";
         document.querySelector(".all-container").style.display = "grid";
@@ -95,7 +95,7 @@ const UserProfile = () => {
     }
 
     const handlePublic = () => {
-        document.querySelector(".public").style.color = "blue";
+        document.querySelector(".public").style.color = "white";
         document.querySelector(".all").style.color = "black";
         document.querySelector(".private").style.color = "black";
         document.querySelector(".public-container").style.display = "grid";
@@ -104,7 +104,7 @@ const UserProfile = () => {
     }
 
     const handlePrivate = () => {
-        document.querySelector(".private").style.color = "blue";
+        document.querySelector(".private").style.color = "white";
         document.querySelector(".public").style.color = "black";
         document.querySelector(".all").style.color = "black";
         document.querySelector(".private-container").style.display = "grid";
@@ -204,7 +204,7 @@ const UserProfile = () => {
                                 </div>
                                     <form onSubmit={handleSubmit}>
                                         <div className="profile-bio-text-container"><div className="bio">{bio}</div><textarea className="profile_edit_textarea" value={editBioText} onChange={e => {setEditBioText(e.target.value)}}></textarea></div>
-                                        <button className="bio-submit-button">update bio</button>
+                                        <button className="bio-submit-button">update</button>
                                     </form>
                             </div>
                         </div>

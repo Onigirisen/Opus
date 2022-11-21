@@ -9,6 +9,7 @@
     height: 40px;
     margin-top: 50px;
     bottom: 0;
+    position: fixed;
 }
 
 .footer-navbar-column {
