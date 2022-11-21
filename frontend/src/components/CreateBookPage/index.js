@@ -41,7 +41,7 @@ const CreateBookPage = () => {
       <Modal modalOpen={modalOpen} modalClose={handleModalClose}>
         <div className="book-created-div">
           <button className="book-created-exit-btn" onClick={handleModalClose}>
-            X
+            ×
           </button>
           <div className="book-created-modal-text">
             {bookTitle} has been created. Go to your profile page to check it
