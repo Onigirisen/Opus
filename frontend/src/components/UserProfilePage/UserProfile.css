@@ -339,6 +339,10 @@
     color: rgb(255, 255, 255);
 }
 
+.all:active{
+    color:bisque;
+}
+
 .public-container{
     display: none;
 }
@@ -349,4 +353,8 @@
 
 .not-found{
    
+}
+
+.choice:visited{
+   color: white;
 }
