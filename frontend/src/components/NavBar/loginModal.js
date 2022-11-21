@@ -53,7 +53,7 @@ export const LoginModal = () => {
                         ></input>                    
                         </label>
                     <div className="login-register-div">
-                        <label className="login-register-txt">Don't have an account?</label>
+                        <label className="login-register-txt">Don't have an account? </label>
                         <label className="login-register-btn" onClick={() => setOpenSignUp(true)}> Register</label>
                     </div>
                     <input className="login-submit" type="submit" value="Login"/>
