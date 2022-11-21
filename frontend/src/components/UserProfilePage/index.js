@@ -209,7 +209,7 @@ const UserProfile = () => {
                             </div>
                         </div>
                     </div>
-            </div>
+           
 
             <div className="user-profile-books">
                 {profileOwner ? 
@@ -233,6 +233,7 @@ const UserProfile = () => {
                         </div>
                     </div>}
             </div>
+        </div>
         </>
     )
 }
