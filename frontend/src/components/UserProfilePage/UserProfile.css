@@ -237,7 +237,7 @@
     /* border: rgb(255, 253, 253) 1px solid; */
     border-right: 1px rgba(0, 0, 0, 0.552) solid;
     border-radius: 12px;
-    width: 1300px;
+    width: 1340px;
     min-width: 1300px;
     height: 450px;
     margin-left: 100px;
@@ -245,6 +245,7 @@
     -moz-box-shadow: 0 2px 8px -1px rgb(0, 0, 0);
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.75);
     overflow-x: hidden;
+    background-color: rgb(237, 237, 237);
 }
 
 .bio-submit-button{
