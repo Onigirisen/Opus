@@ -245,8 +245,11 @@
 
 .user-profile-books{
     display: flex;
-    margin-left: -40px;
+    justify-content: center;
+    flex-direction:inherit;
+    margin-left: -100px;
     padding-left: -205px;
+   
 }
 
 .books-content{
@@ -259,7 +262,7 @@
     min-width: 1300px;
     
     height: 500px;
-    margin-left: 100px;
+ 
     -webkit-box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.983);
     -moz-box-shadow: 0 2px 8px -1px rgb(0, 0, 0);
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.75);
