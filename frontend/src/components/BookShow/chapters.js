@@ -41,7 +41,6 @@ const ChaptersIndex = () => {
 
     useEffect(() => {
         dispatch(getCurrentUser()).then(() => {
-            console.log(sessionUser);
             if (sessionUser) {
                 setIsAuthor(sessionUser._id === book.user)
             }
