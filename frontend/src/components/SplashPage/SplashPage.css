@@ -1,90 +1,147 @@
-.splash-body-container{
+.splash-container {
+    margin-top: 10px;
+    align-items: center;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.splash-opus-info {
+    width: 90vw;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgb(245, 214, 214);
+    box-shadow: 0px 0px 20px 10px rgb(153, 99, 99);
+}
+
+.splash-opus-info-container {
+    width: 800px;
+    height: 450px;
+    margin-left: 20px;
+    overflow-wrap: break-word;
+}
+
+
+.splash-opus-info-title {
+    height: 40px;
+    overflow-wrap: break-word;
+    color: rgb(48, 47, 46);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    text-align: center;
+    text-shadow: 2px 2px 5px black;
+}
+
+.splash-opus-info-text {
+    width: 800px;
+    height: 400px;
+    margin-top: 10px;
+    overflow-wrap: break-word;
+}
+
+.splash-index-cover {
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgb(0, 0, 0);
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: linear-gradient(rgb(186, 33, 153), rgb(95, 18, 171), rgb(100, 13, 94))
+}
+
+.splash-index-spine {
+    width: 40px;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-image: url('../../assets/croctrxture.jpeg');
+    background-size: cover;
+    background-position: 100px 10px;
+}
+
+.splash-index-text-container {
+    width: 360px;
+    height: 400px;
+    display: flex;
+    margin-right: 20px;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    /* background-image: -webkit-linear-gradient(45deg, #074a47 50%, #ffffff 50%); */
-    /* top: 0; */
-    width: 100%;
-    height: 100vh;
-    margin: 0;
-    /* border: red 1px solid; */
-
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 1px #000000;
 }
 
-.splash-place-holder {
-    background-image: url('../../assets/booksLib.jpeg');
-    width: 100%;
-    height: 500px;
-    margin-top: -100px;
-    margin-bottom: 30px;
-    border-radius: 10px;
-}
-
-.splash-page-wrapper {
-    width: 100%;
-    height: 100%;
-}
-
-.splash-body-carousel{
-
-    /* height: 900px; */
-    /* width:100%; */
-    /* object-fit: cover;
-    background-position: center;
-    background-repeat: no-repeat; */
-    overflow-y: hidden;
-    background-size: contain;
-    border: 1px solid rgb(139, 139, 139);
-    border-radius: 10px;
-    padding-top: 0px;
-    z-index: 0;
-}
-
-/* .splash-featured-carousel{
-    display: flex;
-    height: 90%;
-    min-width: 50%;
-    max-width: 100%;
-    object-fit: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+.splash-index-title {
+    width: 300px;
+    height: 200px;
+    text-align: center;
+    font-size: 40px;
+    font-family: cursive;
     overflow: hidden;
-    background-size: contain;
-    border: 1px solid green;
-    border-radius: 10px; */
-    /* margin-bottom: 40px; */
-
-
-.spacing{
-    display: flex;
-    height: 950px
+    margin-top: 50px;
 }
 
-.column {
+.splash-creator-info-container {
+    height: 500px;
+    width: 90vw;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    float: left;
-    width: 25%;
-    height: 200px
 }
 
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
+.splash-creator-title {
+    height: 40px;
+    color: rgb(48, 47, 46);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    text-align: center;
+    text-shadow: 2px 2px 5px black;
 }
 
-.splash-container {
-    margin-left: 5vw;
-    width: 90vw;
-    margin-top: 150px;
-  
-    /* border: 1px solid black; */
+.splash-creator-info {
+    width: 100vw;
+    height: 450px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
+.splash-dev-info {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.splash-dev-pic {
+    width: 200px;
+    height: 200px;
+    background-image: url('../../assets/splash/Avisek.jpg');
+    background-size: cover;
+    border-radius: 100px;
+}
 
+.splash-dev-bio {
+    background-color: purple;
+    width: 400px;
+    height: 200px;
+}
 
+.splash-dev-links {
+    background-color: blueviolet;
+    width: 400px;
+    height: 50px;
+}
 

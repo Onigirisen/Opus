@@ -5,14 +5,12 @@ import SplashPage from "./components/SplashPage/SplashPage";
 import UserProfile from "./components/UserProfilePage/index";
 import BookComponent from "./components/Book";
 import CreateBookPage from "./components/CreateBookPage";
-import PageShow from "./components/ChaptersIndex";
 import BooksIndex from "./components/BookIndex";
 import BookShow from "./components/BookShow";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { getCurrentUser } from "./store/session";
 import { Route } from "react-router-dom";
-import Footer from "./components/Footer";
 import EditBookPage from "./components/EditBookPage";
 
 
@@ -45,7 +43,6 @@ function App() {
           
         </Switch>
         
-        <Footer />
         </div>
         
       </>

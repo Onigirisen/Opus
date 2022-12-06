@@ -214,7 +214,7 @@ const UserProfile = () => {
             <div className="user-profile-books">
                 {profileOwner ? 
                     <div className="books-content">
-                        <div className="user-profile-select-books"><div className="choice all" onClick={handleAll}>All</div> | <div className="choicepublic" onClick={handlePublic}>Public</div> | <div className="choice private" onClick={handlePrivate}>Private</div></div>
+                        <div className="user-profile-select-books"><div className="all" onClick={handleAll}>All</div> | <div className="public" onClick={handlePublic}>Public</div> | <div className="private" onClick={handlePrivate}>Private</div></div>
                         <div className="books all-container">
                             {allBooks}
                         </div>

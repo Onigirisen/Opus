@@ -45,6 +45,7 @@ const BooksIndex = () => {
           <div className="books-index-spine"></div>
           <div className="books-index-text-container">
             <div className="books-index-title">{book.title}</div>
+            <div className="books-index-title">{book.genre}</div>
           </div>
         </div>
       </div>

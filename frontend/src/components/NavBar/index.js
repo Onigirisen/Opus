@@ -33,9 +33,15 @@ function NavBar() {
           <img className="nav-home-img" src={Opus} alt="" />
         </div>
         <div className="topnav-create-container">
-          <NavLink className="nav-navlink" to="/book/create">
-            Create
-          </NavLink>
+          {loggedIn ? (
+            <NavLink className="nav-navlink" to={`/book/create`}>
+              Create
+            </NavLink>
+          ) : (
+            <div className="nav-navlink" onClick={(e) => setModalOpen(true)}>
+              Create
+            </div>
+          )}
         </div>
         <div className="topnav-explore-container">
           <NavLink className="nav-navlink" to="/books">
