@@ -112,6 +112,7 @@
 .splash-creator-info {
     width: 100vw;
     height: 300px;
+    margin-top: 40px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
