@@ -23,6 +23,9 @@ const bookSchema = Schema(
     public: {
       type: Boolean,
     },
+    description: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
