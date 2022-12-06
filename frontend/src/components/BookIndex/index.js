@@ -12,6 +12,7 @@ const BooksIndex = () => {
   const users = useSelector(getUsers);
   const [loaded, setLoaded] = useState(false);
   const books = useSelector((state) => state.books);
+  const testDesc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
   useEffect(() => {
     dispatch(fetchUsers())
@@ -27,19 +28,24 @@ const BooksIndex = () => {
   })
 
   const booksList = publicBooks.map((book) => (
-    <div className="books-index-div" key={book._id}>
-      <div
-        className="books-index-cover"
-        style={{ backgroundColor: book.coverColor }}
-        onClick={() => history.push(`/books/${book._id}`)}
-      >
-        <div className="books-index-spine"></div>
-        <div className="books-index-text-container">
-          <div className="books-index-title">{book.title}</div>
-          <div className="books-index-genre">genre: {book.genre}</div>
-          {Object.keys(users).forEach((user) => {if (book.user === users[user]._id) {authorName = users[user].username}})}
-          <div className="books-index-author">Author: {authorName}</div>
+    <div className="all-books-container">
+      <div className="books-index-div" key={book._id}>
+        <div
+          className="books-index-cover"
+          style={{ background: `linear-gradient(rgb(31, 32, 33), ${book.coverColor}, rgb(31, 32, 33))` }}
+          onClick={() => history.push(`/books/${book._id}`)}
+        >
+          <div className="books-index-spine"></div>
+          <div className="books-index-text-container">
+            <div className="books-index-title">{book.title}</div>
+          </div>
         </div>
+      </div>
+      <div className="books-index-item-container">
+        <div className="books-index-item-title">{book.title}</div>
+        {Object.keys(users).forEach((user) => {if (book.user === users[user]._id) {authorName = users[user].username}})}
+        <div className="books-index-author">Author: {authorName}</div>
+        <div className="books-index-description">{testDesc}</div>
       </div>
     </div>
   ));

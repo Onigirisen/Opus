@@ -37,12 +37,6 @@ function NavBar() {
             Create
           </NavLink>
         </div>
-        <div className="topnav-create-container">
-          <form className="topnav-search-form">
-            <input type="text" placeholder="Search" value=""/>
-            <button type="submit">Submit</button>
-          </form>
-        </div>
         <div className="topnav-explore-container">
           <NavLink className="nav-navlink" to="/books">
             Explore
