@@ -24,14 +24,67 @@ function SplashPage() {
         <div className="splash-creator-info">
           <div className="splash-dev-container">
             <div className="splash-dev-info">
-              <div className="splash-dev-pic">
-
+              <div className="splash-avisek-pic"></div>
+              <div className="splash-dev-bio">
+                Avisek was the frontend lead for Opus. He drafted the design of each component of the application and brought the team's ideas to life. 
+                He worked with David, the other frontend engineer, to manipulate the data from the backend and style them accordingly. 
               </div>
-              <div className="splash-dev-bio"></div>
+              <div className="splash-dev-links">
+                <a className="dev-link" target="_blank" rel="noopener" href='https://github.com/Av1sek'>Github</a>
+                <a className="dev-link" target="_blank" rel="noopener" href='https://angel.co/u/avisek-pandit'>AngelList</a>
+                <a className="dev-link" target="_blank" rel="noopener" href='https://www.linkedin.com/in/avisek-pandit-374096247'>LinkedIn</a>
+                <a className="dev-link" target="_blank" rel="noopener" href='https://avisekpandit.com'>Personal Site</a>
+              </div>
             </div>
-            <div className="splash-dev-links"></div>
           </div>
+
+          <div className="splash-dev-container">
+            <div className="splash-dev-info">
+              <div className="splash-david-pic"></div>
+              <div className="splash-dev-bio">
+                David
+              </div>
+              <div className="splash-dev-links">
+                <a className="dev-link" target="_blank" rel="noopener" href='https://github.com/Av1sek'>Github</a>
+                <a className="dev-link" target="_blank" rel="noopener" href='https://angel.co/u/avisek-pandit'>AngelList</a>
+                <a className="dev-link" target="_blank" rel="noopener" href='https://www.linkedin.com/in/avisek-pandit-374096247'>LinkedIn</a>
+                <a className="dev-link" target="_blank" rel="noopener" href='https://avisekpandit.com'>Personal Site</a>
+              </div>
+            </div>
+          </div>
+
+          <div className="splash-dev-container">
+            <div className="splash-dev-info">
+              <div className="splash-ryan-pic"></div>
+              <div className="splash-dev-bio">
+                Ryan
+              </div>
+              <div className="splash-dev-links">
+                <a className="dev-link" target="_blank" rel="noopener" href='https://github.com/Av1sek'>Github</a>
+                <a className="dev-link" target="_blank" rel="noopener" href='https://angel.co/u/avisek-pandit'>AngelList</a>
+                <a className="dev-link" target="_blank" rel="noopener" href='https://www.linkedin.com/in/avisek-pandit-374096247'>LinkedIn</a>
+                <a className="dev-link" target="_blank" rel="noopener" href='https://avisekpandit.com'>Personal Site</a>
+              </div>
+            </div>
+          </div>
+
+          <div className="splash-dev-container">
+            <div className="splash-dev-info">
+              <div className="splash-darian-pic"></div>
+              <div className="splash-dev-bio">
+                Darian
+              </div>
+              <div className="splash-dev-links">
+                <a className="dev-link" target="_blank" rel="noopener" href='https://github.com/Av1sek'>Github</a>
+                <a className="dev-link" target="_blank" rel="noopener" href='https://angel.co/u/avisek-pandit'>AngelList</a>
+                <a className="dev-link" target="_blank" rel="noopener" href='https://www.linkedin.com/in/avisek-pandit-374096247'>LinkedIn</a>
+                <a className="dev-link" target="_blank" rel="noopener" href='https://avisekpandit.com'>Personal Site</a>
+              </div>
+            </div>
+          </div>
+          
         </div>
+
       </div>
     </div>
   );

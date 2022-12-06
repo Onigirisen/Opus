@@ -1,5 +1,5 @@
 .splash-container {
-    margin-top: 10px;
+    margin-top: 70px;
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -31,7 +31,7 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 30px;
     text-align: center;
-    text-shadow: 2px 2px 5px black;
+    text-shadow: 2px 2px 5px rgb(150, 141, 141);
 }
 
 .splash-opus-info-text {
@@ -92,7 +92,7 @@
 }
 
 .splash-creator-info-container {
-    height: 500px;
+    height: 300px;
     width: 90vw;
     margin-top: 20px;
     display: flex;
@@ -102,16 +102,16 @@
 
 .splash-creator-title {
     height: 40px;
-    color: rgb(48, 47, 46);
+    color: rgb(45, 13, 28);
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 30px;
     text-align: center;
-    text-shadow: 2px 2px 5px black;
+    text-shadow: 2px 2px 5px rgb(152, 141, 141);
 }
 
 .splash-creator-info {
     width: 100vw;
-    height: 450px;
+    height: 300px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -119,13 +119,13 @@
 
 .splash-dev-info {
     width: 400px;
-    height: 400px;
+    height: 450px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.splash-dev-pic {
+.splash-avisek-pic {
     width: 200px;
     height: 200px;
     background-image: url('../../assets/splash/Avisek.jpg');
@@ -133,15 +133,43 @@
     border-radius: 100px;
 }
 
+.splash-darian-pic {
+    width: 200px;
+    height: 200px;
+    background-image: url('../../assets/splash/Darian.jpg');
+    background-size: cover;
+    border-radius: 100px;
+}
+
+.splash-david-pic {
+    width: 200px;
+    height: 200px;
+    background-image: url('../../assets/splash/David.jpg');
+    background-size: cover;
+    border-radius: 100px;
+}
+
+.splash-ryan-pic {
+    width: 200px;
+    height: 200px;
+    background-image: url('../../assets/splash/Ryan.jpg');
+    background-size: cover;
+    border-radius: 100px;
+}
+
 .splash-dev-bio {
-    background-color: purple;
     width: 400px;
     height: 200px;
+    margin-top: 10px;
+    text-indent: 25px;
 }
 
 .splash-dev-links {
-    background-color: blueviolet;
     width: 400px;
-    height: 50px;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
