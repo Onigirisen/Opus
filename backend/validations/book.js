@@ -11,7 +11,7 @@ const validateBookInput = [
   check("description")
     .exists({ checkFalsy: true })
     .isLength({ max: 3000 })
-    .withMessage("Descrito is invalid"),
+    .withMessage("Description is invalid"),
   check("coverColor")
     .exists({ checkFalsy: true })
     .isLength({ max: 50 })
