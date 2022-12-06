@@ -18,13 +18,19 @@ const BooksIndex = () => {
   useEffect(() => {
     dispatch(fetchUsers())
     dispatch(fetchBooks()).then(() => setLoaded(true));
-  }, []);
+  }, [searchContent]);
 
   let authorName = "";
   const publicBooks = [];
   Object.values(books).forEach((book) => {
     if (book.public) {
-      publicBooks.push(book);
+      if (searchContent === "") {
+        publicBooks.push(book);
+      } else {
+        if (book.title.toLowerCase().includes(searchContent.toLowerCase())) {
+          publicBooks.push(book);
+        }
+      }
     }
   })
 
@@ -51,12 +57,16 @@ const BooksIndex = () => {
     </div>
   ));
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+  }
+
   return (
     loaded && (
       <>
         <div className="books-index-search">
-          <form className="books-index-search-form">
-            <input className="books-index-search-input" type="text" placeholder="Search" value={searchContent} onChange={(e) => {setSearchContent(e.target.value)}} />
+          <form className="books-index-search-form" onSubmit={handleSearch}>
+            <input className="books-index-search-input" type="text" placeholder="Search for a book" value={searchContent} onChange={(e) => {setSearchContent(e.target.value)}} />
           </form>
         </div>
         <div className="books-index-container">{booksList}</div>

@@ -49,8 +49,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: rgb(227, 227, 227);
-    text-shadow: 0 0 2px rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 1px #000000;
 }
 
 .books-index-title {
@@ -60,6 +60,7 @@
     font-size: 15px;
     font-family: cursive;
     overflow: hidden;
+    margin-top: 50px;
 }
 
 .all-books-container {
