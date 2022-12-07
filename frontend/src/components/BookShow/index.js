@@ -37,7 +37,7 @@ const BookShow = () => {
       <div className="book-show-container">
         <div
           className="create-book-cover"
-          style={{ backgroundColor: book.coverColor }}
+          style={{ background: `linear-gradient(rgb(31, 32, 33), ${book.coverColor}, rgb(31, 32, 33))` }}
         >
           <div className="create-book-spine"></div>
           <div className="create-book-text-container">
@@ -56,25 +56,12 @@ const BookShow = () => {
         </div>
         <div className="create-book-form">
           <div className="create-book-title-bio-container">
-            <input
-              type="text"
-              className="create-book-title-text"
-              spellCheck="false"
-              value={book.title}
-              readOnly
-            />
-            <div className="create-book-genre-div">genre</div>
-            <input
-              type="text"
-              className="create-book-genre-text"
-              spellCheck="false"
-              value={book.genre}
-              readOnly
-            />
-            <div className="create-book-description-text">Description</div>
+            <div className="show-book-title-text">{book.title}</div>
+            <div className="create-book-description-text"></div>
             <textarea
-              className="create-book-description"
+              className="show-book-description"
               spellCheck="false"
+              value={book.description}
               readOnly
             ></textarea>
           </div>

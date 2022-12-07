@@ -53,7 +53,7 @@ const BooksIndex = () => {
         <div className="books-index-item-title">{book.title}</div>
         {Object.keys(users).forEach((user) => {if (book.user === users[user]._id) {authorName = users[user].username}})}
         <div className="books-index-author">Author: {authorName}</div>
-        <div className="books-index-description">{testDesc}</div>
+        <div className="books-index-description">{book.description}</div>
       </div>
     </div>
   ));

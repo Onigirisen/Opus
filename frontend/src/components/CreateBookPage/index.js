@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import Modal from "../../Modal/Modal";
 import { createBook } from "../../store/books";
 import "./CreateBookPage.css";
 
@@ -10,9 +9,11 @@ const CreateBookPage = () => {
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
   const [modalOpen, setModalOpen] = useState(false);
-  const [coverColor, setCoverColor] = useState("#F8AAAA");
-  const [bookTitle, setBookTitle] = useState("Insert Title");
-  const [genre, setGenre] = useState("Fiction");
+  const [coverColor, setCoverColor] = useState("rgb(9,6,6)");
+  const [publicBook, setPublicBook] = useState(true);
+  const [bookTitle, setBookTitle] = useState("");
+  const [genre, setGenre] = useState("fiction");
+  const [desc, setDesc] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,42 +22,21 @@ const CreateBookPage = () => {
       coverColor: coverColor,
       genre: genre,
       user: sessionUser._id,
-      public: true,
+      public: publicBook,
+      description: desc,
     };
-    dispatch(createBook(book));
+    dispatch(createBook(book)).then(() => {
+      history.push(`/profile/${sessionUser._id}`)
+    });
     setModalOpen(true);
-  };
-
-  const handleModalClose = () => {
-    setModalOpen(false);
-  };
-
-  const redirPfp = () => {
-    setModalOpen(false);
-    history.push(`/profile/`);
   };
 
   return (
     <>
-      <Modal modalOpen={modalOpen} modalClose={handleModalClose}>
-        <div className="book-created-div">
-          <button className="book-created-exit-btn" onClick={handleModalClose}>
-            ×
-          </button>
-          <div className="book-created-modal-text">
-            {bookTitle} has been created. Go to your profile page to check it
-            out.
-          </div>
-          <button className="book-created-pfp-btn" onClick={redirPfp}>
-            Visit Page
-          </button>
-        </div>
-      </Modal>
-
       <div className="create-book-container">
         <div
           className="create-book-cover"
-          style={{ backgroundColor: coverColor }}
+          style={{ background: `linear-gradient(rgb(31, 32, 33), ${coverColor}, rgb(31, 32, 33))` }}
         >
           <div className="create-book-spine"></div>
           <div className="create-book-text-container">
@@ -71,17 +51,19 @@ const CreateBookPage = () => {
                 type="color"
                 className="colorpicker"
                 onChange={(e) => setCoverColor(e.target.value)}
-                defaultValue={"#F8AAAA"}
+                defaultValue={"rgb(9,6,6)"}
               />
             </div>
           </div>
         </div>
         <form className="create-book-form" onSubmit={handleSubmit}>
           <div className="create-book-title-bio-container">
+          <div className="create-book-genre-div">Title</div>
             <input
               type="text"
               className="create-book-title-text"
               spellCheck="false"
+              placeholder="Insert title"
               value={bookTitle}
               onChange={(e) => setBookTitle(e.target.value)}
             />
@@ -97,7 +79,13 @@ const CreateBookPage = () => {
             <textarea
               className="create-book-description"
               spellCheck="false"
+              placeholder="Enter a description here"
+              value={desc}
+              onChange={(e) => {setDesc(e.target.value)}}
             ></textarea>
+            <div className="create-book-public-info">Public
+              <input type="checkbox" className="create-book-public-checkbox" checked={publicBook} onChange={(e) => {setPublicBook(!publicBook)}}/>
+            </div>
           </div>
           <button type="submit" className="create-book-button">
             Create Book
