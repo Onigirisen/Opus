@@ -1,13 +1,14 @@
 .chapters-create-modal {
-    width: 400px;
-    height: 400px;
-    background-color: rgb(216, 209, 209);
+    width: 300px;
+    height: 150px;
+    background-color: rgb(184, 124, 124);
     border-radius: 50px;
     z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: white;
 }
 
 .create-chapter-form-container {
@@ -15,26 +16,74 @@
     flex-direction: column;
 }
 
+.create-chapter-title {
+    margin-top: 10px;
+}
+
+.create-chapter-title > input {
+    border: none;
+    outline: none;
+    width: 150px;
+    margin-left: 10px;
+    border-radius: 10px;
+    height: 20px;
+    text-indent: 5px;
+}
+
 .chapter-add-btn {
     background-color: rgb(66, 216, 66);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.chapter-add-btn:hover {
+    cursor: pointer;
+    color: white;
 }
 
 .chapters-edit-modal {
-    width: 400px;
-    height: 400px;
-    background-color: rgb(216, 209, 209);
+    width: 300px;
+    height: 150px;
+    background-color: rgb(184, 124, 124);
     border-radius: 50px;
     z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: white;
+}
+
+.edit-chapter-form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-chapter-title {
+    margin-top: 10px;
+}
+
+.edit-chapter-title > input {
+    border: none;
+    outline: none;
+    width: 150px;
+    margin-left: 10px;
+    border-radius: 10px;
+    height: 20px;
+    text-indent: 5px;
+}
+
+.chapter-add-btn:hover {
+    cursor: pointer;
+    color: white;
 }
 
 .chapters-page-modal {
-    width: 400px;
-    height: 400px;
-    background-color: rgb(216, 209, 209);
+    width: 500px;
+    height: 600px;
+    background-color: rgb(255, 241, 223);
     border-radius: 50px;
     z-index: 1;
     display: flex;
