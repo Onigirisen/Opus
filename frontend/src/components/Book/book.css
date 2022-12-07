@@ -62,10 +62,7 @@
     resize: none;
     font-family: script;
     font-size: 15px;
-}
-
-.book-page-content::-webkit-scrollbar {
-    visibility: hidden;
+    overflow: auto;
 }
 
 .book-page-number {

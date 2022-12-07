@@ -24,7 +24,7 @@ const ChaptersIndex = () => {
     const [pgUpdated, setPgUpdated] = useState(false);
     const [editingPageId, setEditingPageId] = useState(false);
     const [title, setTitle] = useState()
-    const [content, setContent] = useState()
+    const [content, setContent] = useState('');
     const chapters = useSelector((state) => state.chapters);
     const pages = useSelector((state) => state.pages);
     const sessionUser = useSelector((state) => state.session.user);
@@ -69,6 +69,7 @@ const ChaptersIndex = () => {
                     if (pgUpdated === false) {
                         setPgUpdated(true);
                         setEditingPageId(page._id)
+                        setContent(page.content)
                         setEditPageOpen(true);
                     }
                 }}>Edit</div>}
@@ -171,8 +172,6 @@ const ChaptersIndex = () => {
 
     const handlePageEdit = (e) => {
         e.preventDefault();
-        console.log(pages[editingPageId].pageNumber)
-        console.log(pageChId);
         const page = {pageNumber: pages[editingPageId].pageNumber, content: content};
         dispatch(updatePage(bookId, pageChId, editingPageId, page)).then(() => {
             setPgUpdated(false);
@@ -188,11 +187,11 @@ const ChaptersIndex = () => {
             <div className="chapters-page-modal">
                 <form className="chapters-page-form" onSubmit={handlePageCreate}>
                     <div>
-                        <label> Content:
-                            <textarea name="content" onChange={e => setContent(e.target.value)}></textarea>
+                        <label>
+                            <textarea className="create-page-content" onChange={e => setContent(e.target.value)}></textarea>
                         </label>
                     </div>
-                    <button type="submit">Add page</button>
+                    <button className="create-page-submit" type="submit">Add page</button>
                 </form>
             </div>
         </Modal>
@@ -200,11 +199,11 @@ const ChaptersIndex = () => {
             <div className="chapters-page-modal">
                 <form className="chapters-page-form" onSubmit={handlePageEdit}>
                     <div>
-                        <label> Content:
-                            <textarea name="content" onChange={e => setContent(e.target.value)}></textarea>
+                        <label>
+                            <textarea className="create-page-content" value={content} onChange={e => {setContent(e.target.value);}}></textarea>
                         </label>
                     </div>
-                    <button type="submit">Add page</button>
+                    <button className="create-page-submit" type="submit">Edit page</button>
                 </form>
             </div>
         </Modal>

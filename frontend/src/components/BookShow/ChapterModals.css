@@ -84,10 +84,34 @@
     width: 500px;
     height: 600px;
     background-color: rgb(255, 241, 223);
-    border-radius: 50px;
+    border-radius: 10px;
     z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.chapters-page-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-page-content {
+    resize: none;
+    width: 430px;
+    height: 530px;
+    border: none;
+}
+
+.create-page-submit {
+    margin-top: 10px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: rgb(54, 215, 54);
+}
+
+.create-page-submit:hover {
+    cursor: pointer;
 }
