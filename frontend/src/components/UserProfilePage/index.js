@@ -43,15 +43,15 @@ const UserProfile = () => {
         }
     })
 
+    console.log(privateBooksArr);
+
     const privateBooks = privateBooksArr.map((book) => (
         <div className="books-index-div-user private-books" key={book._id}>
-            <div className="books-index-cover-user" onClick={() => history.push(`/books/${book._id}`)} style={{ backgroundColor: book.coverColor }}>
+            <div className="books-index-cover-user" onClick={() => history.push(`/books/${book._id}`)} style={{ background: `linear-gradient(rgb(31, 32, 33), ${book.coverColor}, rgb(31, 32, 33))` }}>
                 <div className="books-index-spine-user"></div>
                 <div className="books-index-text-container-user">
                     <div className="books-index-title-user">{book.title}</div>
-                    <div className="books-index-genre-user">genre: {book.genre}</div>
-                    {/* {Object.keys(users).forEach((user) => {if (book.user === users[user]._id) {authorName = users[user].username}})} */}
-                    <div className="books-index-author-user">Author: "blah"</div>
+                    <div className="books-index-genre-user">{book.genre}</div>
                 </div>
             </div>
         </div>
@@ -59,13 +59,11 @@ const UserProfile = () => {
 
     const publicBooks = publicBooksArr.map((book) => (
         <div className="books-index-div-user public-books" key={book._id}>
-            <div className="books-index-cover-user" onClick={() => history.push(`/books/${book._id}`)} style={{ backgroundColor: book.coverColor}}>
+            <div className="books-index-cover-user" onClick={() => history.push(`/books/${book._id}`)} style={{ background: `linear-gradient(rgb(31, 32, 33), ${book.coverColor}, rgb(31, 32, 33))` }}>
                 <div className="books-index-spine-user"></div>
                 <div className="books-index-text-container-user">
                     <div className="books-index-title-user">{book.title}</div>
-                    <div className="books-index-genre-user">genre: {book.genre}</div>
-                    {/* {Object.keys(users).forEach((user) => {if (book.user === users[user]._id) {authorName = users[user].username}})} */}
-                    <div className="books-index-author-user">Author: "blah"</div>
+                    <div className="books-index-genre-user">{book.genre}</div>
                 </div>
             </div>
         </div>
@@ -73,40 +71,38 @@ const UserProfile = () => {
 
     const allBooks = books.map((book) => (
         <div className="books-index-div-user all-books" key={book._id}>
-            <div className="books-index-cover-user" onClick={() => history.push(`/books/${book._id}`)} style={{ backgroundColor: book.coverColor }}>
+            <div className="books-index-cover-user" onClick={() => history.push(`/books/${book._id}`)} style={{ background: `linear-gradient(rgb(31, 32, 33), ${book.coverColor}, rgb(31, 32, 33))` }}>
                 <div className="books-index-spine-user"></div>
                 <div className="books-index-text-container-user">
                     <div className="books-index-title-user">{book.title}</div>
-                    <div className="books-index-genre-user">genre: {book.genre}</div>
-                    {/* {Object.keys(users).forEach((user) => {if (book.user === users[user]._id) {authorName = users[user].username}})} */}
-                    <div className="books-index-author-user">Author: "blah"</div>
+                    <div className="books-index-genre-user">{book.genre}</div>
                 </div>
             </div>
         </div>
     ));
 
     const handleAll = () => {
-        document.querySelector(".all").style.color = "white";
-        document.querySelector(".public").style.color = "black";
-        document.querySelector(".private").style.color = "black";
+        document.querySelector(".all").style.color = "rgb(151, 255, 165)";
+        document.querySelector(".public").style.color = "white";
+        document.querySelector(".private").style.color = "white";
         document.querySelector(".all-container").style.display = "grid";
         document.querySelector(".private-container").style.display = "none";
         document.querySelector(".public-container").style.display = "none";
     }
 
     const handlePublic = () => {
-        document.querySelector(".public").style.color = "white";
-        document.querySelector(".all").style.color = "black";
-        document.querySelector(".private").style.color = "black";
+        document.querySelector(".public").style.color = "rgb(151, 255, 165)";
+        document.querySelector(".all").style.color = "white";
+        document.querySelector(".private").style.color = "white";
         document.querySelector(".public-container").style.display = "grid";
         document.querySelector(".private-container").style.display = "none";
         document.querySelector(".all-container").style.display = "none";
     }
 
     const handlePrivate = () => {
-        document.querySelector(".private").style.color = "white";
-        document.querySelector(".public").style.color = "black";
-        document.querySelector(".all").style.color = "black";
+        document.querySelector(".private").style.color = "rgb(151, 255, 165)";
+        document.querySelector(".public").style.color = "white";
+        document.querySelector(".all").style.color = "white";
         document.querySelector(".private-container").style.display = "grid";
         document.querySelector(".public-container").style.display = "none";
         document.querySelector(".all-container").style.display = "none";
@@ -222,7 +218,7 @@ const UserProfile = () => {
                             {publicBooks}
                         </div>
                         <div className="books private-container">
-                            {privateBooks === [] ? privateBooks : <div className="not-found">no books found</div>}
+                            {privateBooksArr.length > 0 ? privateBooks : <div className="not-found">no books found</div>}
                         </div>
                     </div> 
                     :   

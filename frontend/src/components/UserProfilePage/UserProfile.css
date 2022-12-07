@@ -16,6 +16,7 @@
 
 .profile-body-container {
     display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
     top: 80px;
@@ -25,16 +26,14 @@
     overflow-x: hidden;
     overflow-y: hidden;
     border-radius: 10px;
-    background-color: rgb(255, 255, 255)
-    
-
+    background-color: rgb(255, 255, 255);
 }
 
 .profile-picture-wrapper{
     display: flex;
-    padding-left: 45px;
+    padding-left: 120px;
     padding-bottom: 433px;
-    
+    align-self: flex-start;
 }
 
 .profile-picture-container {
@@ -142,7 +141,6 @@
     height: 300px;
     position: absolute;
     overflow: hidden;
-    margin-left: 100px;
     -webkit-box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.983);
     -moz-box-shadow: 0 2px 8px -1px rgb(0, 0, 0);
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.75);
@@ -222,6 +220,7 @@
     -moz-box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25);
     width: 100%;
     padding-top: 15px;
+    padding-bottom: 15px;
     min-width: 200px;
     justify-content: space-evenly;
     height: 45px;
@@ -256,7 +255,6 @@
     margin-right: 20px;
     margin-bottom: 50px;
     margin-top: -30px;
-   
 }
 
 .books-content{
@@ -312,7 +310,6 @@
     column-gap: 35px;
     row-gap: 10px;
     grid-template-columns: auto auto auto;
-
 }
 
 .books-index-cover-user{
@@ -388,21 +385,33 @@
 }
 
 .all{
-    color: rgb(255, 255, 255);
+    color: rgb(151, 255, 165);
 }
 
-.all:active{
-    color:bisque;
+.all:hover {
+    cursor: pointer;
+}
+
+.public:hover {
+    cursor: pointer;
+}
+
+.private:hover {
+    cursor: pointer;
 }
 
 .public-container{
     display: none;
     color: white;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .private-container{
     display: none;
-    color: white
+    color: white;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .not-found{
@@ -411,10 +420,6 @@
 
 
 .all-container{
-    display: flex;
-    flex-wrap: wrap;
     overflow-x: hidden;
     overflow-y: auto;
-    top: 0;
-
 }
