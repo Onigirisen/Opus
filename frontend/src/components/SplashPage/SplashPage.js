@@ -72,7 +72,7 @@ function SplashPage() {
             <div className="splash-dev-info">
               <div className="splash-darian-pic"></div>
               <div className="splash-dev-bio">
-                Darian
+                Darian was the backend lead for Opus. He closely worked with Ryan on developing the backend and database. He also worked on a large majority of the frontend user profile.
               </div>
               <div className="splash-dev-links">
                 <a className="dev-link" target="_blank" rel="noopener" href='https://github.com/Av1sek'>Github</a>
