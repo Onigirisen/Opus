@@ -45,10 +45,9 @@ function SplashPage() {
                 David
               </div>
               <div className="splash-dev-links">
-                <a className="dev-link" target="_blank" rel="noopener" href='https://github.com/Av1sek'>Github</a>
-                <a className="dev-link" target="_blank" rel="noopener" href='https://angel.co/u/avisek-pandit'>AngelList</a>
-                <a className="dev-link" target="_blank" rel="noopener" href='https://www.linkedin.com/in/avisek-pandit-374096247'>LinkedIn</a>
-                <a className="dev-link" target="_blank" rel="noopener" href='https://avisekpandit.com'>Personal Site</a>
+                <a className="dev-link" target="_blank" rel="noopener" href='https://github.com/dlaucodes'>Github</a>
+                <a className="dev-link" target="_blank" rel="noopener" href=''>AngelList</a>
+                <a className="dev-link" target="_blank" rel="noopener" href='https://www.linkedin.com/in/dlaucodes/'>LinkedIn</a>
               </div>
             </div>
           </div>
@@ -60,10 +59,9 @@ function SplashPage() {
                 Ryan
               </div>
               <div className="splash-dev-links">
-                <a className="dev-link" target="_blank" rel="noopener" href='https://github.com/Av1sek'>Github</a>
-                <a className="dev-link" target="_blank" rel="noopener" href='https://angel.co/u/avisek-pandit'>AngelList</a>
-                <a className="dev-link" target="_blank" rel="noopener" href='https://www.linkedin.com/in/avisek-pandit-374096247'>LinkedIn</a>
-                <a className="dev-link" target="_blank" rel="noopener" href='https://avisekpandit.com'>Personal Site</a>
+                <a className="dev-link" target="_blank" rel="noopener" href='https://github.com/Onigirisen'>Github</a>
+                <a className="dev-link" target="_blank" rel="noopener" href=''>AngelList</a>
+                <a className="dev-link" target="_blank" rel="noopener" href='https://www.linkedin.com/in/ryan-kok-6ab427b6/'>LinkedIn</a>
               </div>
             </div>
           </div>
@@ -75,10 +73,9 @@ function SplashPage() {
                 Darian was the backend lead for Opus. He closely worked with Ryan on developing the backend and database. He also worked on a large majority of the frontend user profile.
               </div>
               <div className="splash-dev-links">
-                <a className="dev-link" target="_blank" rel="noopener" href='https://github.com/Av1sek'>Github</a>
-                <a className="dev-link" target="_blank" rel="noopener" href='https://angel.co/u/avisek-pandit'>AngelList</a>
-                <a className="dev-link" target="_blank" rel="noopener" href='https://www.linkedin.com/in/avisek-pandit-374096247'>LinkedIn</a>
-                <a className="dev-link" target="_blank" rel="noopener" href='https://avisekpandit.com'>Personal Site</a>
+                <a className="dev-link" target="_blank" rel="noopener" href='https://github.com/darianchen'>Github</a>
+                <a className="dev-link" target="_blank" rel="noopener" href=''>AngelList</a>
+                <a className="dev-link" target="_blank" rel="noopener" href='https://www.linkedin.com/in/darianchen/'>LinkedIn</a>
               </div>
             </div>
           </div>

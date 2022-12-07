@@ -43,8 +43,6 @@ const UserProfile = () => {
         }
     })
 
-    console.log(privateBooksArr);
-
     const privateBooks = privateBooksArr.map((book) => (
         <div className="books-index-div-user private-books" key={book._id}>
             <div className="books-index-cover-user" onClick={() => history.push(`/books/${book._id}`)} style={{ background: `linear-gradient(rgb(31, 32, 33), ${book.coverColor}, rgb(31, 32, 33))` }}>
