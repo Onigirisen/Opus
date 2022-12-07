@@ -65,12 +65,6 @@ const BookShow = () => {
               readOnly
             ></textarea>
           </div>
-          <button
-            className="book-show-read-button"
-            onClick={() => history.push(`/books/read`)}
-          >
-            Read Book
-          </button>
         </div>
       </div>
       <ChaptersIndex />

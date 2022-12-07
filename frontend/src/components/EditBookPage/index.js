@@ -15,6 +15,8 @@ const EditBookPage = () => {
   const [coverColor, setCoverColor] = useState(" ");
   const [bookTitle, setBookTitle] = useState(" ");
   const [genre, setGenre] = useState(" ");
+  const [publicBook, setPublicBook] = useState(" ");
+  const [desc, setDesc] = useState(" ");
   const loadedBook = useRef();
 
   useEffect(() => {
@@ -30,6 +32,8 @@ const EditBookPage = () => {
       setCoverColor(book.coverColor);
       setBookTitle(book.title);
       setGenre(book.genre);
+      setPublicBook(book.public);
+      setDesc(book.description);
     }
   }, [loadedBook.current])
 
@@ -40,7 +44,8 @@ const EditBookPage = () => {
       title: bookTitle,
       coverColor: coverColor,
       genre: genre,
-      public: true,
+      public: publicBook,
+      description: desc,
     };
     dispatch(updateBook(book));
     history.push(`/books/${bookId}`);
@@ -56,7 +61,7 @@ const EditBookPage = () => {
       <div className="create-book-container">
         <div
           className="create-book-cover"
-          style={{ backgroundColor: coverColor }}
+          style={{ background: `linear-gradient(rgb(31, 32, 33), ${book.coverColor}, rgb(31, 32, 33))` }}
         >
           <div className="create-book-spine"></div>
           <div className="create-book-text-container">
@@ -97,7 +102,12 @@ const EditBookPage = () => {
             <textarea
               className="create-book-description"
               spellCheck="false"
+              value={desc}
+              onChange={(e) => setDesc(e.target.value)}
             ></textarea>
+            <div className="create-book-public-info">Public
+              <input type="checkbox" className="create-book-public-checkbox" checked={publicBook} onChange={(e) => {setPublicBook(!publicBook)}}/>
+            </div>
           </div>
           <button type="submit" className="edit-book-button">
             Edit Book
