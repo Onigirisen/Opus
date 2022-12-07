@@ -61,7 +61,7 @@ const BookShow = () => {
             <textarea
               className="show-book-description"
               spellCheck="false"
-              value={book.description}
+              value={book.description ? book.description : "No description"}
               readOnly
             ></textarea>
           </div>
