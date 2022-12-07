@@ -108,7 +108,7 @@
     font-size: 14px;
     font-weight: bold;
     font-family: script;
-    margin-top: 15px;
+    margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
     width: 250px;
@@ -128,13 +128,13 @@
 .login-submit:active {
     background-color: rgb(60, 0, 93);
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.476);
-    margin-top: 20px;
+    margin-top: 15px;
     transition: all .1s;
 }
 
 .login-demo {
     position: absolute;
-    bottom: 45px;
+    bottom: 30px;
     outline: none;
     border: none;
     color: white;
@@ -161,7 +161,7 @@
 
 .login-demo:active {
     background-color: rgb(60, 0, 93);
-    bottom: 40px;
+    bottom: 25px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.476);
     transition: all .1s;
 }
@@ -179,7 +179,6 @@
 }
 .login-register-btn {
     color: rgb(244, 254, 174);
-    margin-bottom: 0px;
     font-weight: bold;
     font-size: 12px;
 }
