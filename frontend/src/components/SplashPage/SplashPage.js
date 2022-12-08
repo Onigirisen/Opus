@@ -51,7 +51,7 @@ function SplashPage() {
               </div>
               <div className="splash-dev-links">
                 <a className="dev-link" target="_blank" rel="noopener" href='https://github.com/dlaucodes'>Github</a>
-                <a className="dev-link" target="_blank" rel="noopener" href=''>AngelList</a>
+                <a className="dev-link" target="_blank" rel="noopener" href='https://angel.co/u/chun-k-lau'>AngelList</a>
                 <a className="dev-link" target="_blank" rel="noopener" href='https://www.linkedin.com/in/dlaucodes/'>LinkedIn</a>
               </div>
             </div>
