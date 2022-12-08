@@ -21,6 +21,10 @@
     height: 450px;
     margin-left: 20px;
     overflow-wrap: break-word;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 
@@ -36,9 +40,25 @@
 
 .splash-opus-info-text {
     width: 800px;
-    height: 400px;
+    height: 250px;
     margin-top: 10px;
     overflow-wrap: break-word;
+    text-indent: 30px;
+}
+.splash-opus-read-more {
+    width: 400px;
+    height: 50px;
+    background-color: rgb(83, 46, 90);
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    line-height: 50px;
+    border-radius: 20px;
+    user-select: none;
+}
+
+.splash-opus-read-more:hover {
+    cursor: pointer;
 }
 
 .splash-index-cover {
@@ -120,7 +140,7 @@
 
 .splash-dev-info {
     width: 400px;
-    height: 450px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -160,7 +180,7 @@
 
 .splash-dev-bio {
     width: 400px;
-    height: 200px;
+    height: 140px;
     margin-top: 10px;
     text-indent: 25px;
 }

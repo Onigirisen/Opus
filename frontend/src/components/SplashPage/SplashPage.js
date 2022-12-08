@@ -1,6 +1,8 @@
 import './SplashPage.css'
 
 function SplashPage() {
+  const placeholder = 'Opus is an online book library where users can read already uploaded books or author their own. Users do not have to be logged in to read books. They can simply head over to the explore page where they can search for a specific book or browse the collection of public books. Upon clicking on a book, you will be led to a page where you can see all of the book’s information. You can click on the author’s name to visit their profile page to see what other books they’ve created. Users can also scroll down to the chapters section to read the book itself. There they can click on chapters to see all of the pages, and then click on pages to see all of the pages within a chapter. Upon clicking on read page, they will be led to a page where they can interactively read the book, while flipping pages or via the index on the left. Users can create an account, and navigate to their own profile page, where they can change their profile picture, bio, and see the books they authored. Users can also create their own books by inserting a title, genre of choice, and description. They can decide whether they want the book to be public or not. Upon creating a book, users can add/update/delete chapters, and pages for the corresponding book as they please. Opus was created by Avisek, David, Ryan, and Darian. To start, you can click below to read about their journey  as software engineers. '
+
   return (
     <div className='splash-container'>
       <div className="splash-opus-info">
@@ -15,7 +17,10 @@ function SplashPage() {
             Opus
           </div>
           <div className="splash-opus-info-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            {placeholder}
+          </div>
+          <div className="splash-opus-read-more">
+            Read More About The Developers of Opus
           </div>
         </div>
       </div>
@@ -42,7 +47,7 @@ function SplashPage() {
             <div className="splash-dev-info">
               <div className="splash-david-pic"></div>
               <div className="splash-dev-bio">
-                David
+                David was the team lead for Opus. With his management skills, he directed the group to success. He outlined each step the group had to take while working on Opus. As a frontend engineer, he worked closely with Avisek on the design of the website. 
               </div>
               <div className="splash-dev-links">
                 <a className="dev-link" target="_blank" rel="noopener" href='https://github.com/dlaucodes'>Github</a>
@@ -56,11 +61,11 @@ function SplashPage() {
             <div className="splash-dev-info">
               <div className="splash-ryan-pic"></div>
               <div className="splash-dev-bio">
-                Ryan
+                Ryan was the flex engineer for Opus. He worked closely with Darian to design and develop the backend. He helped Avisek and David with the utilization of data bridging the gap between the frontend and the backend. 
               </div>
               <div className="splash-dev-links">
                 <a className="dev-link" target="_blank" rel="noopener" href='https://github.com/Onigirisen'>Github</a>
-                <a className="dev-link" target="_blank" rel="noopener" href=''>AngelList</a>
+                <a className="dev-link" target="_blank" rel="noopener" href='https://angel.co/u/ryan-kok'>AngelList</a>
                 <a className="dev-link" target="_blank" rel="noopener" href='https://www.linkedin.com/in/ryan-kok-6ab427b6/'>LinkedIn</a>
               </div>
             </div>
