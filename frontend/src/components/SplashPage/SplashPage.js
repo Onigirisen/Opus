@@ -1,6 +1,10 @@
 import './SplashPage.css'
+import React from 'react';
+import { ReactDOM } from 'react';
+import { useHistory } from 'react';
 
 function SplashPage() {
+  const history = useHistory();
   const placeholder = 'Opus is an online book library where users can read already uploaded books or author their own. Users do not have to be logged in to read books. They can simply head over to the explore page where they can search for a specific book or browse the collection of public books. Upon clicking on a book, you will be led to a page where you can see all of the book’s information. You can click on the author’s name to visit their profile page to see what other books they’ve created. Users can also scroll down to the chapters section to read the book itself. There they can click on chapters to see all of the pages, and then click on pages to see all of the pages within a chapter. Upon clicking on read page, they will be led to a page where they can interactively read the book, while flipping pages or via the index on the left. Users can create an account, and navigate to their own profile page, where they can change their profile picture, bio, and see the books they authored. Users can also create their own books by inserting a title, genre of choice, and description. They can decide whether they want the book to be public or not. Upon creating a book, users can add/update/delete chapters, and pages for the corresponding book as they please. Opus was created by Avisek, David, Ryan, and Darian. To start, you can click below to read about their journey  as software engineers. '
 
   return (
@@ -19,7 +23,7 @@ function SplashPage() {
           <div className="splash-opus-info-text">
             {placeholder}
           </div>
-          <div className="splash-opus-read-more">
+          <div className="splash-opus-read-more" onClick={() => {history.push('/books/639736c58ebad937c1e8594e')}}>
             Read More About The Developers of Opus
           </div>
         </div>
