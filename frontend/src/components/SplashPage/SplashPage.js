@@ -118,7 +118,7 @@ function SplashPage() {
                   className="dev-link"
                   target="_blank"
                   rel="noopener"
-                  href="https://avisekpandit.com"
+                  href="https://dlaucodes.github.io/Dlau/"
                 >
                   Porfolio
                 </a>
@@ -164,7 +164,7 @@ function SplashPage() {
                   className="dev-link"
                   target="_blank"
                   rel="noopener"
-                  href="https://avisekpandit.com"
+                  href="https://Onigirisen.github.io"
                 >
                   Porfolio
                 </a>
