@@ -32,7 +32,7 @@ function SplashPage() {
       </div>
       <div className="splash-creator-info-container">
         <div className="splash-creator-title">Meet the Developers!</div>
-        
+
         <div className="splash-creator-info">
           <div className="splash-dev-container">
             <div className="splash-dev-info">
@@ -58,7 +58,7 @@ function SplashPage() {
                   rel="noopener"
                   href="https://angel.co/u/avisek-pandit"
                 >
-                  AngelList
+                  Wellfound
                 </a>
                 <a
                   className="dev-link"
@@ -74,7 +74,7 @@ function SplashPage() {
                   rel="noopener"
                   href="https://avisekpandit.com"
                 >
-                  Personal Site
+                  Porfolio
                 </a>
               </div>
             </div>
@@ -104,7 +104,7 @@ function SplashPage() {
                   rel="noopener"
                   href="https://angel.co/u/chun-k-lau"
                 >
-                  AngelList
+                  Wellfound
                 </a>
                 <a
                   className="dev-link"
@@ -113,6 +113,14 @@ function SplashPage() {
                   href="https://www.linkedin.com/in/dlaucodes/"
                 >
                   LinkedIn
+                </a>
+                 <a
+                  className="dev-link"
+                  target="_blank"
+                  rel="noopener"
+                  href="https://avisekpandit.com"
+                >
+                  Porfolio
                 </a>
               </div>
             </div>
@@ -142,7 +150,7 @@ function SplashPage() {
                   rel="noopener"
                   href="https://angel.co/u/ryan-kok"
                 >
-                  AngelList
+                  Wellfound
                 </a>
                 <a
                   className="dev-link"
@@ -151,6 +159,14 @@ function SplashPage() {
                   href="https://www.linkedin.com/in/ryan-kok-6ab427b6/"
                 >
                   LinkedIn
+                </a>
+                 <a
+                  className="dev-link"
+                  target="_blank"
+                  rel="noopener"
+                  href="https://avisekpandit.com"
+                >
+                  Porfolio
                 </a>
               </div>
             </div>
@@ -179,7 +195,7 @@ function SplashPage() {
                   rel="noopener"
                   href="https://angel.co/u/darian-chen"
                 >
-                  AngelList
+                  Wellfound
                 </a>
                 <a
                   className="dev-link"
@@ -188,6 +204,14 @@ function SplashPage() {
                   href="https://www.linkedin.com/in/darianchen/"
                 >
                   LinkedIn
+                </a>
+                 <a
+                  className="dev-link"
+                  target="_blank"
+                  rel="noopener"
+                  href="https://avisekpandit.com"
+                >
+                  Porfolio
                 </a>
               </div>
             </div>

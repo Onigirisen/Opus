@@ -2,50 +2,71 @@
     margin-top: 70px;
     align-items: center;
     display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
+    /* border: 2px solid red; */
 }
 
 .splash-opus-info {
-    width: 90vw;
+    height: 700px;
+    width: 90%;
     align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: center;
     background-color: rgb(245, 214, 214);
+    border-radius: 8px;
     box-shadow: 0px 0px 20px 10px rgb(153, 99, 99);
+    /* border: 5px solid orange; */
 }
 
 .splash-opus-info-container {
-    width: 800px;
-    height: 450px;
+    width: 90%;
+    height: 100%;
     margin-left: 20px;
+    /* overflow: contain; */
     overflow-wrap: break-word;
+    padding-right: 10px;
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* border: 3px solid green; */
 }
 
 
 .splash-opus-info-title {
-    height: 40px;
-    overflow-wrap: break-word;
+    display: flex;
+    height: 10%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    /* overflow-wrap: break-word; */
     color: rgb(48, 47, 46);
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: cursive;
     font-size: 30px;
-    text-align: center;
+    /* text-align: center; */
     text-shadow: 2px 2px 5px rgb(150, 141, 141);
+    /* border: 1px solid black; */
+
 }
 
 .splash-opus-info-text {
     display: flex;
-    /* width: 800px; */
-    height: 250px;
+    /* width: 100%; */
+    height: 65%;
     margin-top: 10px;
-    overflow-wrap: break-word;
-    text-indent: 30px;
-    border: 1px solid red;
+    justify-content: center;
+    align-items: center;
+    /* overflow: contain;
+    overflow-wrap: break-word; */
+    /* text-indent: 30px; */
+    margin-right: 5px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+    letter-spacing: .05px;
+    /* border: 1px solid red; */
 }
 
 .splash-opus-read-more {
@@ -59,6 +80,7 @@
     border-radius: 20px;
     user-select: none;
     margin-top: 25px;
+    border: 1px solid black;
 }
 
 .splash-opus-read-more:hover {
@@ -66,21 +88,23 @@
 }
 
 .splash-index-cover {
-    width: 400px;
+    width: 40%;
     height: 500px;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+    /* flex-direction: row; */
+    /* justify-content: flex-start; */
     align-items: center;
     box-shadow: 0px 0px 10px rgb(0, 0, 0);
     border-radius: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
-    background: linear-gradient(rgb(186, 33, 153), rgb(95, 18, 171), rgb(100, 13, 94))
+    margin-left: 10px;
+    background: linear-gradient(rgb(186, 33, 153), rgb(95, 18, 171), rgb(100, 13, 94));
+    /* border: 3px solid red; */
 }
 
 .splash-index-spine {
-    width: 40px;
+    width: 15%;
     height: 500px;
     display: flex;
     flex-direction: row;
@@ -91,6 +115,7 @@
     background-image: url('../../assets/croctrxture.jpeg');
     background-size: cover;
     background-position: 100px 10px;
+    /* border: 1px solid green; */
 }
 
 .splash-index-text-container {
@@ -101,8 +126,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: rgb(255, 255, 255);
+    color: rgb(251, 215, 182);
     text-shadow: 1px 1px 1px #000000;
+    /* border: 1px solid green; */
 }
 
 .splash-index-title {
@@ -122,27 +148,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .splash-creator-title {
     height: 40px;
     color: rgb(45, 13, 28);
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: cursive;
     font-size: 30px;
     text-align: center;
     text-shadow: 2px 2px 5px rgb(152, 141, 141);
-    border: 2px solid black;
+    /* border: 2px solid black; */
+    margin-bottom: 20px;
 }
 
 .splash-creator-info {
-    /* width: 100vw; */
+    width: 90%;
     /* height: 300px; */
     /* margin-top: 40px; */
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    border: 1px solid green;
+    /* border: 1px solid green; */
 }
 
 .splash-dev-container{
@@ -153,15 +180,21 @@
 }
 
 .splash-dev-info {
-    /* width: 25%; */
-    /* height: 400px; */
+    width: 80%;
+    padding-left: 10px;
+    padding-right: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid blue;
+    border: 1px solid rgb(197, 197, 197);
+    border-radius: 8px;
+    margin-right: 5px;
+    background-color: rgb(246, 246, 246);
+    
 }
 
 .splash-avisek-pic {
+    margin-top: 15px;
     width: 150px;
     height: 150px;
     background-image: url('../../assets/splash/Avisek.jpg');
@@ -170,6 +203,7 @@
 }
 
 .splash-darian-pic {
+    margin-top: 15px;
     width: 150px;
     height: 150px;
     background-image: url('../../assets/splash/Darian.jpg');
@@ -178,16 +212,17 @@
 }
 
 .splash-david-pic {
+    margin-top: 15px;
     width: 150px;
     height: 150px;
     background-image: url('../../assets/splash/David.jpg');
-    padding-bottom: 5px;
     background-size: cover;
     border-radius: 50%;
 }
 
 
 .splash-ryan-pic {
+    margin-top: 15px;
     width: 150px;
     height: 150px;
     background-image: url('../../assets/splash/Ryan.jpg');
@@ -197,9 +232,12 @@
 
 .splash-dev-bio {
     /* width: 350px; */
-    height: 140px;
+    height: 200px;
     margin-top: 10px;
-    border: 1px solid red;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+    letter-spacing: .05px;
+    /* border: 1px solid red; */
     /* text-indent: 25px; */
 }
 
@@ -215,13 +253,95 @@
 
 .splash-dev-links a{
     /* width: 400px; */
+    font-size: 14px;
     height: 20px;
     display: flex;
-  
     margin-right: 5px;
+    margin-left: 5px;
     align-items: center;
     text-decoration: none;
-    color: purple;
-    border: 2px solid purple;
+    color: rgb(50, 50, 50);
+    font-weight: 700;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /* border: 2px solid purple; */
 }
 
+.splash-dev-links a:hover {
+    /* width: 400px; */
+    cursor: pointer;
+        color: rgb(247, 230, 182);
+        /* text-shadow: 1px 1px rgb(255, 41, 41); */
+        /* padding-left: 10px; */
+        transition: all .25s;
+        background-image: linear-gradient(45deg, #f3ec78, #af4261);
+        background-size: 100%;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-text-fill-color: transparent;
+    /* border: 2px solid purple; */
+}
+
+@media (max-width: 880px){
+    .splash-container{
+        zoom: 70%
+    }
+}
+
+@media (max-width: 636px) {
+    .splash-container {
+        zoom: 60%
+    }
+}
+
+@media (max-width: 564px) {
+    .splash-container {
+        zoom: 50%
+    }
+}
+
+@media (max-width: 461px) {
+    .splash-container {
+        zoom: 55%;
+    }
+    .splash-creator-info-container{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 700px;                           
+        height: 900px;
+    }
+
+    .splash-dev-info{
+        display: flex;
+        width: 150px;
+        height: 800px;
+    }
+
+    .splash-dev-links{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
+    }
+
+    .splash-dev-bio {
+        /* width: 350px; */
+        height: 320px;
+        margin-top: 10px;
+        /* border: 1px solid red; */
+        /* text-indent: 25px; */
+    }
+
+    .splash-opus-info-text{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80%;
+        width: 80%;
+    }
+
+
+}
