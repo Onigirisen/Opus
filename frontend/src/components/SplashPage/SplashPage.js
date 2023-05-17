@@ -209,7 +209,7 @@ function SplashPage() {
                   className="dev-link"
                   target="_blank"
                   rel="noopener"
-                  href="https://avisekpandit.com"
+                  href="https://darianchen.github.io/"
                 >
                   Porfolio
                 </a>
