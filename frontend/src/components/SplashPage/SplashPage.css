@@ -166,9 +166,11 @@
     width: 200px;
     height: 200px;
     background-image: url('../../assets/splash/David.jpg');
+    padding-bottom: 5px;
     background-size: cover;
     border-radius: 100px;
 }
+
 
 .splash-ryan-pic {
     width: 200px;
