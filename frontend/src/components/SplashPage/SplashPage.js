@@ -32,6 +32,7 @@ function SplashPage() {
       </div>
       <div className="splash-creator-info-container">
         <div className="splash-creator-title">Meet the Developers!</div>
+        
         <div className="splash-creator-info">
           <div className="splash-dev-container">
             <div className="splash-dev-info">
